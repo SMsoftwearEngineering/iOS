@@ -15,6 +15,7 @@ final class SignupAlertView: BaseView {
     }()
     
     override func setHierarchy() {
+        self.backgroundColor = .clear
         self.addSubview(alertView)
     }
     

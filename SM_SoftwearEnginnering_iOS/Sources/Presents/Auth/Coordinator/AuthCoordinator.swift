@@ -20,13 +20,13 @@ final class AuthCoordinator: Coordinator {
     }
     
     func start() {
-        showSignupAlertViewController()
+        showLoginViewController()
     }
     
     func showSignupViewController() {
         let viewModel = SignupViewModel(coordinator: self)
         let vc = SignupViewController(viewModel: viewModel)
-        navigationController.viewControllers = [vc]
+        navigationController.pushViewController(vc, animated: true)
     }
     
     func showLoginViewController() {
@@ -38,7 +38,11 @@ final class AuthCoordinator: Coordinator {
     func showSignupAlertViewController() {
         let viewModel = SignupAlertViewModel(coordinator: self)
         let vc = SignupAlertViewController(viewModel: viewModel)
-        navigationController.viewControllers = [vc]
+        vc.modalPresentationStyle = .overFullScreen
+        navigationController.present(vc, animated: true)
     }
     
+    func popPopupViewController() {
+        navigationController.dismiss(animated: true)
+    }
 }

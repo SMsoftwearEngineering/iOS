@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 final class LoginViewController: BaseViewController {
     
@@ -27,5 +28,11 @@ final class LoginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func setBinding() {
+        
+        let input = LoginViewModel.Input(signupButtonTap: selfView.signupButton.tapPublisher, loginButtonTap: selfView.loginButton.tapPublisher)
+        let output = viewModel.transform(input)
     }
 }
