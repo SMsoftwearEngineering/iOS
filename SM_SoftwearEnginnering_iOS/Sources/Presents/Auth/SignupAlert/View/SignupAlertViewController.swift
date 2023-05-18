@@ -9,7 +9,7 @@ import UIKit
 
 final class SignupAlertViewController: BaseViewController {
     
-    private let selfView = SignupAlertView()
+    private let selfView = CustomAlertView(text: "이미 가입된 회원입니다.")
     
     private let viewModel: SignupAlertViewModel
     
@@ -27,5 +27,15 @@ final class SignupAlertViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func setAttributes() {
+        navigationController?.isNavigationBarHidden = true
+        selfView.backgroundColor = .clear
+    }
+    
+    override func setBinding() {
+        let input = SignupAlertViewModel.Input(okButtonTap: selfView.okButton.tapPublisher)
+        let output = viewModel.transform(input)
     }
 }
