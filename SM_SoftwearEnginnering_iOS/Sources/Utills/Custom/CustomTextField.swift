@@ -25,21 +25,21 @@ class CustomTextField: UITextField {
     
 }
 
-class OnboardingTextFieldView: UIView {
+class CustomTextFieldView: UIView {
     var tf = CustomTextField()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
-        self.layer.borderColor = UIColor.SMPink.cgColor
-        self.layer.borderWidth = 2
-        self.layer.cornerRadius = 8
         setupLayout()
     }
     
     convenience init(placeholder: String?) {
         self.init()
         tf.placeholder = placeholder
+        self.layer.borderColor = UIColor.SMPurple.cgColor
+        self.layer.borderWidth = 2
+        self.layer.cornerRadius = 8
         setupLayout()
     }
     required init?(coder: NSCoder) {
@@ -50,7 +50,8 @@ class OnboardingTextFieldView: UIView {
         
         self.addSubview(tf)
         tf.snp.makeConstraints { make in
-            make.edges.equalTo(safeAreaLayoutGuide).inset(edges)
+            make.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(edges)
+            make.centerY.equalTo(safeAreaLayoutGuide)
         }
     }
 }
