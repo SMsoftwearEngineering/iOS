@@ -20,7 +20,7 @@ final class AuthCoordinator: Coordinator {
     }
     
     func start() {
-        showSignupViewController()
+        showSignupAlertViewController()
     }
     
     func showSignupViewController() {
@@ -28,4 +28,17 @@ final class AuthCoordinator: Coordinator {
         let vc = SignupViewController(viewModel: viewModel)
         navigationController.viewControllers = [vc]
     }
+    
+    func showLoginViewController() {
+        let viewModel = LoginViewModel(coordinator: self)
+        let vc = LoginViewController(viewModel: viewModel)
+        navigationController.viewControllers = [vc]
+    }
+
+    func showSignupAlertViewController() {
+        let viewModel = SignupAlertViewModel(coordinator: self)
+        let vc = SignupAlertViewController(viewModel: viewModel)
+        navigationController.viewControllers = [vc]
+    }
+    
 }
