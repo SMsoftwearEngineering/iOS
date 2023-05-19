@@ -28,7 +28,6 @@
 		2F6D7DB52A15C1D200FA457D /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D7DB42A15C1D200FA457D /* ViewModelType.swift */; };
 		2F6D7DB72A15C23000FA457D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D7DB62A15C23000FA457D /* BaseViewController.swift */; };
 		2F6D7DB92A15C23300FA457D /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D7DB82A15C23300FA457D /* BaseView.swift */; };
-		2F6D7DBC2A15C38700FA457D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2F6D7DBB2A15C38700FA457D /* SnapKit */; };
 		2F6D7DBE2A15C47700FA457D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D7DBD2A15C47700FA457D /* CustomTextField.swift */; };
 		2F6D7DC02A15C4AC00FA457D /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D7DBF2A15C4AC00FA457D /* UIColor + Extension.swift */; };
 		2F6D7DC52A15DC9000FA457D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D7DC42A15DC9000FA457D /* LoginViewModel.swift */; };
@@ -37,8 +36,16 @@
 		2F6D7DCB2A15EF8D00FA457D /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D7DCA2A15EF8D00FA457D /* CustomAlertView.swift */; };
 		2F6D7DD02A15F2CB00FA457D /* SignupAlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D7DCF2A15F2CB00FA457D /* SignupAlertViewModel.swift */; };
 		2F6D7DD22A15F2D400FA457D /* SignupAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D7DD12A15F2D400FA457D /* SignupAlertViewController.swift */; };
-		2F6D7DD42A15F69E00FA457D /* SignupAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D7DD32A15F69E00FA457D /* SignupAlertView.swift */; };
 		2F6D7DD62A15FAA100FA457D /* Combine + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D7DD52A15FAA100FA457D /* Combine + Extension.swift */; };
+		2F6D7DD82A160A5800FA457D /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D7DD72A160A5800FA457D /* RegisterUseCase.swift */; };
+		2F6D7DDA2A160AAA00FA457D /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D7DD92A160AAA00FA457D /* HTTPMethod.swift */; };
+		2F6D7DDE2A160DC500FA457D /* RegisterQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D7DDD2A160DC500FA457D /* RegisterQuery.swift */; };
+		2F6D7DE42A160F1F00FA457D /* RegisterRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D7DE32A160F1F00FA457D /* RegisterRepositoryType.swift */; };
+		2FC1D9B22A1772AB008032C0 /* StatusCodeResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC1D9B12A1772AB008032C0 /* StatusCodeResponseDTO.swift */; };
+		2FC1D9B42A1772B7008032C0 /* RegisterRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC1D9B32A1772B7008032C0 /* RegisterRequestDTO.swift */; };
+		2FC1D9BB2A1786F3008032C0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2FC1D9BA2A1786F3008032C0 /* SnapKit */; };
+		2FCCCB392A172E7600C9B327 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCCCB382A172E7600C9B327 /* Service.swift */; };
+		2FCCCB3D2A172F8800C9B327 /* RegisterRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCCCB3C2A172F8800C9B327 /* RegisterRepositoryImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,8 +80,15 @@
 		2F6D7DCA2A15EF8D00FA457D /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		2F6D7DCF2A15F2CB00FA457D /* SignupAlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupAlertViewModel.swift; sourceTree = "<group>"; };
 		2F6D7DD12A15F2D400FA457D /* SignupAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupAlertViewController.swift; sourceTree = "<group>"; };
-		2F6D7DD32A15F69E00FA457D /* SignupAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupAlertView.swift; sourceTree = "<group>"; };
 		2F6D7DD52A15FAA100FA457D /* Combine + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine + Extension.swift"; sourceTree = "<group>"; };
+		2F6D7DD72A160A5800FA457D /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
+		2F6D7DD92A160AAA00FA457D /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		2F6D7DDD2A160DC500FA457D /* RegisterQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterQuery.swift; sourceTree = "<group>"; };
+		2F6D7DE32A160F1F00FA457D /* RegisterRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepositoryType.swift; sourceTree = "<group>"; };
+		2FC1D9B12A1772AB008032C0 /* StatusCodeResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCodeResponseDTO.swift; sourceTree = "<group>"; };
+		2FC1D9B32A1772B7008032C0 /* RegisterRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequestDTO.swift; sourceTree = "<group>"; };
+		2FCCCB382A172E7600C9B327 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		2FCCCB3C2A172F8800C9B327 /* RegisterRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepositoryImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F6D7DBC2A15C38700FA457D /* SnapKit in Frameworks */,
+				2FC1D9BB2A1786F3008032C0 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,11 +262,15 @@
 		2F6D7D882A15B8CD00FA457D /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				2FCCCB3B2A172F5700C9B327 /* RepositoryImpl */,
+				2FCCCB3A2A172F3E00C9B327 /* RequestDTO */,
 				2F6D7D892A15B8DA00FA457D /* ResponseDTO */,
 				2F6D7D8D2A15B98000FA457D /* APIKey.swift */,
 				2F6D7D8F2A15B99700FA457D /* TargetType.swift */,
 				2F6D7D932A15B9E200FA457D /* NetworkError.swift */,
 				2F6D7D912A15B9A700FA457D /* Router.swift */,
+				2FCCCB382A172E7600C9B327 /* Service.swift */,
+				2F6D7DD92A160AAA00FA457D /* HTTPMethod.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -260,6 +278,7 @@
 		2F6D7D892A15B8DA00FA457D /* ResponseDTO */ = {
 			isa = PBXGroup;
 			children = (
+				2FC1D9B12A1772AB008032C0 /* StatusCodeResponseDTO.swift */,
 			);
 			path = ResponseDTO;
 			sourceTree = "<group>";
@@ -267,6 +286,8 @@
 		2F6D7D952A15B9F000FA457D /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				2F6D7DDC2A160DB100FA457D /* Request */,
+				2F6D7DDB2A160C9900FA457D /* Response */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -274,6 +295,7 @@
 		2F6D7D962A15B9F700FA457D /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				2F6D7DD72A160A5800FA457D /* RegisterUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -281,6 +303,7 @@
 		2F6D7D972A15B9FC00FA457D /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				2F6D7DE32A160F1F00FA457D /* RegisterRepositoryType.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -419,9 +442,39 @@
 			isa = PBXGroup;
 			children = (
 				2F6D7DD12A15F2D400FA457D /* SignupAlertViewController.swift */,
-				2F6D7DD32A15F69E00FA457D /* SignupAlertView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2F6D7DDB2A160C9900FA457D /* Response */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		2F6D7DDC2A160DB100FA457D /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				2F6D7DDD2A160DC500FA457D /* RegisterQuery.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		2FCCCB3A2A172F3E00C9B327 /* RequestDTO */ = {
+			isa = PBXGroup;
+			children = (
+				2FC1D9B32A1772B7008032C0 /* RegisterRequestDTO.swift */,
+			);
+			path = RequestDTO;
+			sourceTree = "<group>";
+		};
+		2FCCCB3B2A172F5700C9B327 /* RepositoryImpl */ = {
+			isa = PBXGroup;
+			children = (
+				2FCCCB3C2A172F8800C9B327 /* RegisterRepositoryImpl.swift */,
+			);
+			path = RepositoryImpl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,7 +494,7 @@
 			);
 			name = SM_SoftwearEnginnering_iOS;
 			packageProductDependencies = (
-				2F6D7DBB2A15C38700FA457D /* SnapKit */,
+				2FC1D9BA2A1786F3008032C0 /* SnapKit */,
 			);
 			productName = SM_SoftwearEnginnering_iOS;
 			productReference = 2F6D7D5F2A15B60D00FA457D /* SM_SoftwearEnginnering_iOS.app */;
@@ -472,7 +525,7 @@
 			);
 			mainGroup = 2F6D7D562A15B60D00FA457D;
 			packageReferences = (
-				2F6D7DBA2A15C38700FA457D /* XCRemoteSwiftPackageReference "SnapKit" */,
+				2FC1D9B92A1786F3008032C0 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 2F6D7D602A15B60D00FA457D /* Products */;
 			projectDirPath = "";
@@ -503,30 +556,37 @@
 			files = (
 				2F6D7D9E2A15BB9E00FA457D /* Coordinator.swift in Sources */,
 				2F6D7D902A15B99700FA457D /* TargetType.swift in Sources */,
+				2F6D7DD82A160A5800FA457D /* RegisterUseCase.swift in Sources */,
 				2F6D7DA42A15BBFA00FA457D /* CoordinatorStyleCase.swift in Sources */,
 				2F6D7D942A15B9E200FA457D /* NetworkError.swift in Sources */,
+				2FC1D9B42A1772B7008032C0 /* RegisterRequestDTO.swift in Sources */,
 				2F6D7DC92A15DC9900FA457D /* LoginView.swift in Sources */,
 				2F6D7DA22A15BBB500FA457D /* CoordinatorDelegate.swift in Sources */,
 				2F6D7DCB2A15EF8D00FA457D /* CustomAlertView.swift in Sources */,
 				2F6D7DBE2A15C47700FA457D /* CustomTextField.swift in Sources */,
+				2F6D7DDE2A160DC500FA457D /* RegisterQuery.swift in Sources */,
 				2F6D7D632A15B60D00FA457D /* AppDelegate.swift in Sources */,
 				2F6D7D8E2A15B98000FA457D /* APIKey.swift in Sources */,
 				2F6D7DB72A15C23000FA457D /* BaseViewController.swift in Sources */,
 				2F6D7DC02A15C4AC00FA457D /* UIColor + Extension.swift in Sources */,
+				2F6D7DE42A160F1F00FA457D /* RegisterRepositoryType.swift in Sources */,
 				2F6D7DC72A15DC9600FA457D /* LoginViewController.swift in Sources */,
 				2F6D7DD62A15FAA100FA457D /* Combine + Extension.swift in Sources */,
 				2F6D7DAE2A15C17800FA457D /* SignupViewModel.swift in Sources */,
 				2F6D7DB02A15C17F00FA457D /* SignupViewController.swift in Sources */,
+				2F6D7DDA2A160AAA00FA457D /* HTTPMethod.swift in Sources */,
 				2F6D7DB22A15C18600FA457D /* SignupView.swift in Sources */,
 				2F6D7D922A15B9A700FA457D /* Router.swift in Sources */,
-				2F6D7DD42A15F69E00FA457D /* SignupAlertView.swift in Sources */,
 				2F6D7DA02A15BBA500FA457D /* AppCoordinator.swift in Sources */,
 				2F6D7DB52A15C1D200FA457D /* ViewModelType.swift in Sources */,
 				2F6D7DD02A15F2CB00FA457D /* SignupAlertViewModel.swift in Sources */,
+				2FCCCB392A172E7600C9B327 /* Service.swift in Sources */,
 				2F6D7D652A15B60D00FA457D /* SceneDelegate.swift in Sources */,
 				2F6D7DB92A15C23300FA457D /* BaseView.swift in Sources */,
 				2F6D7DAA2A15C13200FA457D /* AuthCoordinator.swift in Sources */,
 				2F6D7DD22A15F2D400FA457D /* SignupAlertViewController.swift in Sources */,
+				2FCCCB3D2A172F8800C9B327 /* RegisterRepositoryImpl.swift in Sources */,
+				2FC1D9B22A1772AB008032C0 /* StatusCodeResponseDTO.swift in Sources */,
 				2F6D7D9C2A15BB4D00FA457D /* NetworkMonitor.swift in Sources */,
 				2F6D7DC52A15DC9000FA457D /* LoginViewModel.swift in Sources */,
 			);
@@ -740,7 +800,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		2F6D7DBA2A15C38700FA457D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		2FC1D9B92A1786F3008032C0 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -751,9 +811,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2F6D7DBB2A15C38700FA457D /* SnapKit */ = {
+		2FC1D9BA2A1786F3008032C0 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2F6D7DBA2A15C38700FA457D /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 2FC1D9B92A1786F3008032C0 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */

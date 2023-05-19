@@ -12,8 +12,10 @@ final class LoginViewModel: ViewModelType {
     private weak var coordinator: AuthCoordinator?
     private var anyCancellable = Set<AnyCancellable>()
 
-    init(coordinator: AuthCoordinator?) {
+    private let registerUseCase: RegisterUseCase
+    init(registerUseCase: RegisterUseCase, coordinator: AuthCoordinator?) {
         self.coordinator = coordinator
+        self.registerUseCase = registerUseCase
     }
     
     struct Input {
@@ -29,6 +31,7 @@ final class LoginViewModel: ViewModelType {
     func transform(_ input: Input) -> Output {
         input.loginButtonTap.sink { [weak self] _ in
             print("로그인버튼클릭")
+            self?.registerUseCase.excute(id: "qudgus1984", password: "tkfkd0191!")
             self?.coordinator?.showSignupAlertViewController()
         }
         .store(in: &anyCancellable)

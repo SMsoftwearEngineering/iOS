@@ -160,5 +160,9 @@ final class SignupView: BaseView {
             make.trailing.equalTo(confirmTextField.snp.trailing)
             make.height.equalTo(40)
         }
+        
+        pwTextField.tf.isSecureTextEntry = true
+        confirmTextField.tf.isSecureTextEntry = true
+
     }
 }

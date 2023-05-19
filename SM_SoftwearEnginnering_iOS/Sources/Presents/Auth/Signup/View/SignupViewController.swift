@@ -28,6 +28,5 @@ final class SignupViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
-
     }
 }
