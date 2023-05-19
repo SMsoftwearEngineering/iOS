@@ -28,21 +28,11 @@ final class LoginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let registerQuery = RegisterQuery(email: "qudgus1984", name: "이병현", password: "qwer1234!")
-        let registerTarget = Test.register(parameters: registerQuery)
-        registerTarget.request { result in
-            switch result {
-            case .success(let statusCode):
-                print("성공", statusCode)
-            case .failure(let error):
-                print("error", error)
-            }
-        }
     }
     
     override func setBinding() {
         
-        let input = LoginViewModel.Input(signupButtonTap: selfView.signupButton.tapPublisher, loginButtonTap: selfView.loginButton.tapPublisher)
+        let input = LoginViewModel.Input(signupButtonTap: selfView.signupButton.tapPublisher, loginButtonTap: selfView.loginButton.tapPublisher, idText: selfView.idTextField.tf.textPublisher, pwText: selfView.pwTextField.tf.textPublisher)
         let output = viewModel.transform(input)
     }
 }

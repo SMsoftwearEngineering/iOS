@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 final class SignupViewController: BaseViewController {
     
@@ -28,5 +29,15 @@ final class SignupViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
+    }
+    
+    override func setBinding() {
+        let input = SignupViewModel.Input(idText: selfView.idTextField.tf.textPublisher, pwText: selfView.pwTextField.tf.textPublisher, confirmPwText: selfView.confirmTextField.tf.textPublisher, signUpButtonTap: selfView.signupButton.tapPublisher)
+        let output = viewModel.transform(input)
+        
+        output.signUpValid.sink { valid in
+            self.selfView.signupButton.isEnabled = valid
+        }
+        .store(in: &cancellableBag)
     }
 }

@@ -130,5 +130,7 @@ final class LoginView: BaseView {
             make.width.equalTo(134)
             make.height.equalTo(43)
         }
+        
+        pwTextField.tf.isSecureTextEntry = true
     }
 }
