@@ -21,9 +21,10 @@ final class RegisterUseCaseImpl: RegisterUseCase {
     }
     
     func excute(id: String, password: String) -> AnyPublisher<Int, NetworkError> {
-        let registerQuery = RegisterQuery(email: "qudgus1984", name: "이병현", password: "qwer1234!")
+        let registerQuery = RegisterQuery(email: id, name: id, password: password)
         return Future<Int, NetworkError> { [weak self] promiss in
             guard let self else { return }
+            print("서버에게 보내는 Query", registerQuery)
             self.registerRepository.requestRegister(register: registerQuery).sink { completion in
                 if case .failure(let error) = completion {
                     switch error {

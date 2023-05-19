@@ -26,7 +26,10 @@ final class AuthCoordinator: Coordinator {
     }
     
     func showSignupViewController() {
-        let viewModel = SignupViewModel(coordinator: self)
+        let session = ServiceImpl.shared
+        let registerRepositroyImpl = RegisterRepositoryImpl(session: session)
+        let registerUseCaseImpl = RegisterUseCaseImpl(registerRepository: registerRepositroyImpl)
+        let viewModel = SignupViewModel(coordinator: self, registerUseCase: registerUseCaseImpl)
         let vc = SignupViewController(viewModel: viewModel)
         navigationController.pushViewController(vc, animated: true)
     }
