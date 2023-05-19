@@ -19,7 +19,9 @@ final class AuthCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
+    
     func start() {
+
         showLoginViewController()
     }
     
@@ -30,7 +32,10 @@ final class AuthCoordinator: Coordinator {
     }
     
     func showLoginViewController() {
-        let viewModel = LoginViewModel(coordinator: self)
+        let session = ServiceImpl.shared
+        let registerRepositroyImpl = RegisterRepositoryImpl(session: session)
+        let registerUseCaseImpl = RegisterUseCaseImpl(registerRepository: registerRepositroyImpl)
+        let viewModel = LoginViewModel(registerUseCase: registerUseCaseImpl, coordinator: self)
         let vc = LoginViewController(viewModel: viewModel)
         navigationController.viewControllers = [vc]
     }
