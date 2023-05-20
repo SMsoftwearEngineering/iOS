@@ -11,7 +11,7 @@ struct StatusCodeResponseDTO: Decodable {
     let statusCode: Int?
     
     enum CodingKeys: String, CodingKey {
-        case statusCode = "status"
+        case statusCode = "statusCode"
     }
     
     init(from decoder: Decoder) throws {

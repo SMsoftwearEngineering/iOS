@@ -33,6 +33,7 @@ final class RegisterUseCaseImpl: RegisterUseCase {
                     }
                 }
             } receiveValue: { statusCode in
+                print("UseCase",statusCode)
                 promiss(.success(statusCode))
             }
             .store(in: &self.anyCancellable)
