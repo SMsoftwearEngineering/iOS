@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct UpdateMemberQuery: Hashable {
+    let memberId: Int64
+    let email: String
+    let password: String
+    let name: String
+}

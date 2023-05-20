@@ -6,3 +6,19 @@
 //
 
 import Foundation
+
+struct FolderPostDto {
+    let folderTitle: String
+    let memberId: Int64
+    let color: String
+    
+    enum CodingKeys: String, CodingKey {
+        case folderTitle, memberId, color
+    }
+}
+
+extension FolderPostDto {
+    var toDomain: FolderPostQuery {
+        return .init(folderTitle: folderTitle, memberId: memberId, color: color)
+    }
+}

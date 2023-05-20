@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+enum Color {
+    case RED, GREEN, YEELLOW, PURPLE, ORANGE
+}

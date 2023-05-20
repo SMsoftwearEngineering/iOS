@@ -6,3 +6,19 @@
 //
 
 import Foundation
+
+struct UpdateFolderDto {
+    let folderId: Int64
+    let folderTitle: String
+    let color: String
+    
+    enum CodingKeys: String, CodingKey {
+        case folderId, folderTitle, color
+    }
+}
+
+extension UpdateFolderDto {
+    var toDomain: UpdateFolderQuery {
+        return .init(folderId: folderId, folderTitle: folderTitle, color: color)
+    }
+}

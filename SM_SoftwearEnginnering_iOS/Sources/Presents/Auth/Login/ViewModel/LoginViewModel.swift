@@ -46,7 +46,7 @@ final class LoginViewModel: ViewModelType {
             } receiveValue: { status in
                 switch status {
                 case 200:
-                    self.coordinator?.showSignupAlertViewController()
+                    self.coordinator?.connectHomeCoordinator()
                 default:
                     print(status, "error")
                 }
