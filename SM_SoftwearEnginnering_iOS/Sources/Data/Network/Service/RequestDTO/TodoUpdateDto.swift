@@ -6,3 +6,22 @@
 //
 
 import Foundation
+
+struct TodoUpdateDto {
+    let todoId: Int64
+    let title: String
+    let content: String
+    let priority: Int32
+    let wishCompleteDate: Date
+    let folderId: Int64
+    
+    enum CodingKeys: String, CodingKey {
+        case todoId, title, content, priority, wishCompleteDate, folderId
+    }
+}
+
+extension TodoUpdateDto {
+    var toDomain: TodoUpdateQuery {
+        return .init(todoId: todoId, title: title, content: content, priority: priority, wishCompleteDate: wishCompleteDate, folderId: folderId)
+    }
+}

@@ -41,6 +41,27 @@
 		2F6D7DDA2A160AAA00FA457D /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D7DD92A160AAA00FA457D /* HTTPMethod.swift */; };
 		2F6D7DDE2A160DC500FA457D /* RegisterQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D7DDD2A160DC500FA457D /* RegisterQuery.swift */; };
 		2F6D7DE42A160F1F00FA457D /* RegisterRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D7DE32A160F1F00FA457D /* RegisterRepositoryType.swift */; };
+		2FBFBA3D2A189B82009144A6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA3C2A189B82009144A6 /* HomeViewController.swift */; };
+		2FBFBA3F2A189B85009144A6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA3E2A189B85009144A6 /* HomeView.swift */; };
+		2FBFBA412A189B8D009144A6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA402A189B8D009144A6 /* HomeViewModel.swift */; };
+		2FBFBA432A189BDB009144A6 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA422A189BDB009144A6 /* CustomButton.swift */; };
+		2FBFBA462A189E4E009144A6 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA452A189E4E009144A6 /* MainCoordinator.swift */; };
+		2FBFBA482A18A4B6009144A6 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA472A18A4B6009144A6 /* Folder.swift */; };
+		2FBFBA4A2A18A51F009144A6 /* FolderResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA492A18A51F009144A6 /* FolderResponseDto.swift */; };
+		2FBFBA4C2A18A5D7009144A6 /* TodoResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA4B2A18A5D7009144A6 /* TodoResponseDto.swift */; };
+		2FBFBA4E2A18A66B009144A6 /* TodoPostDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA4D2A18A66B009144A6 /* TodoPostDto.swift */; };
+		2FBFBA502A18ABA7009144A6 /* FolderPostDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA4F2A18ABA7009144A6 /* FolderPostDto.swift */; };
+		2FBFBA532A18AC28009144A6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA522A18AC28009144A6 /* Color.swift */; };
+		2FBFBA552A18ACFF009144A6 /* TodoUpdateDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA542A18ACFF009144A6 /* TodoUpdateDto.swift */; };
+		2FBFBA572A18AD46009144A6 /* UpdateFolderDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA562A18AD46009144A6 /* UpdateFolderDto.swift */; };
+		2FBFBA592A18AD74009144A6 /* UpdateMemberDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA582A18AD74009144A6 /* UpdateMemberDto.swift */; };
+		2FBFBA5B2A18AE23009144A6 /* TodoPostQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA5A2A18AE23009144A6 /* TodoPostQuery.swift */; };
+		2FBFBA5D2A18AE9C009144A6 /* FolderPostQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA5C2A18AE9C009144A6 /* FolderPostQuery.swift */; };
+		2FBFBA5F2A18AF0E009144A6 /* TodoUpdateQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA5E2A18AF0E009144A6 /* TodoUpdateQuery.swift */; };
+		2FBFBA612A18AFB9009144A6 /* UpdateFolderQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA602A18AFB9009144A6 /* UpdateFolderQuery.swift */; };
+		2FBFBA632A18B072009144A6 /* UpdateMemberQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA622A18B072009144A6 /* UpdateMemberQuery.swift */; };
+		2FBFBA652A18B10B009144A6 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA642A18B10B009144A6 /* Todo.swift */; };
+		2FBFBA682A18B82C009144A6 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA672A18B82C009144A6 /* BaseCollectionViewCell.swift */; };
 		2FC1D9B22A1772AB008032C0 /* StatusCodeResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC1D9B12A1772AB008032C0 /* StatusCodeResponseDTO.swift */; };
 		2FC1D9B42A1772B7008032C0 /* RegisterRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC1D9B32A1772B7008032C0 /* RegisterRequestDTO.swift */; };
 		2FC1D9BB2A1786F3008032C0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2FC1D9BA2A1786F3008032C0 /* SnapKit */; };
@@ -85,6 +106,27 @@
 		2F6D7DD92A160AAA00FA457D /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		2F6D7DDD2A160DC500FA457D /* RegisterQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterQuery.swift; sourceTree = "<group>"; };
 		2F6D7DE32A160F1F00FA457D /* RegisterRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepositoryType.swift; sourceTree = "<group>"; };
+		2FBFBA3C2A189B82009144A6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2FBFBA3E2A189B85009144A6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		2FBFBA402A189B8D009144A6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		2FBFBA422A189BDB009144A6 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		2FBFBA452A189E4E009144A6 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		2FBFBA472A18A4B6009144A6 /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
+		2FBFBA492A18A51F009144A6 /* FolderResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderResponseDto.swift; sourceTree = "<group>"; };
+		2FBFBA4B2A18A5D7009144A6 /* TodoResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoResponseDto.swift; sourceTree = "<group>"; };
+		2FBFBA4D2A18A66B009144A6 /* TodoPostDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoPostDto.swift; sourceTree = "<group>"; };
+		2FBFBA4F2A18ABA7009144A6 /* FolderPostDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderPostDto.swift; sourceTree = "<group>"; };
+		2FBFBA522A18AC28009144A6 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		2FBFBA542A18ACFF009144A6 /* TodoUpdateDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoUpdateDto.swift; sourceTree = "<group>"; };
+		2FBFBA562A18AD46009144A6 /* UpdateFolderDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFolderDto.swift; sourceTree = "<group>"; };
+		2FBFBA582A18AD74009144A6 /* UpdateMemberDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMemberDto.swift; sourceTree = "<group>"; };
+		2FBFBA5A2A18AE23009144A6 /* TodoPostQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoPostQuery.swift; sourceTree = "<group>"; };
+		2FBFBA5C2A18AE9C009144A6 /* FolderPostQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderPostQuery.swift; sourceTree = "<group>"; };
+		2FBFBA5E2A18AF0E009144A6 /* TodoUpdateQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoUpdateQuery.swift; sourceTree = "<group>"; };
+		2FBFBA602A18AFB9009144A6 /* UpdateFolderQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFolderQuery.swift; sourceTree = "<group>"; };
+		2FBFBA622A18B072009144A6 /* UpdateMemberQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateMemberQuery.swift; sourceTree = "<group>"; };
+		2FBFBA642A18B10B009144A6 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		2FBFBA672A18B82C009144A6 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		2FC1D9B12A1772AB008032C0 /* StatusCodeResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCodeResponseDTO.swift; sourceTree = "<group>"; };
 		2FC1D9B32A1772B7008032C0 /* RegisterRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequestDTO.swift; sourceTree = "<group>"; };
 		2FCCCB382A172E7600C9B327 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -173,6 +215,7 @@
 		2F6D7D7C2A15B82E00FA457D /* Utills */ = {
 			isa = PBXGroup;
 			children = (
+				2FBFBA512A18AC11009144A6 /* Enum */,
 				2F6D7DB32A15C1C800FA457D /* Protocol */,
 				2F6D7D9A2A15BA3300FA457D /* Bases */,
 				2F6D7D992A15BA2F00FA457D /* Extensions */,
@@ -279,6 +322,8 @@
 			isa = PBXGroup;
 			children = (
 				2FC1D9B12A1772AB008032C0 /* StatusCodeResponseDTO.swift */,
+				2FBFBA492A18A51F009144A6 /* FolderResponseDto.swift */,
+				2FBFBA4B2A18A5D7009144A6 /* TodoResponseDto.swift */,
 			);
 			path = ResponseDTO;
 			sourceTree = "<group>";
@@ -313,6 +358,7 @@
 			children = (
 				2F6D7DBD2A15C47700FA457D /* CustomTextField.swift */,
 				2F6D7DCA2A15EF8D00FA457D /* CustomAlertView.swift */,
+				2FBFBA422A189BDB009144A6 /* CustomButton.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -331,6 +377,7 @@
 			children = (
 				2F6D7DB62A15C23000FA457D /* BaseViewController.swift */,
 				2F6D7DB82A15C23300FA457D /* BaseView.swift */,
+				2FBFBA672A18B82C009144A6 /* BaseCollectionViewCell.swift */,
 			);
 			path = Bases;
 			sourceTree = "<group>";
@@ -349,6 +396,8 @@
 		2F6D7DA62A15C0E900FA457D /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				2FBFBA442A189E40009144A6 /* Coordinator */,
+				2FBFBA3A2A189B6C009144A6 /* Home */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -449,6 +498,8 @@
 		2F6D7DDB2A160C9900FA457D /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				2FBFBA472A18A4B6009144A6 /* Folder.swift */,
+				2FBFBA642A18B10B009144A6 /* Todo.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -457,14 +508,66 @@
 			isa = PBXGroup;
 			children = (
 				2F6D7DDD2A160DC500FA457D /* RegisterQuery.swift */,
+				2FBFBA5A2A18AE23009144A6 /* TodoPostQuery.swift */,
+				2FBFBA5C2A18AE9C009144A6 /* FolderPostQuery.swift */,
+				2FBFBA5E2A18AF0E009144A6 /* TodoUpdateQuery.swift */,
+				2FBFBA602A18AFB9009144A6 /* UpdateFolderQuery.swift */,
+				2FBFBA622A18B072009144A6 /* UpdateMemberQuery.swift */,
 			);
 			path = Request;
+			sourceTree = "<group>";
+		};
+		2FBFBA392A189B60009144A6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2FBFBA402A189B8D009144A6 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2FBFBA3A2A189B6C009144A6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2FBFBA3B2A189B79009144A6 /* View */,
+				2FBFBA392A189B60009144A6 /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		2FBFBA3B2A189B79009144A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2FBFBA3C2A189B82009144A6 /* HomeViewController.swift */,
+				2FBFBA3E2A189B85009144A6 /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2FBFBA442A189E40009144A6 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				2FBFBA452A189E4E009144A6 /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		2FBFBA512A18AC11009144A6 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				2FBFBA522A18AC28009144A6 /* Color.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 		2FCCCB3A2A172F3E00C9B327 /* RequestDTO */ = {
 			isa = PBXGroup;
 			children = (
 				2FC1D9B32A1772B7008032C0 /* RegisterRequestDTO.swift */,
+				2FBFBA4D2A18A66B009144A6 /* TodoPostDto.swift */,
+				2FBFBA4F2A18ABA7009144A6 /* FolderPostDto.swift */,
+				2FBFBA542A18ACFF009144A6 /* TodoUpdateDto.swift */,
+				2FBFBA562A18AD46009144A6 /* UpdateFolderDto.swift */,
+				2FBFBA582A18AD74009144A6 /* UpdateMemberDto.swift */,
 			);
 			path = RequestDTO;
 			sourceTree = "<group>";
@@ -554,12 +657,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FBFBA4A2A18A51F009144A6 /* FolderResponseDto.swift in Sources */,
+				2FBFBA682A18B82C009144A6 /* BaseCollectionViewCell.swift in Sources */,
 				2F6D7D9E2A15BB9E00FA457D /* Coordinator.swift in Sources */,
 				2F6D7D902A15B99700FA457D /* TargetType.swift in Sources */,
 				2F6D7DD82A160A5800FA457D /* RegisterUseCase.swift in Sources */,
 				2F6D7DA42A15BBFA00FA457D /* CoordinatorStyleCase.swift in Sources */,
+				2FBFBA612A18AFB9009144A6 /* UpdateFolderQuery.swift in Sources */,
 				2F6D7D942A15B9E200FA457D /* NetworkError.swift in Sources */,
 				2FC1D9B42A1772B7008032C0 /* RegisterRequestDTO.swift in Sources */,
+				2FBFBA5F2A18AF0E009144A6 /* TodoUpdateQuery.swift in Sources */,
 				2F6D7DC92A15DC9900FA457D /* LoginView.swift in Sources */,
 				2F6D7DA22A15BBB500FA457D /* CoordinatorDelegate.swift in Sources */,
 				2F6D7DCB2A15EF8D00FA457D /* CustomAlertView.swift in Sources */,
@@ -573,21 +680,38 @@
 				2F6D7DC72A15DC9600FA457D /* LoginViewController.swift in Sources */,
 				2F6D7DD62A15FAA100FA457D /* Combine + Extension.swift in Sources */,
 				2F6D7DAE2A15C17800FA457D /* SignupViewModel.swift in Sources */,
+				2FBFBA412A189B8D009144A6 /* HomeViewModel.swift in Sources */,
+				2FBFBA632A18B072009144A6 /* UpdateMemberQuery.swift in Sources */,
 				2F6D7DB02A15C17F00FA457D /* SignupViewController.swift in Sources */,
+				2FBFBA572A18AD46009144A6 /* UpdateFolderDto.swift in Sources */,
 				2F6D7DDA2A160AAA00FA457D /* HTTPMethod.swift in Sources */,
+				2FBFBA4E2A18A66B009144A6 /* TodoPostDto.swift in Sources */,
+				2FBFBA5D2A18AE9C009144A6 /* FolderPostQuery.swift in Sources */,
 				2F6D7DB22A15C18600FA457D /* SignupView.swift in Sources */,
+				2FBFBA532A18AC28009144A6 /* Color.swift in Sources */,
 				2F6D7D922A15B9A700FA457D /* Router.swift in Sources */,
+				2FBFBA3F2A189B85009144A6 /* HomeView.swift in Sources */,
+				2FBFBA502A18ABA7009144A6 /* FolderPostDto.swift in Sources */,
+				2FBFBA3D2A189B82009144A6 /* HomeViewController.swift in Sources */,
+				2FBFBA4C2A18A5D7009144A6 /* TodoResponseDto.swift in Sources */,
+				2FBFBA432A189BDB009144A6 /* CustomButton.swift in Sources */,
 				2F6D7DA02A15BBA500FA457D /* AppCoordinator.swift in Sources */,
 				2F6D7DB52A15C1D200FA457D /* ViewModelType.swift in Sources */,
 				2F6D7DD02A15F2CB00FA457D /* SignupAlertViewModel.swift in Sources */,
 				2FCCCB392A172E7600C9B327 /* Service.swift in Sources */,
 				2F6D7D652A15B60D00FA457D /* SceneDelegate.swift in Sources */,
 				2F6D7DB92A15C23300FA457D /* BaseView.swift in Sources */,
+				2FBFBA462A189E4E009144A6 /* MainCoordinator.swift in Sources */,
+				2FBFBA652A18B10B009144A6 /* Todo.swift in Sources */,
+				2FBFBA552A18ACFF009144A6 /* TodoUpdateDto.swift in Sources */,
+				2FBFBA592A18AD74009144A6 /* UpdateMemberDto.swift in Sources */,
 				2F6D7DAA2A15C13200FA457D /* AuthCoordinator.swift in Sources */,
 				2F6D7DD22A15F2D400FA457D /* SignupAlertViewController.swift in Sources */,
 				2FCCCB3D2A172F8800C9B327 /* RegisterRepositoryImpl.swift in Sources */,
 				2FC1D9B22A1772AB008032C0 /* StatusCodeResponseDTO.swift in Sources */,
+				2FBFBA482A18A4B6009144A6 /* Folder.swift in Sources */,
 				2F6D7D9C2A15BB4D00FA457D /* NetworkMonitor.swift in Sources */,
+				2FBFBA5B2A18AE23009144A6 /* TodoPostQuery.swift in Sources */,
 				2F6D7DC52A15DC9000FA457D /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
