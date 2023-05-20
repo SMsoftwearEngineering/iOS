@@ -19,19 +19,16 @@ final class RegisterRepositoryImpl: RegisterRepository {
     
     func requestRegister(register: RegisterQuery) -> AnyPublisher<Int, NetworkError> {
         return Future<Int, NetworkError> { promise in
-            self.session.request(target: Router.register(parameters: register), type: StatusCodeResponseDTO.self).sink { completion in
+            self.session.statusRequest(target: Router.register(parameters: register), type: StatusCodeResponseDTO.self).sink { completion in
                 if case .failure(let error) = completion {
                     switch error {
                     default:
                         promise(.failure(error))
                     }
                 }
-            } receiveValue: { statusCodeResponseDTO in
-                if let urlResponse = statusCodeResponseDTO.statusCode,
-                   let httpURLResponse = urlResponse as? HTTPURLResponse {
-                    let statusCode = httpURLResponse.statusCode
-                    promise(.success(statusCode))
-                }
+            } receiveValue: { statusCode in
+                print("register",statusCode)
+                promise(.success(statusCode))
             }
             .store(in: &self.anyCancellable)
         }.eraseToAnyPublisher()

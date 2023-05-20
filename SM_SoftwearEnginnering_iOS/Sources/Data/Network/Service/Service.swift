@@ -10,6 +10,7 @@ import Combine
 
 protocol Service {
     func request<T: Decodable>(target: TargetType, type: T.Type) -> AnyPublisher<T, NetworkError>
+    func statusRequest<T: Decodable>(target: TargetType, type: T.Type) -> AnyPublisher<Int, NetworkError>
 }
 
 final class ServiceImpl: Service {
@@ -48,6 +49,21 @@ final class ServiceImpl: Service {
             }
             .decode(type: T.self, decoder: JSONDecoder())
             .map { $0 }
+            .mapError { $0 as! NetworkError }
+            .eraseToAnyPublisher()
+    }
+    
+    func statusRequest<T: Decodable>(target: TargetType, type: T.Type) -> AnyPublisher<Int, NetworkError> {
+        return session.dataTaskPublisher(for: target.request)
+            .tryMap { data, response in
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    throw URLError(.unknown)
+                }
+                print("📭 Request \(target.request.url!)")
+                print("🚩 Response \(httpResponse.statusCode)")
+                
+                return httpResponse.statusCode
+            }
             .mapError { $0 as! NetworkError }
             .eraseToAnyPublisher()
     }

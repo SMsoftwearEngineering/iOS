@@ -29,43 +29,41 @@ final class SignupViewModel: ViewModelType {
         let signUpValid: AnyPublisher<Bool, Never>
     }
     
-    var idText: String?
-    var pwText: String?
+    var idText = CurrentValueSubject<String, Never>("")
+    var pwText = CurrentValueSubject<String, Never>("")
     var errorPublisher = PassthroughSubject<String?, Never>()
     
     func transform(_ input: Input) -> Output {
-        input.signUpButtonTap.sink { [weak self] _ in
-            guard let idText = self?.idText, let pwText = self?.pwText else { return }
-            
-            self?.registerUseCase.excute(id: self?.idText ?? "", password: self?.pwText ?? "").sink { [weak self] completion in
-                guard let self = self else { return }
-                if case .failure(let error) = completion {
-                    self.errorPublisher.send(error.localizedDescription)
-                }
-            } receiveValue: { [weak self] statusCode in
-                switch statusCode {
+
+        input.signUpButtonTap
+            .map {
+                self.registerUseCase.excute(id: self.idText.value ?? "", password: self.pwText.value ?? "")
+            }
+            .switchToLatest()
+            .receive(on: DispatchQueue.main)
+            .sink { error in
+                print(error)
+            } receiveValue: { status in
+                switch status {
                 case 200:
-                    self?.coordinator?.showLoginViewController()
+                    self.coordinator?.showLoginViewController()
                 default:
-                    print(statusCode, "회원가입이 실패요")
+                    print(status, "error")
                 }
             }
-        }
-        .store(in: &anyCancellable)
-        
-        
+            .store(in: &anyCancellable)
+
         input.idText
             .sink { [weak self] idText in
-                self?.idText = idText
+                self?.idText.value = idText
             }
             .store(in: &anyCancellable)
         
         input.confirmPwText
             .sink { [weak self] confirmPwText in
-                self?.pwText = confirmPwText
+                self?.pwText.value = confirmPwText
             }
             .store(in: &anyCancellable)
-
         
         let signUpValid = Publishers.CombineLatest(input.pwText, input.confirmPwText)
             .map { pwText, confirmPwText in

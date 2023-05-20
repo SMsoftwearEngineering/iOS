@@ -40,6 +40,7 @@ final class AuthCoordinator: Coordinator {
         let registerUseCaseImpl = RegisterUseCaseImpl(registerRepository: registerRepositroyImpl)
         let viewModel = LoginViewModel(registerUseCase: registerUseCaseImpl, coordinator: self)
         let vc = LoginViewController(viewModel: viewModel)
+        changeAnimation()
         navigationController.viewControllers = [vc]
     }
 

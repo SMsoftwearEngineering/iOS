@@ -30,31 +30,28 @@ final class LoginViewModel: ViewModelType {
 
     }
     
-    var idText: String?
-    var pwText: String?
+    var idText = CurrentValueSubject<String, Never>("")
+    var pwText = CurrentValueSubject<String, Never>("")
     var errorPublisher = PassthroughSubject<String?, Never>()
     
     func transform(_ input: Input) -> Output {
-        input.loginButtonTap.sink { [weak self] _ in
-            print("로그인버튼클릭")
-            guard let idText = self?.idText, let pwText = self?.pwText else { return }
-
-            self?.registerUseCase.excute(id: self?.idText ?? "", password: self?.pwText ?? "").sink(receiveCompletion: { [weak self] completion in
-                guard let self = self else { return }
-                if case .failure(let error) = completion {
-                    self.errorPublisher.send(error.localizedDescription)
-                }
-            }, receiveValue: { [weak self] statusCode in
-                switch statusCode {
+        input.loginButtonTap
+            .map {
+                self.registerUseCase.excute(id: self.idText.value ?? "", password: self.pwText.value ?? "")
+            }
+            .switchToLatest()
+            .receive(on: DispatchQueue.main)
+            .sink { error in
+                print(error)
+            } receiveValue: { status in
+                switch status {
                 case 200:
-                    
-                     self?.coordinator?.showSignupAlertViewController()
+                    self.coordinator?.showSignupAlertViewController()
                 default:
-                     self?.coordinator?.showSignupViewController()
+                    print(status, "error")
                 }
-            })
-        }
-        .store(in: &anyCancellable)
+            }
+            .store(in: &anyCancellable)
 
         input.signupButtonTap.sink { [weak self] _ in
             self?.coordinator?.showSignupViewController()
@@ -63,13 +60,13 @@ final class LoginViewModel: ViewModelType {
         
         input.idText
             .sink { [weak self] idText in
-                self?.idText = idText
+                self?.idText.value = idText
             }
             .store(in: &anyCancellable)
         
         input.pwText
             .sink { [weak self] pwText in
-                self?.pwText = pwText
+                self?.pwText.value = pwText
             }
             .store(in: &anyCancellable)
         
