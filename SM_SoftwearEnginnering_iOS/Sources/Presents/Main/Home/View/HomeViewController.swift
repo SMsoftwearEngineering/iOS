@@ -30,6 +30,12 @@ final class HomeViewController: BaseViewController {
     var deleteButtonTap: AnyPublisher<Void, Never> {
         return deleteButtonTapSubject.eraseToAnyPublisher()
     }
+    
+    private var cellButtonTapSubject = PassthroughSubject<Void, Never>()
+    
+    var cellButtonTap: AnyPublisher<Void, Never> {
+        return cellButtonTapSubject.eraseToAnyPublisher()
+    }
 
     override func loadView() {
         view = selfView
@@ -46,7 +52,7 @@ final class HomeViewController: BaseViewController {
     }
     
     override func setBinding() {
-        let input = HomeViewModel.Input(logoutButtonTap: selfView.logoutButton.tapPublisher, folderCreateButtonTap: selfView.folderCreateButton.tapPublisher, filterButtonTap: selfView.filterButton.tapPublisher, finishTaskListButtonTap: selfView.finishFilterButton.tapPublisher, deleteButtonTap: self.deleteButtonTap)
+        let input = HomeViewModel.Input(logoutButtonTap: selfView.logoutButton.tapPublisher, folderCreateButtonTap: selfView.folderCreateButton.tapPublisher, filterButtonTap: selfView.filterButton.tapPublisher, finishTaskListButtonTap: selfView.finishFilterButton.tapPublisher, deleteButtonTap: self.deleteButtonTap, cellButtonTap: self.cellButtonTap)
         let output = viewModel.transform(input)
     }
     
@@ -54,14 +60,13 @@ final class HomeViewController: BaseViewController {
         let cellRegistration = UICollectionView.CellRegistration<BaseCollectionViewCell, Folder> { cell, indexPath, itemIdentifier in
             cell.titleLable.text = itemIdentifier.folderTitle
             
-//            cell.deleteButtonTap.sink { [weak self] in
-//                print("이건찍히나")
-//                self?.deleteButtonTapSubject.send()
-//            }
-//            .store(in: &cell.cancellableBag)
-            
             cell.deleteButton.tapPublisher.sink { [weak self] in
                 self?.deleteButtonTapSubject.send()
+            }
+            .store(in: &cell.cancellableBag)
+            
+            cell.cellTouchButton.tapPublisher.sink { [weak self] in
+                self?.cellButtonTapSubject.send()
             }
             .store(in: &cell.cancellableBag)
 
