@@ -31,7 +31,7 @@ final class HomeViewModel: ViewModelType {
     
     func transform(_ input: Input) -> Output {
         input.logoutButtonTap.sink { [weak self] _ in
-            print("logoutButton 클릭")
+            self?.coordinator?.showDetailTodoViewController()
         }
         .store(in: &anyCancellable)
         
@@ -41,9 +41,11 @@ final class HomeViewModel: ViewModelType {
         .store(in: &anyCancellable)
         
         input.deleteButtonTap.sink { [weak self] _ in
-            print("ㅋㅋ")
+            self?.coordinator?.showDeleteFolderAlertViewController()
         }
         .store(in: &anyCancellable)
+        
+
         return Output()
     }
 }

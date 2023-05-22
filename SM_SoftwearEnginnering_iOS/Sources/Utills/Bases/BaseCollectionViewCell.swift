@@ -15,11 +15,11 @@ class BaseCollectionViewCell: UICollectionViewCell {
     
     var cancellableBag = Set<AnyCancellable>()
 
-    var deleteButtonTapSubject = PassthroughSubject<Void, Never>()
-    
-    var deleteButtonTap: AnyPublisher<Void, Never> {
-        return deleteButtonTapSubject.eraseToAnyPublisher()
-    }
+//    var deleteButtonTapSubject = PassthroughSubject<Void, Never>()
+//
+//    var deleteButtonTap: AnyPublisher<Void, Never> {
+//        return deleteButtonTapSubject.eraseToAnyPublisher()
+//    }
     
     
     let checkButton: UIButton = {
@@ -68,7 +68,7 @@ class BaseCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         configure()
         setConstraints()
-        configureDeleteButton()
+//        configureDeleteButton()
     }
     
     required init?(coder: NSCoder) {
@@ -123,11 +123,11 @@ class BaseCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    private func configureDeleteButton() {
-        deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
-    }
-    
-    @objc private func deleteButtonTapped() {
-        deleteButtonTapSubject.send()
-    }
+//    private func configureDeleteButton() {
+//        deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+//    }
+//
+//    @objc private func deleteButtonTapped() {
+//        deleteButtonTapSubject.send()
+//    }
 }

@@ -54,8 +54,13 @@ final class HomeViewController: BaseViewController {
         let cellRegistration = UICollectionView.CellRegistration<BaseCollectionViewCell, Folder> { cell, indexPath, itemIdentifier in
             cell.titleLable.text = itemIdentifier.folderTitle
             
-            cell.deleteButtonTap.sink { [weak self] in
-                print("이건찍히나")
+//            cell.deleteButtonTap.sink { [weak self] in
+//                print("이건찍히나")
+//                self?.deleteButtonTapSubject.send()
+//            }
+//            .store(in: &cell.cancellableBag)
+            
+            cell.deleteButton.tapPublisher.sink { [weak self] in
                 self?.deleteButtonTapSubject.send()
             }
             .store(in: &cell.cancellableBag)

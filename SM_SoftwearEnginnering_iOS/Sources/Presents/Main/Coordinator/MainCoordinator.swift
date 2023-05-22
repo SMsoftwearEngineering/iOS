@@ -40,4 +40,22 @@ final class MainCoordinator: Coordinator {
         let vc = CreateFolderViewController(viewModel: viewModel)
         navigationController.pushViewController(vc, animated: true)
     }
+    
+    func popPopupViewController() {
+        navigationController.dismiss(animated: true)
+    }
+    
+    func showDeleteFolderAlertViewController() {
+        let viewModel = DeleteFolderAlertViewModel(coordinator: self)
+        let vc = DeleteFolderAlertViewController(viewModel: viewModel)
+        vc.modalPresentationStyle = .overFullScreen
+        navigationController.present(vc, animated: true)
+    }
+    
+    func showDetailTodoViewController() {
+        let viewModel = DetailTodoViewModel(coordinator: self)
+        let vc = DetailTodoViewController(viewModel: viewModel)
+        vc.modalPresentationStyle = .overFullScreen
+        navigationController.present(vc, animated: true)
+    }
 }
