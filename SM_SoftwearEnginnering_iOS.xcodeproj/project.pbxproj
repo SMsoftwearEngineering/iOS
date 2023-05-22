@@ -57,6 +57,9 @@
 		2FBDB1322A1B7DF2004A3B96 /* TodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBDB1312A1B7DF2004A3B96 /* TodoListView.swift */; };
 		2FBDB1342A1B7DFB004A3B96 /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBDB1332A1B7DFB004A3B96 /* TodoListViewModel.swift */; };
 		2FBDB1362A1B837F004A3B96 /* BaseTodoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBDB1352A1B837F004A3B96 /* BaseTodoCollectionViewCell.swift */; };
+		2FBDB13B2A1B8765004A3B96 /* CreateTodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBDB13A2A1B8765004A3B96 /* CreateTodoViewModel.swift */; };
+		2FBDB13D2A1B8843004A3B96 /* CreateTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBDB13C2A1B8843004A3B96 /* CreateTodoView.swift */; };
+		2FBDB13F2A1B8EE2004A3B96 /* CreateTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBDB13E2A1B8EE2004A3B96 /* CreateTodoViewController.swift */; };
 		2FBFBA3D2A189B82009144A6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA3C2A189B82009144A6 /* HomeViewController.swift */; };
 		2FBFBA3F2A189B85009144A6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA3E2A189B85009144A6 /* HomeView.swift */; };
 		2FBFBA412A189B8D009144A6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA402A189B8D009144A6 /* HomeViewModel.swift */; };
@@ -138,6 +141,9 @@
 		2FBDB1312A1B7DF2004A3B96 /* TodoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListView.swift; sourceTree = "<group>"; };
 		2FBDB1332A1B7DFB004A3B96 /* TodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewModel.swift; sourceTree = "<group>"; };
 		2FBDB1352A1B837F004A3B96 /* BaseTodoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTodoCollectionViewCell.swift; sourceTree = "<group>"; };
+		2FBDB13A2A1B8765004A3B96 /* CreateTodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTodoViewModel.swift; sourceTree = "<group>"; };
+		2FBDB13C2A1B8843004A3B96 /* CreateTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTodoView.swift; sourceTree = "<group>"; };
+		2FBDB13E2A1B8EE2004A3B96 /* CreateTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTodoViewController.swift; sourceTree = "<group>"; };
 		2FBFBA3C2A189B82009144A6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2FBFBA3E2A189B85009144A6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2FBFBA402A189B8D009144A6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -435,6 +441,7 @@
 				2FBFBA442A189E40009144A6 /* Coordinator */,
 				2FBFBA3A2A189B6C009144A6 /* Home */,
 				2FBDB1062A1B12B0004A3B96 /* CreateFolder */,
+				2FBDB1372A1B874A004A3B96 /* CreateTodo */,
 				2FBDB1172A1B64BC004A3B96 /* DeleteFolderAlert */,
 				2FBDB1212A1B6A78004A3B96 /* DetailTodo */,
 				2FBDB12C2A1B7DC9004A3B96 /* TodoList */,
@@ -660,6 +667,32 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2FBDB1372A1B874A004A3B96 /* CreateTodo */ = {
+			isa = PBXGroup;
+			children = (
+				2FBDB1392A1B8757004A3B96 /* View */,
+				2FBDB1382A1B8755004A3B96 /* ViewModel */,
+			);
+			path = CreateTodo;
+			sourceTree = "<group>";
+		};
+		2FBDB1382A1B8755004A3B96 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2FBDB13A2A1B8765004A3B96 /* CreateTodoViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2FBDB1392A1B8757004A3B96 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2FBDB13C2A1B8843004A3B96 /* CreateTodoView.swift */,
+				2FBDB13E2A1B8EE2004A3B96 /* CreateTodoViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2FBFBA392A189B60009144A6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -804,6 +837,7 @@
 				2FBFBA4A2A18A51F009144A6 /* FolderResponseDto.swift in Sources */,
 				2FBFBA682A18B82C009144A6 /* BaseCollectionViewCell.swift in Sources */,
 				2FBDB1342A1B7DFB004A3B96 /* TodoListViewModel.swift in Sources */,
+				2FBDB13F2A1B8EE2004A3B96 /* CreateTodoViewController.swift in Sources */,
 				2F6D7D9E2A15BB9E00FA457D /* Coordinator.swift in Sources */,
 				2FBDB1302A1B7DEE004A3B96 /* TodoListViewController.swift in Sources */,
 				2F6D7D902A15B99700FA457D /* TargetType.swift in Sources */,
@@ -829,6 +863,7 @@
 				2FBDB11A2A1B64E3004A3B96 /* DeleteFolderAlertViewController.swift in Sources */,
 				2F6D7DC72A15DC9600FA457D /* LoginViewController.swift in Sources */,
 				2F6D7DD62A15FAA100FA457D /* Combine + Extension.swift in Sources */,
+				2FBDB13B2A1B8765004A3B96 /* CreateTodoViewModel.swift in Sources */,
 				2F6D7DAE2A15C17800FA457D /* SignupViewModel.swift in Sources */,
 				2FBFBA412A189B8D009144A6 /* HomeViewModel.swift in Sources */,
 				2FBFBA632A18B072009144A6 /* UpdateMemberQuery.swift in Sources */,
@@ -852,6 +887,7 @@
 				2FBFBA4C2A18A5D7009144A6 /* TodoResponseDto.swift in Sources */,
 				2FBFBA432A189BDB009144A6 /* CustomButton.swift in Sources */,
 				2F6D7DA02A15BBA500FA457D /* AppCoordinator.swift in Sources */,
+				2FBDB13D2A1B8843004A3B96 /* CreateTodoView.swift in Sources */,
 				2F6D7DB52A15C1D200FA457D /* ViewModelType.swift in Sources */,
 				2F6D7DD02A15F2CB00FA457D /* SignupAlertViewModel.swift in Sources */,
 				2FBDB10E2A1B12DF004A3B96 /* CreateFolderView.swift in Sources */,

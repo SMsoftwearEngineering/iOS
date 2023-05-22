@@ -27,12 +27,12 @@ final class DeleteFolderAlertViewModel: ViewModelType {
     
     func transform(_ input: Input) -> Output {
         input.okButtonTap.sink { [weak self] _ in
-            self?.coordinator?.popPopupViewController()
+            self?.coordinator?.popViewController()
         }
         .store(in: &anyCancellable)
         
         input.noButtonTap.sink { [weak self] _ in
-            self?.coordinator?.popPopupViewController()
+            self?.coordinator?.popViewController()
         }
         .store(in: &anyCancellable)
         return Output()

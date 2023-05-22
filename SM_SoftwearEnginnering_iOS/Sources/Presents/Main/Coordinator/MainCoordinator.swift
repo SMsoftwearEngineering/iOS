@@ -41,8 +41,18 @@ final class MainCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func popPopupViewController() {
+    func showCreateTodoViewController() {
+        let viewModel = CreateTodoViewModel(coordinator: self)
+        let vc = CreateTodoViewController(viewModel: viewModel)
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func dismissViewController() {
         navigationController.dismiss(animated: true)
+    }
+    
+    func popViewController() {
+        navigationController.popViewController(animated: true)
     }
     
     func showDeleteFolderAlertViewController() {
@@ -62,7 +72,7 @@ final class MainCoordinator: Coordinator {
     func showTodoListViewController() {
         let viewModel = TodoListViewModel(coordinator: self)
         let vc = TodoListViewController(viewModel: viewModel)
-        vc.modalPresentationStyle = .overFullScreen
-        navigationController.present(vc, animated: true)
+        navigationController.pushViewController(vc, animated: true)
+
     }
 }

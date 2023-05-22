@@ -45,6 +45,7 @@ final class HomeViewController: BaseViewController {
         super.viewDidLoad()
         setDataSource()
         snapshotAppend()
+        navigationController?.isNavigationBarHidden = false
     }
     
     override func setAttributes() {
