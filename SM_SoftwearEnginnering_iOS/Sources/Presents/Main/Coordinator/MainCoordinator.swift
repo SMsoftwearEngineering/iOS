@@ -31,4 +31,13 @@ final class MainCoordinator: Coordinator {
         changeAnimation()
         navigationController.viewControllers = [vc]
     }
+    
+    func showCreateFolderViewController() {
+        let session = ServiceImpl.shared
+        let createFolderRepositroyImpl = CreateFolderRepositoryImpl(session: session)
+        let createFolderUseCaseImpl = CreateFolderUseCaseImpl(createFolderRepository: createFolderRepositroyImpl)
+        let viewModel = CreateFolderViewModel(coordinator: self, createFolderUseCase: createFolderUseCaseImpl)
+        let vc = CreateFolderViewController(viewModel: viewModel)
+        navigationController.pushViewController(vc, animated: true)
+    }
 }

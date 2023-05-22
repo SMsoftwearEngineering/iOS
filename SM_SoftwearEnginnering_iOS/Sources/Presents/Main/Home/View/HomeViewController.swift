@@ -6,11 +6,11 @@
 //
 
 import UIKit
+import Combine
 
 final class HomeViewController: BaseViewController {
     
     private let selfView = HomeView()
-    
     
     private let viewModel: HomeViewModel
     
@@ -24,6 +24,13 @@ final class HomeViewController: BaseViewController {
     
     var dataSource: UICollectionViewDiffableDataSource<Int, Folder>!
     var snapshot = NSDiffableDataSourceSnapshot<Int, Folder>()
+    
+    private var deleteButtonTapSubject = PassthroughSubject<Void, Never>()
+    
+    var deleteButtonTap: AnyPublisher<Void, Never> {
+        return deleteButtonTapSubject.eraseToAnyPublisher()
+    }
+
     override func loadView() {
         view = selfView
     }
@@ -39,18 +46,26 @@ final class HomeViewController: BaseViewController {
     }
     
     override func setBinding() {
-        let input = HomeViewModel.Input(loginButtonTap: selfView.logoutButton.tapPublisher)
+        let input = HomeViewModel.Input(logoutButtonTap: selfView.logoutButton.tapPublisher, folderCreateButtonTap: selfView.folderCreateButton.tapPublisher, filterButtonTap: selfView.filterButton.tapPublisher, finishTaskListButtonTap: selfView.finishFilterButton.tapPublisher, deleteButtonTap: self.deleteButtonTap)
         let output = viewModel.transform(input)
     }
     
     func setDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<BaseCollectionViewCell, Folder> { cell, indexPath, itemIdentifier in
             cell.titleLable.text = itemIdentifier.folderTitle
+            
+            cell.deleteButtonTap.sink { [weak self] in
+                print("이건찍히나")
+                self?.deleteButtonTapSubject.send()
+            }
+            .store(in: &cell.cancellableBag)
+
         }
         
         dataSource = UICollectionViewDiffableDataSource(collectionView: selfView.collectionView) { collectionView, indexPath, itemIdentifier in
             
             let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
+
             return cell
         }
     }
@@ -59,7 +74,11 @@ final class HomeViewController: BaseViewController {
         snapshot.appendSections([0])
         var folderArr: [Folder] = []
         
-        folderArr.append(Folder(folderId: 12, color: "1", folderTitle: "폴더제목", memberId: 3, todo: [Todo(todoId: 1, title: "", content: "", completeDate: Date(), priority: 3, wishCompleteDate: Date(), folderId: 4, memberId: 3)]))
+
+        
+        for i in 1..<50 {
+            folderArr.append(Folder(folderId: Int64(i), color: "1", folderTitle: "폴더제목", memberId: 3, todo: [Todo(todoId: 1, title: "", content: "", completeDate: Date(), priority: 3, wishCompleteDate: Date(), folderId: Int64(i), memberId: 3)]))
+        }
         
         snapshot.appendItems(folderArr, toSection: 0)
         dataSource.apply(snapshot)

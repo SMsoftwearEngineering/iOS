@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UpdateFolderDto {
+struct UpdateFolderDto: Codable {
     let folderId: Int64
     let folderTitle: String
     let color: String

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TodoPostDto {
+struct TodoPostDto: Codable {
     let title: String
     let content: String
     let priority: Int32

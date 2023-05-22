@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FolderResponseDto {
+struct FolderResponseDto: Codable {
     let folderId: Int64
     let color: String
     let folderTitle: String

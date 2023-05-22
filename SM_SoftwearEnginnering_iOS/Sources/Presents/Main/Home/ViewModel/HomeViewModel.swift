@@ -17,7 +17,12 @@ final class HomeViewModel: ViewModelType {
     }
     
     struct Input {
-        let loginButtonTap: AnyPublisher<Void, Never>
+        let logoutButtonTap: AnyPublisher<Void, Never>
+        let folderCreateButtonTap: AnyPublisher<Void, Never>
+        let filterButtonTap: AnyPublisher<Void, Never>
+        let finishTaskListButtonTap: AnyPublisher<Void, Never>
+        let deleteButtonTap: AnyPublisher<Void, Never>
+
     }
 
     struct Output {
@@ -25,8 +30,18 @@ final class HomeViewModel: ViewModelType {
     }
     
     func transform(_ input: Input) -> Output {
-        input.loginButtonTap.sink { [weak self] _ in
-            print("login Button 클릭")
+        input.logoutButtonTap.sink { [weak self] _ in
+            print("logoutButton 클릭")
+        }
+        .store(in: &anyCancellable)
+        
+        input.folderCreateButtonTap.sink { [weak self] _ in
+            self?.coordinator?.showCreateFolderViewController()
+        }
+        .store(in: &anyCancellable)
+        
+        input.deleteButtonTap.sink { [weak self] _ in
+            print("ㅋㅋ")
         }
         .store(in: &anyCancellable)
         return Output()
