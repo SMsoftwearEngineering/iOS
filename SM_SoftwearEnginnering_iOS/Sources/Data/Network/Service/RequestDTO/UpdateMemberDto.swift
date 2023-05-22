@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UpdateMemberDto {
+struct UpdateMemberDto: Codable {
     let memberId: Int64
     let email: String
     let password: String

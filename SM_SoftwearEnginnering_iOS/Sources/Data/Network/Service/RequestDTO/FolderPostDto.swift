@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct FolderPostDto {
+struct FolderPostDto: Codable {
+    
     let folderTitle: String
     let memberId: Int64
     let color: String
@@ -15,6 +16,7 @@ struct FolderPostDto {
     enum CodingKeys: String, CodingKey {
         case folderTitle, memberId, color
     }
+
 }
 
 extension FolderPostDto {

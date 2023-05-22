@@ -41,6 +41,12 @@
 		2F6D7DDA2A160AAA00FA457D /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D7DD92A160AAA00FA457D /* HTTPMethod.swift */; };
 		2F6D7DDE2A160DC500FA457D /* RegisterQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D7DDD2A160DC500FA457D /* RegisterQuery.swift */; };
 		2F6D7DE42A160F1F00FA457D /* RegisterRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D7DE32A160F1F00FA457D /* RegisterRepositoryType.swift */; };
+		2FBDB10C2A1B12D9004A3B96 /* CreateFolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBDB10B2A1B12D9004A3B96 /* CreateFolderViewModel.swift */; };
+		2FBDB10E2A1B12DF004A3B96 /* CreateFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBDB10D2A1B12DF004A3B96 /* CreateFolderView.swift */; };
+		2FBDB1102A1B12E5004A3B96 /* CreateFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBDB10F2A1B12E5004A3B96 /* CreateFolderViewController.swift */; };
+		2FBDB1122A1B24C4004A3B96 /* CreateFolderRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBDB1112A1B24C4004A3B96 /* CreateFolderRepositoryType.swift */; };
+		2FBDB1142A1B2507004A3B96 /* CreateFolderUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBDB1132A1B2507004A3B96 /* CreateFolderUseCase.swift */; };
+		2FBDB1162A1B27A1004A3B96 /* CreateFolderRegistoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBDB1152A1B27A1004A3B96 /* CreateFolderRegistoryImpl.swift */; };
 		2FBFBA3D2A189B82009144A6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA3C2A189B82009144A6 /* HomeViewController.swift */; };
 		2FBFBA3F2A189B85009144A6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA3E2A189B85009144A6 /* HomeView.swift */; };
 		2FBFBA412A189B8D009144A6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA402A189B8D009144A6 /* HomeViewModel.swift */; };
@@ -106,6 +112,12 @@
 		2F6D7DD92A160AAA00FA457D /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		2F6D7DDD2A160DC500FA457D /* RegisterQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterQuery.swift; sourceTree = "<group>"; };
 		2F6D7DE32A160F1F00FA457D /* RegisterRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepositoryType.swift; sourceTree = "<group>"; };
+		2FBDB10B2A1B12D9004A3B96 /* CreateFolderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderViewModel.swift; sourceTree = "<group>"; };
+		2FBDB10D2A1B12DF004A3B96 /* CreateFolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderView.swift; sourceTree = "<group>"; };
+		2FBDB10F2A1B12E5004A3B96 /* CreateFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderViewController.swift; sourceTree = "<group>"; };
+		2FBDB1112A1B24C4004A3B96 /* CreateFolderRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderRepositoryType.swift; sourceTree = "<group>"; };
+		2FBDB1132A1B2507004A3B96 /* CreateFolderUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderUseCase.swift; sourceTree = "<group>"; };
+		2FBDB1152A1B27A1004A3B96 /* CreateFolderRegistoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFolderRegistoryImpl.swift; sourceTree = "<group>"; };
 		2FBFBA3C2A189B82009144A6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2FBFBA3E2A189B85009144A6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2FBFBA402A189B8D009144A6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -341,6 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				2F6D7DD72A160A5800FA457D /* RegisterUseCase.swift */,
+				2FBDB1132A1B2507004A3B96 /* CreateFolderUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -349,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				2F6D7DE32A160F1F00FA457D /* RegisterRepositoryType.swift */,
+				2FBDB1112A1B24C4004A3B96 /* CreateFolderRepositoryType.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -398,6 +412,7 @@
 			children = (
 				2FBFBA442A189E40009144A6 /* Coordinator */,
 				2FBFBA3A2A189B6C009144A6 /* Home */,
+				2FBDB1062A1B12B0004A3B96 /* CreateFolder */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -517,6 +532,32 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		2FBDB1062A1B12B0004A3B96 /* CreateFolder */ = {
+			isa = PBXGroup;
+			children = (
+				2FBDB10A2A1B12C5004A3B96 /* ViewModel */,
+				2FBDB1092A1B12BE004A3B96 /* View */,
+			);
+			path = CreateFolder;
+			sourceTree = "<group>";
+		};
+		2FBDB1092A1B12BE004A3B96 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2FBDB10D2A1B12DF004A3B96 /* CreateFolderView.swift */,
+				2FBDB10F2A1B12E5004A3B96 /* CreateFolderViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2FBDB10A2A1B12C5004A3B96 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2FBDB10B2A1B12D9004A3B96 /* CreateFolderViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		2FBFBA392A189B60009144A6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -576,6 +617,7 @@
 			isa = PBXGroup;
 			children = (
 				2FCCCB3C2A172F8800C9B327 /* RegisterRepositoryImpl.swift */,
+				2FBDB1152A1B27A1004A3B96 /* CreateFolderRegistoryImpl.swift */,
 			);
 			path = RepositoryImpl;
 			sourceTree = "<group>";
@@ -661,6 +703,8 @@
 				2FBFBA682A18B82C009144A6 /* BaseCollectionViewCell.swift in Sources */,
 				2F6D7D9E2A15BB9E00FA457D /* Coordinator.swift in Sources */,
 				2F6D7D902A15B99700FA457D /* TargetType.swift in Sources */,
+				2FBDB1162A1B27A1004A3B96 /* CreateFolderRegistoryImpl.swift in Sources */,
+				2FBDB10C2A1B12D9004A3B96 /* CreateFolderViewModel.swift in Sources */,
 				2F6D7DD82A160A5800FA457D /* RegisterUseCase.swift in Sources */,
 				2F6D7DA42A15BBFA00FA457D /* CoordinatorStyleCase.swift in Sources */,
 				2FBFBA612A18AFB9009144A6 /* UpdateFolderQuery.swift in Sources */,
@@ -687,6 +731,7 @@
 				2F6D7DDA2A160AAA00FA457D /* HTTPMethod.swift in Sources */,
 				2FBFBA4E2A18A66B009144A6 /* TodoPostDto.swift in Sources */,
 				2FBFBA5D2A18AE9C009144A6 /* FolderPostQuery.swift in Sources */,
+				2FBDB1102A1B12E5004A3B96 /* CreateFolderViewController.swift in Sources */,
 				2F6D7DB22A15C18600FA457D /* SignupView.swift in Sources */,
 				2FBFBA532A18AC28009144A6 /* Color.swift in Sources */,
 				2F6D7D922A15B9A700FA457D /* Router.swift in Sources */,
@@ -698,6 +743,7 @@
 				2F6D7DA02A15BBA500FA457D /* AppCoordinator.swift in Sources */,
 				2F6D7DB52A15C1D200FA457D /* ViewModelType.swift in Sources */,
 				2F6D7DD02A15F2CB00FA457D /* SignupAlertViewModel.swift in Sources */,
+				2FBDB10E2A1B12DF004A3B96 /* CreateFolderView.swift in Sources */,
 				2FCCCB392A172E7600C9B327 /* Service.swift in Sources */,
 				2F6D7D652A15B60D00FA457D /* SceneDelegate.swift in Sources */,
 				2F6D7DB92A15C23300FA457D /* BaseView.swift in Sources */,
@@ -706,6 +752,7 @@
 				2FBFBA552A18ACFF009144A6 /* TodoUpdateDto.swift in Sources */,
 				2FBFBA592A18AD74009144A6 /* UpdateMemberDto.swift in Sources */,
 				2F6D7DAA2A15C13200FA457D /* AuthCoordinator.swift in Sources */,
+				2FBDB1142A1B2507004A3B96 /* CreateFolderUseCase.swift in Sources */,
 				2F6D7DD22A15F2D400FA457D /* SignupAlertViewController.swift in Sources */,
 				2FCCCB3D2A172F8800C9B327 /* RegisterRepositoryImpl.swift in Sources */,
 				2FC1D9B22A1772AB008032C0 /* StatusCodeResponseDTO.swift in Sources */,
@@ -713,6 +760,7 @@
 				2F6D7D9C2A15BB4D00FA457D /* NetworkMonitor.swift in Sources */,
 				2FBFBA5B2A18AE23009144A6 /* TodoPostQuery.swift in Sources */,
 				2F6D7DC52A15DC9000FA457D /* LoginViewModel.swift in Sources */,
+				2FBDB1122A1B24C4004A3B96 /* CreateFolderRepositoryType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

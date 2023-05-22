@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TodoUpdateDto {
+struct TodoUpdateDto: Codable {
     let todoId: Int64
     let title: String
     let content: String

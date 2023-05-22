@@ -8,6 +8,6 @@
 import Foundation
 import Combine
 
-protocol FolderRepository: AnyObject {
-    func requestRegister(register: RegisterQuery) -> AnyPublisher<Folder, NetworkError>
+protocol CreateFolderRepository: AnyObject {
+    func requestCreateFolder(query: FolderPostQuery) -> AnyPublisher<[Folder], NetworkError>
 }

@@ -9,6 +9,7 @@ import Foundation
 
 enum Router {
     case register(parameters: RegisterQuery)
+    case createFolder(parameters: FolderPostQuery)
 }
 
 extension Router: TargetType {
@@ -22,14 +23,14 @@ extension Router: TargetType {
     
     var header: [String : String]? {
         switch self {
-        case .register:
+        case .register, .createFolder:
             return ["accept" : "application/json" , "Content-Type": "application/json"]
         }
     }
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .register:
+        case .register, .createFolder:
             return .post
         }
     }
@@ -42,21 +43,18 @@ extension Router: TargetType {
         return URL(string: APIKey.baseURL)!
     }
     
-    var testURL: URL {
-        return URL(string: APIKey.testURL)!
-    }
-    
     var path: String {
         switch self {
         case .register:
             return "/register"
+        case .createFolder:
+            return "/folder"
         }
     }
     
     var port: Int {
         return 8080
     }
-    
     
     var body: Data? {
         switch self {
@@ -65,17 +63,12 @@ extension Router: TargetType {
             encoder.keyEncodingStrategy = .convertToSnakeCase
             let parameters = ["email": parameters.email, "password": parameters.password, "name": parameters.name]
             return try? encoder.encode(parameters)
+            
+        case .createFolder(let parameters):
+            let folderPostDto = FolderPostDto(folderTitle: parameters.folderTitle, memberId: parameters.memberId, color: parameters.color)
+            let encoder = JSONEncoder()
+            encoder.keyEncodingStrategy = .convertToSnakeCase
+            return try? encoder.encode(folderPostDto)
         }
-    }
-    
-    //test용
-    func buildRequest() -> URLRequest {
-        let url = testURL.appendingPathComponent(path)
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.allHTTPHeaderFields = header
-        request.httpBody = body
-        print("TestHeader", request.allHTTPHeaderFields)
-        return request
     }
 }

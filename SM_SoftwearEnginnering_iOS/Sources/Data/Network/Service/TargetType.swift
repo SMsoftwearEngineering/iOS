@@ -7,40 +7,6 @@
 
 import Foundation
 
-enum Test {
-    case register(parameters: RegisterQuery)
-
-    func request(completion: @escaping (Result<Data, Error>) -> Void) {
-        let router: Router
-
-        switch self {
-        case .register(let parameters):
-            router = .register(parameters: RegisterQuery(email: parameters.email, name: parameters.name, password: parameters.password))
-        }
-
-        let request = router.buildRequest()
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            if let response = response as? HTTPURLResponse {
-                print("statusCode",response.statusCode)
-            }
-
-            guard let data = data else {
-                let emptyDataError = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Empty response data"])
-                completion(.failure(emptyDataError))
-                return
-            }
-            print("✅✅✅데이터",data)
-            completion(.success(data))
-        }
-
-        task.resume()
-    }
-}
-
 protocol TargetType {
     var scheme: String { get }
     var host: String { get }

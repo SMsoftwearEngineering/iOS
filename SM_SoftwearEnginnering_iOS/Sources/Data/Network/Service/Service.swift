@@ -24,6 +24,10 @@ final class ServiceImpl: Service {
     }
     
     func request<T: Decodable>(target: TargetType, type: T.Type) -> AnyPublisher<T, NetworkError> {
+        
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+
         return session.dataTaskPublisher(for: target.request)
             .tryMap { data, response in
                 guard let httpResponse = response as? HTTPURLResponse else {
