@@ -11,9 +11,12 @@ import Combine
 final class CreateTodoViewModel: ViewModelType {
     private weak var coordinator: MainCoordinator?
     private var anyCancellable = Set<AnyCancellable>()
+    private let createTodoUseCase: CreateTodoUseCase
 
-    init(coordinator: MainCoordinator?) {
+
+    init(coordinator: MainCoordinator?, createTodoUseCase: CreateTodoUseCase) {
         self.coordinator = coordinator
+        self.createTodoUseCase = createTodoUseCase
     }
     
     var todoTitleText = CurrentValueSubject<String, Never>("무제")
@@ -35,6 +38,20 @@ final class CreateTodoViewModel: ViewModelType {
     }
     
     func transform(_ input: Input) -> Output {
+        
+        input.createTodoButtonTap
+            .map {
+                self.createTodoUseCase
+                    .excute(title: "ㅎㅇㅎㅇ", content: "이거해야지", priority: Int32(1), wishCompleteDate: Date(), folderId: Int64(3), memberId: Int64(3))
+            }
+            .switchToLatest()
+            .receive(on: DispatchQueue.main)
+            .sink { error in
+                print(error)
+            } receiveValue: { [weak self] statusCode in
+                print(statusCode, "post statuscode")
+            }
+            .store(in: &anyCancellable)
         
         input.todoTitleText
             .sink { [weak self] folderTitleText in

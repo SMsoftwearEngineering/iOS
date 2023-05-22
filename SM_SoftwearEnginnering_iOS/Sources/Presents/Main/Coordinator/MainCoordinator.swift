@@ -42,7 +42,10 @@ final class MainCoordinator: Coordinator {
     }
     
     func showCreateTodoViewController() {
-        let viewModel = CreateTodoViewModel(coordinator: self)
+        let session = ServiceImpl.shared
+        let createTodoRepositroyImpl = CreateTodoRepositoryImpl(session: session)
+        let createTodoUseCaseImpl = CreateTodoUseCaseImpl(createTodoRepository: createTodoRepositroyImpl)
+        let viewModel = CreateTodoViewModel(coordinator: self, createTodoUseCase: createTodoUseCaseImpl)
         let vc = CreateTodoViewController(viewModel: viewModel)
         navigationController.pushViewController(vc, animated: true)
     }
