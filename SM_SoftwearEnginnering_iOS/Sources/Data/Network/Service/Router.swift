@@ -10,6 +10,7 @@ import Foundation
 enum Router {
     case register(parameters: RegisterQuery)
     case createFolder(parameters: FolderPostQuery)
+    case createTodo(parameters: TodoPostQuery)
 }
 
 extension Router: TargetType {
@@ -23,14 +24,14 @@ extension Router: TargetType {
     
     var header: [String : String]? {
         switch self {
-        case .register, .createFolder:
+        case .register, .createFolder, .createTodo:
             return ["accept" : "application/json" , "Content-Type": "application/json"]
         }
     }
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .register, .createFolder:
+        case .register, .createFolder, .createTodo:
             return .post
         }
     }
@@ -49,6 +50,8 @@ extension Router: TargetType {
             return "/register"
         case .createFolder:
             return "/folder"
+        case .createTodo:
+            return "/todo"
         }
     }
     
@@ -69,6 +72,12 @@ extension Router: TargetType {
             let encoder = JSONEncoder()
             encoder.keyEncodingStrategy = .convertToSnakeCase
             return try? encoder.encode(folderPostDto)
+            
+        case .createTodo(let parameters):
+            let todoPostDto = TodoPostDto(title: parameters.title, content: parameters.content, priority: parameters.priority, wishCompleteDate: parameters.wishCompleteDate, folderId: parameters.folderId, memberId: parameters.memberId)
+            let encoder = JSONEncoder()
+            encoder.keyEncodingStrategy = .convertToSnakeCase
+            return try? encoder.encode(todoPostDto)
         }
     }
 }

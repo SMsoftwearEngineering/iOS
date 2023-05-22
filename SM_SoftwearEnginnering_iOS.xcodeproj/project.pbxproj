@@ -60,6 +60,9 @@
 		2FBDB13B2A1B8765004A3B96 /* CreateTodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBDB13A2A1B8765004A3B96 /* CreateTodoViewModel.swift */; };
 		2FBDB13D2A1B8843004A3B96 /* CreateTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBDB13C2A1B8843004A3B96 /* CreateTodoView.swift */; };
 		2FBDB13F2A1B8EE2004A3B96 /* CreateTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBDB13E2A1B8EE2004A3B96 /* CreateTodoViewController.swift */; };
+		2FBDB1412A1B999C004A3B96 /* CreateTodoRegisterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBDB1402A1B999C004A3B96 /* CreateTodoRegisterType.swift */; };
+		2FBDB1432A1B99D2004A3B96 /* CreateTodoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBDB1422A1B99D2004A3B96 /* CreateTodoUseCase.swift */; };
+		2FBDB1452A1B9A20004A3B96 /* CreateTodoRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBDB1442A1B9A20004A3B96 /* CreateTodoRepositoryImpl.swift */; };
 		2FBFBA3D2A189B82009144A6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA3C2A189B82009144A6 /* HomeViewController.swift */; };
 		2FBFBA3F2A189B85009144A6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA3E2A189B85009144A6 /* HomeView.swift */; };
 		2FBFBA412A189B8D009144A6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBFBA402A189B8D009144A6 /* HomeViewModel.swift */; };
@@ -144,6 +147,9 @@
 		2FBDB13A2A1B8765004A3B96 /* CreateTodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTodoViewModel.swift; sourceTree = "<group>"; };
 		2FBDB13C2A1B8843004A3B96 /* CreateTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTodoView.swift; sourceTree = "<group>"; };
 		2FBDB13E2A1B8EE2004A3B96 /* CreateTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTodoViewController.swift; sourceTree = "<group>"; };
+		2FBDB1402A1B999C004A3B96 /* CreateTodoRegisterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTodoRegisterType.swift; sourceTree = "<group>"; };
+		2FBDB1422A1B99D2004A3B96 /* CreateTodoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTodoUseCase.swift; sourceTree = "<group>"; };
+		2FBDB1442A1B9A20004A3B96 /* CreateTodoRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTodoRepositoryImpl.swift; sourceTree = "<group>"; };
 		2FBFBA3C2A189B82009144A6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2FBFBA3E2A189B85009144A6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2FBFBA402A189B8D009144A6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -380,6 +386,7 @@
 			children = (
 				2F6D7DD72A160A5800FA457D /* RegisterUseCase.swift */,
 				2FBDB1132A1B2507004A3B96 /* CreateFolderUseCase.swift */,
+				2FBDB1422A1B99D2004A3B96 /* CreateTodoUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -389,6 +396,7 @@
 			children = (
 				2F6D7DE32A160F1F00FA457D /* RegisterRepositoryType.swift */,
 				2FBDB1112A1B24C4004A3B96 /* CreateFolderRepositoryType.swift */,
+				2FBDB1402A1B999C004A3B96 /* CreateTodoRegisterType.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -753,6 +761,7 @@
 			children = (
 				2FCCCB3C2A172F8800C9B327 /* RegisterRepositoryImpl.swift */,
 				2FBDB1152A1B27A1004A3B96 /* CreateFolderRegistoryImpl.swift */,
+				2FBDB1442A1B9A20004A3B96 /* CreateTodoRepositoryImpl.swift */,
 			);
 			path = RepositoryImpl;
 			sourceTree = "<group>";
@@ -846,6 +855,7 @@
 				2F6D7DD82A160A5800FA457D /* RegisterUseCase.swift in Sources */,
 				2F6D7DA42A15BBFA00FA457D /* CoordinatorStyleCase.swift in Sources */,
 				2FBFBA612A18AFB9009144A6 /* UpdateFolderQuery.swift in Sources */,
+				2FBDB1412A1B999C004A3B96 /* CreateTodoRegisterType.swift in Sources */,
 				2F6D7D942A15B9E200FA457D /* NetworkError.swift in Sources */,
 				2FC1D9B42A1772B7008032C0 /* RegisterRequestDTO.swift in Sources */,
 				2FBFBA5F2A18AF0E009144A6 /* TodoUpdateQuery.swift in Sources */,
@@ -872,9 +882,11 @@
 				2FBDB1322A1B7DF2004A3B96 /* TodoListView.swift in Sources */,
 				2FBFBA572A18AD46009144A6 /* UpdateFolderDto.swift in Sources */,
 				2FBDB1272A1B6AA7004A3B96 /* DetailTodoViewController.swift in Sources */,
+				2FBDB1452A1B9A20004A3B96 /* CreateTodoRepositoryImpl.swift in Sources */,
 				2F6D7DDA2A160AAA00FA457D /* HTTPMethod.swift in Sources */,
 				2FBFBA4E2A18A66B009144A6 /* TodoPostDto.swift in Sources */,
 				2FBFBA5D2A18AE9C009144A6 /* FolderPostQuery.swift in Sources */,
+				2FBDB1432A1B99D2004A3B96 /* CreateTodoUseCase.swift in Sources */,
 				2FBDB1102A1B12E5004A3B96 /* CreateFolderViewController.swift in Sources */,
 				2F6D7DB22A15C18600FA457D /* SignupView.swift in Sources */,
 				2FBFBA532A18AC28009144A6 /* Color.swift in Sources */,
