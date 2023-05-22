@@ -29,6 +29,10 @@ final class TodoListViewModel: ViewModelType {
     }
     
     func transform(_ input: Input) -> Output {
+        input.backButtonTap.sink { [weak self] _ in
+            self?.coordinator?.popPopupViewController()
+        }
+        .store(in: &anyCancellable)
         
 
         return Output()

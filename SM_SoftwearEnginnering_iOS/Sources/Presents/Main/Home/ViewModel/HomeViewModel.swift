@@ -22,6 +22,7 @@ final class HomeViewModel: ViewModelType {
         let filterButtonTap: AnyPublisher<Void, Never>
         let finishTaskListButtonTap: AnyPublisher<Void, Never>
         let deleteButtonTap: AnyPublisher<Void, Never>
+        let cellButtonTap: AnyPublisher<Void, Never>
 
     }
 
@@ -45,6 +46,10 @@ final class HomeViewModel: ViewModelType {
         }
         .store(in: &anyCancellable)
         
+        input.cellButtonTap.sink { [weak self] _ in
+            self?.coordinator?.showTodoListViewController()
+        }
+        .store(in: &anyCancellable)
 
         return Output()
     }

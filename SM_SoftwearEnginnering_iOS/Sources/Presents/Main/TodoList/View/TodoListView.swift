@@ -9,6 +9,11 @@ import UIKit
 import SnapKit
 
 final class TodoListView: BaseView {
+    let bgView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
     
     let folderNameButton: CustomButton = {
         let button = CustomButton(title: "작업 폴더 이름")
@@ -21,7 +26,7 @@ final class TodoListView: BaseView {
     }()
     
     let backButton: CustomButton = {
-        let button = CustomButton(title: "완료한 작업 리스트")
+        let button = CustomButton(title: "뒤로가기")
         return button
     }()
     
@@ -40,6 +45,7 @@ final class TodoListView: BaseView {
     private let groupRatio = 1.0
     
     override func setHierarchy() {
+        self.addSubview(bgView)
         self.addSubview(folderNameButton)
         self.addSubview(filterButton)
         self.addSubview(backButton)
@@ -48,6 +54,9 @@ final class TodoListView: BaseView {
     }
     
     override func setLayout() {
+        bgView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
         folderNameButton.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide).offset(48)
