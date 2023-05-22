@@ -30,6 +30,12 @@ final class TodoListViewController: BaseViewController {
     var deleteButtonTap: AnyPublisher<Void, Never> {
         return deleteButtonTapSubject.eraseToAnyPublisher()
     }
+    
+    private var cellButtonTapSubject = PassthroughSubject<Void, Never>()
+    
+    var cellButtonTap: AnyPublisher<Void, Never> {
+        return cellButtonTapSubject.eraseToAnyPublisher()
+    }
 
     override func loadView() {
         view = selfView
@@ -46,7 +52,7 @@ final class TodoListViewController: BaseViewController {
     }
     
     override func setBinding() {
-        let input = TodoListViewModel.Input(todoCreateButtonTap: selfView.createButton.tapPublisher, filterButtonTap: selfView.filterButton.tapPublisher, backButtonTap: selfView.backButton.tapPublisher, deleteButtonTap: self.deleteButtonTap)
+        let input = TodoListViewModel.Input(todoCreateButtonTap: selfView.createButton.tapPublisher, filterButtonTap: selfView.filterButton.tapPublisher, backButtonTap: selfView.backButton.tapPublisher, deleteButtonTap: self.deleteButtonTap, cellButtonTap: self.cellButtonTap)
         let output = viewModel.transform(input)
     }
     
@@ -59,7 +65,11 @@ final class TodoListViewController: BaseViewController {
                 self?.deleteButtonTapSubject.send()
             }
             .store(in: &cell.cancellableBag)
-
+            
+            cell.cellTouchButton.tapPublisher.sink { [weak self] in
+                self?.cellButtonTapSubject.send()
+            }
+            .store(in: &cell.cancellableBag)
         }
         
         dataSource = UICollectionViewDiffableDataSource(collectionView: selfView.collectionView) { collectionView, indexPath, itemIdentifier in

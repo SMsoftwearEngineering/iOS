@@ -21,6 +21,7 @@ final class TodoListViewModel: ViewModelType {
         let filterButtonTap: AnyPublisher<Void, Never>
         let backButtonTap: AnyPublisher<Void, Never>
         let deleteButtonTap: AnyPublisher<Void, Never>
+        let cellButtonTap: AnyPublisher<Void, Never>
 
     }
 
@@ -30,11 +31,20 @@ final class TodoListViewModel: ViewModelType {
     
     func transform(_ input: Input) -> Output {
         input.backButtonTap.sink { [weak self] _ in
-            self?.coordinator?.popPopupViewController()
+            self?.coordinator?.popViewController()
         }
         .store(in: &anyCancellable)
         
-
+        input.todoCreateButtonTap.sink { [weak self] _ in
+            self?.coordinator?.showCreateTodoViewController()
+        }
+        .store(in: &anyCancellable)
+        
+        input.cellButtonTap.sink { [weak self] _ in
+            self?.coordinator?.showDetailTodoViewController()
+        }
+        .store(in: &anyCancellable)
+        
         return Output()
     }
 }

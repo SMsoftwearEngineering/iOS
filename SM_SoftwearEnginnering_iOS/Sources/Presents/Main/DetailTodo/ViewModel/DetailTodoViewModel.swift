@@ -27,7 +27,7 @@ final class DetailTodoViewModel: ViewModelType {
     func transform(_ input: Input) -> Output {
         
         input.cancelButtonTap.sink { [weak self] _ in
-            self?.coordinator?.popPopupViewController()
+            self?.coordinator?.dismissViewController()
         }
         .store(in: &anyCancellable)
         return Output()

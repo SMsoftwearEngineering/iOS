@@ -30,7 +30,6 @@ final class DetailTodoViewController: BaseViewController {
     }
     
     override func setAttributes() {
-        navigationController?.isNavigationBarHidden = true
         selfView.backgroundColor = .clear
     }
     
