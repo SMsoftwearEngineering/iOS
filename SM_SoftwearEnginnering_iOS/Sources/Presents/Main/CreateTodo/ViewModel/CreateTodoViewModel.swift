@@ -21,7 +21,7 @@ final class CreateTodoViewModel: ViewModelType {
     
     var todoTitleText = CurrentValueSubject<String, Never>("무제")
     var folderListPublish = CurrentValueSubject<[Folder], Never>([])
-    var folderColor = CurrentValueSubject<String, Never>("PURPLE")
+    var folderColor = CurrentValueSubject<String, Never>("RED")
 
     struct Input {
         let createTodoButtonTap: AnyPublisher<Void, Never>
@@ -42,7 +42,7 @@ final class CreateTodoViewModel: ViewModelType {
         input.createTodoButtonTap
             .map {
                 self.createTodoUseCase
-                    .excute(title: "ㅎㅇㅎㅇ", content: "이거해야지", priority: Int32(1), wishCompleteDate: Date(), folderId: Int64(3), memberId: Int64(3))
+                    .excute(title: "string", content: "string", priority: Int32(1), wishCompleteDate: "2023-05-23", folderId: Int64(1), memberId: Int64(1))
             }
             .switchToLatest()
             .receive(on: DispatchQueue.main)

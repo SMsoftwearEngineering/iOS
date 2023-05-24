@@ -11,7 +11,7 @@ struct TodoPostQuery: Hashable {
     let title: String
     let content: String
     let priority: Int32
-    let wishCompleteDate: Date
+    let wishCompleteDate: String
     let folderId: Int64
     let memberId: Int64
 }

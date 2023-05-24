@@ -78,4 +78,10 @@ final class MainCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
 
     }
+    
+    func connectAuthCoordinator() {
+        let authCoordinator = AuthCoordinator(self.navigationController)
+        authCoordinator.start()
+        childCoordinators.append(authCoordinator)
+    }
 }

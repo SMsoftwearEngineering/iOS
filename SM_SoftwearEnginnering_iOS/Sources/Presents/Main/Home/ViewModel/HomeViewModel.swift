@@ -32,7 +32,8 @@ final class HomeViewModel: ViewModelType {
     
     func transform(_ input: Input) -> Output {
         input.logoutButtonTap.sink { [weak self] _ in
-            self?.coordinator?.showDetailTodoViewController()
+//            self?.coordinator?.showDetailTodoViewController()
+            self?.coordinator?.connectAuthCoordinator()
         }
         .store(in: &anyCancellable)
         
@@ -46,7 +47,9 @@ final class HomeViewModel: ViewModelType {
         }
         .store(in: &anyCancellable)
         
-        input.cellButtonTap.sink { [weak self] _ in
+        input.cellButtonTap
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
             self?.coordinator?.showTodoListViewController()
         }
         .store(in: &anyCancellable)
