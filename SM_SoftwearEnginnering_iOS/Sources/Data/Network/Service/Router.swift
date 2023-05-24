@@ -12,6 +12,7 @@ enum Router {
     case createFolder(parameters: FolderPostQuery)
     case createTodo(parameters: TodoPostQuery)
     case login(parameters: LoginQuery)
+    case deleteTodo(parameters: DeleteTodoQuery)
 }
 
 extension Router: TargetType {
@@ -25,7 +26,7 @@ extension Router: TargetType {
     
     var header: [String : String]? {
         switch self {
-        case .register, .createFolder, .createTodo, .login:
+        case .register, .createFolder, .createTodo, .login, .deleteTodo:
             return ["accept" : "application/json" , "Content-Type": "application/json"]
         }
     }
@@ -34,6 +35,8 @@ extension Router: TargetType {
         switch self {
         case .register, .createFolder, .createTodo, .login:
             return .post
+        case .deleteTodo:
+            return .delete
         }
     }
     
@@ -51,7 +54,7 @@ extension Router: TargetType {
             return "/register"
         case .createFolder:
             return "/folder"
-        case .createTodo:
+        case .createTodo, .deleteTodo:
             return "/todo"
         case .login:
             return "/login"
@@ -87,6 +90,12 @@ extension Router: TargetType {
             let encoder = JSONEncoder()
             encoder.keyEncodingStrategy = .convertToSnakeCase
             return try? encoder.encode(loginPostDto)
+            
+        case .deleteTodo(let parameters):
+            let deleteTodoDto = DeleteTodoDto(todoId: parameters.todoId)
+            let encoder = JSONEncoder()
+            encoder.keyEncodingStrategy = .convertToSnakeCase
+            return try? encoder.encode(deleteTodoDto)
         }
     }
 }
