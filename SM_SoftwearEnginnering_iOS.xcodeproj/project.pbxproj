@@ -97,6 +97,11 @@
 		2FDFB1B02A1DE1EB0025E553 /* LoginRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFB1AF2A1DE1EB0025E553 /* LoginRepositoryImpl.swift */; };
 		2FDFB1B22A1DE3810025E553 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFB1B12A1DE3810025E553 /* LoginUseCase.swift */; };
 		2FDFB1B72A1DE97D0025E553 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2FDFB1B62A1DE97D0025E553 /* IQKeyboardManagerSwift */; };
+		2FDFB1B92A1DEB1E0025E553 /* DeleteTodoRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFB1B82A1DEB1E0025E553 /* DeleteTodoRepositoryType.swift */; };
+		2FDFB1BB2A1DEB730025E553 /* DeleteTodoQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFB1BA2A1DEB730025E553 /* DeleteTodoQuery.swift */; };
+		2FDFB1BD2A1DEBA50025E553 /* DeleteTodoDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFB1BC2A1DEBA50025E553 /* DeleteTodoDto.swift */; };
+		2FDFB1BF2A1DEBFB0025E553 /* DeleteTodoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFB1BE2A1DEBFB0025E553 /* DeleteTodoRepository.swift */; };
+		2FDFB1C12A1DED0F0025E553 /* DeleteTodoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFB1C02A1DED0F0025E553 /* DeleteTodoUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -190,6 +195,11 @@
 		2FDFB1AD2A1DE1260025E553 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		2FDFB1AF2A1DE1EB0025E553 /* LoginRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepositoryImpl.swift; sourceTree = "<group>"; };
 		2FDFB1B12A1DE3810025E553 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		2FDFB1B82A1DEB1E0025E553 /* DeleteTodoRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTodoRepositoryType.swift; sourceTree = "<group>"; };
+		2FDFB1BA2A1DEB730025E553 /* DeleteTodoQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTodoQuery.swift; sourceTree = "<group>"; };
+		2FDFB1BC2A1DEBA50025E553 /* DeleteTodoDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTodoDto.swift; sourceTree = "<group>"; };
+		2FDFB1BE2A1DEBFB0025E553 /* DeleteTodoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTodoRepository.swift; sourceTree = "<group>"; };
+		2FDFB1C02A1DED0F0025E553 /* DeleteTodoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTodoUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -405,6 +415,7 @@
 				2FBDB1132A1B2507004A3B96 /* CreateFolderUseCase.swift */,
 				2FBDB1422A1B99D2004A3B96 /* CreateTodoUseCase.swift */,
 				2FDFB1B12A1DE3810025E553 /* LoginUseCase.swift */,
+				2FDFB1C02A1DED0F0025E553 /* DeleteTodoUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -416,6 +427,7 @@
 				2FBDB1112A1B24C4004A3B96 /* CreateFolderRepositoryType.swift */,
 				2FBDB1402A1B999C004A3B96 /* CreateTodoRegisterType.swift */,
 				2FDFB1AB2A1DE0E00025E553 /* LoginRepositoryType.swift */,
+				2FDFB1B82A1DEB1E0025E553 /* DeleteTodoRepositoryType.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -589,6 +601,7 @@
 				2FBFBA602A18AFB9009144A6 /* UpdateFolderQuery.swift */,
 				2FBFBA622A18B072009144A6 /* UpdateMemberQuery.swift */,
 				2FDFB1A52A1DE01C0025E553 /* LoginQuery.swift */,
+				2FDFB1BA2A1DEB730025E553 /* DeleteTodoQuery.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -774,6 +787,7 @@
 				2FBFBA562A18AD46009144A6 /* UpdateFolderDto.swift */,
 				2FBFBA582A18AD74009144A6 /* UpdateMemberDto.swift */,
 				2FDFB1A72A1DE04A0025E553 /* LoginPostDto.swift */,
+				2FDFB1BC2A1DEBA50025E553 /* DeleteTodoDto.swift */,
 			);
 			path = RequestDTO;
 			sourceTree = "<group>";
@@ -785,6 +799,7 @@
 				2FDFB1AF2A1DE1EB0025E553 /* LoginRepositoryImpl.swift */,
 				2FBDB1152A1B27A1004A3B96 /* CreateFolderRegistoryImpl.swift */,
 				2FBDB1442A1B9A20004A3B96 /* CreateTodoRepositoryImpl.swift */,
+				2FDFB1BE2A1DEBFB0025E553 /* DeleteTodoRepository.swift */,
 			);
 			path = RepositoryImpl;
 			sourceTree = "<group>";
@@ -890,6 +905,7 @@
 				2FDFB1B22A1DE3810025E553 /* LoginUseCase.swift in Sources */,
 				2FDFB1A62A1DE01C0025E553 /* LoginQuery.swift in Sources */,
 				2FDFB1A82A1DE04A0025E553 /* LoginPostDto.swift in Sources */,
+				2FDFB1B92A1DEB1E0025E553 /* DeleteTodoRepositoryType.swift in Sources */,
 				2F6D7DCB2A15EF8D00FA457D /* CustomAlertView.swift in Sources */,
 				2FBDB1202A1B65EA004A3B96 /* CustomYesOrNoAlertView.swift in Sources */,
 				2FDFB1B02A1DE1EB0025E553 /* LoginRepositoryImpl.swift in Sources */,
@@ -897,6 +913,7 @@
 				2F6D7DDE2A160DC500FA457D /* RegisterQuery.swift in Sources */,
 				2F6D7D632A15B60D00FA457D /* AppDelegate.swift in Sources */,
 				2F6D7D8E2A15B98000FA457D /* APIKey.swift in Sources */,
+				2FDFB1BD2A1DEBA50025E553 /* DeleteTodoDto.swift in Sources */,
 				2F6D7DB72A15C23000FA457D /* BaseViewController.swift in Sources */,
 				2F6D7DC02A15C4AC00FA457D /* UIColor + Extension.swift in Sources */,
 				2F6D7DE42A160F1F00FA457D /* RegisterRepositoryType.swift in Sources */,
@@ -933,6 +950,7 @@
 				2FBDB13D2A1B8843004A3B96 /* CreateTodoView.swift in Sources */,
 				2F6D7DB52A15C1D200FA457D /* ViewModelType.swift in Sources */,
 				2F6D7DD02A15F2CB00FA457D /* SignupAlertViewModel.swift in Sources */,
+				2FDFB1BF2A1DEBFB0025E553 /* DeleteTodoRepository.swift in Sources */,
 				2FBDB10E2A1B12DF004A3B96 /* CreateFolderView.swift in Sources */,
 				2FCCCB392A172E7600C9B327 /* Service.swift in Sources */,
 				2F6D7D652A15B60D00FA457D /* SceneDelegate.swift in Sources */,
@@ -945,9 +963,11 @@
 				2F6D7DAA2A15C13200FA457D /* AuthCoordinator.swift in Sources */,
 				2FBDB1142A1B2507004A3B96 /* CreateFolderUseCase.swift in Sources */,
 				2F6D7DD22A15F2D400FA457D /* SignupAlertViewController.swift in Sources */,
+				2FDFB1BB2A1DEB730025E553 /* DeleteTodoQuery.swift in Sources */,
 				2FCCCB3D2A172F8800C9B327 /* RegisterRepositoryImpl.swift in Sources */,
 				2FC1D9B22A1772AB008032C0 /* StatusCodeResponseDTO.swift in Sources */,
 				2FBFBA482A18A4B6009144A6 /* Folder.swift in Sources */,
+				2FDFB1C12A1DED0F0025E553 /* DeleteTodoUseCase.swift in Sources */,
 				2F6D7D9C2A15BB4D00FA457D /* NetworkMonitor.swift in Sources */,
 				2FBFBA5B2A18AE23009144A6 /* TodoPostQuery.swift in Sources */,
 				2F6D7DC52A15DC9000FA457D /* LoginViewModel.swift in Sources */,
