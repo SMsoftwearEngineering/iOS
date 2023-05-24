@@ -106,3 +106,13 @@ extension UISlider {
             .eraseToAnyPublisher()
     }
 }
+
+extension UITextView {
+    var textPublisher: AnyPublisher<String, Never> {
+        NotificationCenter.default.publisher(for: UITextView.textDidChangeNotification, object: self)
+            .compactMap { notification in
+                return (notification.object as? UITextView)?.text
+            }
+            .eraseToAnyPublisher()
+    }
+}

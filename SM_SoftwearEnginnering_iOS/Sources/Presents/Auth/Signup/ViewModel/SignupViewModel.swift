@@ -45,12 +45,12 @@ final class SignupViewModel: ViewModelType {
             .receive(on: DispatchQueue.main)
             .sink { error in
                 print(error)
-            } receiveValue: { status in
+            } receiveValue: { [weak self] status in
                 switch status {
                 case 200:
-                    self.coordinator?.showLoginViewController()
+                    self?.coordinator?.showLoginViewController()
                 case 500:
-                    self.toastMessage.send("이미 가입된 ID입니다.")
+                    self?.toastMessage.send("이미 가입된 ID입니다.")
                 default:
                     print(status, "error")
                 }

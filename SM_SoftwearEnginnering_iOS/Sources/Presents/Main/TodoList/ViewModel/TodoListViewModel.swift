@@ -22,6 +22,7 @@ final class TodoListViewModel: ViewModelType {
         let backButtonTap: AnyPublisher<Void, Never>
         let deleteButtonTap: AnyPublisher<Void, Never>
         let cellButtonTap: AnyPublisher<Void, Never>
+        let viewDidLoad: AnyPublisher<Void, Never>
 
     }
 
@@ -30,6 +31,11 @@ final class TodoListViewModel: ViewModelType {
     }
     
     func transform(_ input: Input) -> Output {
+        input.viewDidLoad.sink { _ in
+            print("viewDidLoad")
+        }
+        .store(in: &anyCancellable)
+        
         input.backButtonTap.sink { [weak self] _ in
             self?.coordinator?.popViewController()
         }

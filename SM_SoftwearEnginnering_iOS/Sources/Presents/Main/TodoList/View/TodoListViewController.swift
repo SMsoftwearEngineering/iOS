@@ -27,6 +27,7 @@ final class TodoListViewController: BaseViewController {
     
     private var deleteButtonTapSubject = PassthroughSubject<Void, Never>()
     
+    
     var deleteButtonTap: AnyPublisher<Void, Never> {
         return deleteButtonTapSubject.eraseToAnyPublisher()
     }
@@ -36,6 +37,12 @@ final class TodoListViewController: BaseViewController {
     var cellButtonTap: AnyPublisher<Void, Never> {
         return cellButtonTapSubject.eraseToAnyPublisher()
     }
+    
+    private var viewDidLoadSubject = PassthroughSubject<Void, Never>()
+    
+    var viewDidLoadEvent: AnyPublisher<Void, Never> {
+        return viewDidLoadSubject.eraseToAnyPublisher()
+    }
 
     override func loadView() {
         view = selfView
@@ -43,6 +50,7 @@ final class TodoListViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewDidLoadSubject.send(())
         setDataSource()
         snapshotAppend()
     }
@@ -52,7 +60,7 @@ final class TodoListViewController: BaseViewController {
     }
     
     override func setBinding() {
-        let input = TodoListViewModel.Input(todoCreateButtonTap: selfView.createButton.tapPublisher, filterButtonTap: selfView.filterButton.tapPublisher, backButtonTap: selfView.backButton.tapPublisher, deleteButtonTap: self.deleteButtonTap, cellButtonTap: self.cellButtonTap)
+        let input = TodoListViewModel.Input(todoCreateButtonTap: selfView.createButton.tapPublisher, filterButtonTap: selfView.filterButton.tapPublisher, backButtonTap: selfView.backButton.tapPublisher, deleteButtonTap: self.deleteButtonTap, cellButtonTap: self.cellButtonTap, viewDidLoad: self.viewDidLoadEvent)
         let output = viewModel.transform(input)
     }
     

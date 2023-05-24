@@ -19,13 +19,10 @@ final class CreateTodoViewModel: ViewModelType {
         self.createTodoUseCase = createTodoUseCase
     }
     
-    var todoTitleText = CurrentValueSubject<String, Never>("무제")
-    var folderListPublish = CurrentValueSubject<[Folder], Never>([])
-    var folderColor = CurrentValueSubject<String, Never>("RED")
-
     struct Input {
         let createTodoButtonTap: AnyPublisher<Void, Never>
         let todoTitleText: AnyPublisher<String, Never>
+        let todoContentText: AnyPublisher<String, Never>
         let redButtonTap: AnyPublisher<Void, Never>
         let greenButtonTap: AnyPublisher<Void, Never>
         let yellowButtonTap: AnyPublisher<Void, Never>
@@ -34,8 +31,15 @@ final class CreateTodoViewModel: ViewModelType {
     }
 
     struct Output {
-
+        let toastMessage: AnyPublisher<String, Never>
     }
+    
+    var todoTitleText = CurrentValueSubject<String, Never>("무제")
+    var todoContentText = CurrentValueSubject<String, Never>("")
+    var folderListPublish = CurrentValueSubject<[Folder], Never>([])
+    var folderColor = CurrentValueSubject<String, Never>("RED")
+    
+    var toastMessage = CurrentValueSubject<String, Never>("")
     
     func transform(_ input: Input) -> Output {
         
@@ -54,37 +58,50 @@ final class CreateTodoViewModel: ViewModelType {
             .store(in: &anyCancellable)
         
         input.todoTitleText
-            .sink { [weak self] folderTitleText in
-                self?.todoTitleText.value = folderTitleText
+            .sink { [weak self] todoTitleText in
+                self?.todoTitleText.value = todoTitleText
+            }
+            .store(in: &anyCancellable)
+        
+        input.todoContentText
+            .sink { [weak self] todoContentText in
+                self?.todoContentText.value = todoContentText
             }
             .store(in: &anyCancellable)
         
         input.greenButtonTap.sink { [weak self] _ in
             self?.folderColor.send("GREEN")
+            self?.toastMessage.send("초록색을 선택하셨습니다.")
         }
         .store(in: &anyCancellable)
         
         input.orangeButtonTap.sink { [weak self] _ in
             self?.folderColor.send("ORANGE")
+            self?.toastMessage.send("주황색을 선택하셨습니다.")
         }
         .store(in: &anyCancellable)
 
         input.purpleButtonTap.sink { [weak self] _ in
             self?.folderColor.send("PURPLE")
+            self?.toastMessage.send("보라색을 선택하셨습니다.")
         }
         .store(in: &anyCancellable)
         
         input.redButtonTap.sink { [weak self] _ in
             self?.folderColor.send("RED")
+            self?.toastMessage.send("빨간색을 선택하셨습니다.")
         }
         .store(in: &anyCancellable)
         
         input.yellowButtonTap.sink { [weak self] _ in
             self?.folderColor.send("YELLOW")
+            self?.toastMessage.send("노란색을 선택하셨습니다.")
         }
         .store(in: &anyCancellable)
         
-        return Output()
+        let toastMessage = self.toastMessage.eraseToAnyPublisher()
+        
+        return Output(toastMessage: toastMessage)
     }
 }
 

@@ -23,6 +23,7 @@ final class HomeViewModel: ViewModelType {
         let finishTaskListButtonTap: AnyPublisher<Void, Never>
         let deleteButtonTap: AnyPublisher<Void, Never>
         let cellButtonTap: AnyPublisher<Void, Never>
+        let viewDidLoad: AnyPublisher<Void, Never>
 
     }
 
@@ -31,6 +32,11 @@ final class HomeViewModel: ViewModelType {
     }
     
     func transform(_ input: Input) -> Output {
+        input.viewDidLoad.sink { _ in
+            print("viewDidLoad")
+        }
+        .store(in: &anyCancellable)
+        
         input.logoutButtonTap.sink { [weak self] _ in
 //            self?.coordinator?.showDetailTodoViewController()
             self?.coordinator?.connectAuthCoordinator()
