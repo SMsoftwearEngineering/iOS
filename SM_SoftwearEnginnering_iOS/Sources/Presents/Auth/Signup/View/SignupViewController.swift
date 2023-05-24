@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import Toast
 
 final class SignupViewController: BaseViewController {
     
@@ -37,7 +38,13 @@ final class SignupViewController: BaseViewController {
         
         output.signUpValid.sink { valid in
             self.selfView.signupButton.isEnabled = valid
+            
         }
+        .store(in: &cancellableBag)
+        
+        output.toastMessage.sink(receiveValue: { [unowned self] text in
+            self.view.makeToast(text, position: .bottom)
+        })
         .store(in: &cancellableBag)
     }
 }

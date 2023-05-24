@@ -102,6 +102,7 @@
 		2FDFB1BD2A1DEBA50025E553 /* DeleteTodoDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFB1BC2A1DEBA50025E553 /* DeleteTodoDto.swift */; };
 		2FDFB1BF2A1DEBFB0025E553 /* DeleteTodoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFB1BE2A1DEBFB0025E553 /* DeleteTodoRepository.swift */; };
 		2FDFB1C12A1DED0F0025E553 /* DeleteTodoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFB1C02A1DED0F0025E553 /* DeleteTodoUseCase.swift */; };
+		2FDFB1C42A1DF52D0025E553 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 2FDFB1C32A1DF52D0025E553 /* Toast */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -207,6 +208,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FDFB1C42A1DF52D0025E553 /* Toast in Frameworks */,
 				2FC1D9BB2A1786F3008032C0 /* SnapKit in Frameworks */,
 				2FDFB1B72A1DE97D0025E553 /* IQKeyboardManagerSwift in Frameworks */,
 			);
@@ -823,6 +825,7 @@
 			packageProductDependencies = (
 				2FC1D9BA2A1786F3008032C0 /* SnapKit */,
 				2FDFB1B62A1DE97D0025E553 /* IQKeyboardManagerSwift */,
+				2FDFB1C32A1DF52D0025E553 /* Toast */,
 			);
 			productName = SM_SoftwearEnginnering_iOS;
 			productReference = 2F6D7D5F2A15B60D00FA457D /* SM_SoftwearEnginnering_iOS.app */;
@@ -855,6 +858,7 @@
 			packageReferences = (
 				2FC1D9B92A1786F3008032C0 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				2FDFB1B52A1DE97D0025E553 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				2FDFB1C22A1DF52D0025E553 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = 2F6D7D602A15B60D00FA457D /* Products */;
 			projectDirPath = "";
@@ -1200,6 +1204,14 @@
 				version = 6.5.0;
 			};
 		};
+		2FDFB1C22A1DF52D0025E553 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1212,6 +1224,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2FDFB1B52A1DE97D0025E553 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		2FDFB1C32A1DF52D0025E553 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FDFB1C22A1DF52D0025E553 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
