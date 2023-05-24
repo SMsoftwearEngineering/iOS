@@ -89,6 +89,14 @@
 		2FC1D9BB2A1786F3008032C0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2FC1D9BA2A1786F3008032C0 /* SnapKit */; };
 		2FCCCB392A172E7600C9B327 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCCCB382A172E7600C9B327 /* Service.swift */; };
 		2FCCCB3D2A172F8800C9B327 /* RegisterRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCCCB3C2A172F8800C9B327 /* RegisterRepositoryImpl.swift */; };
+		2FDFB1A62A1DE01C0025E553 /* LoginQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFB1A52A1DE01C0025E553 /* LoginQuery.swift */; };
+		2FDFB1A82A1DE04A0025E553 /* LoginPostDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFB1A72A1DE04A0025E553 /* LoginPostDto.swift */; };
+		2FDFB1AA2A1DE07C0025E553 /* LoginResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFB1A92A1DE07C0025E553 /* LoginResponseDto.swift */; };
+		2FDFB1AC2A1DE0E00025E553 /* LoginRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFB1AB2A1DE0E00025E553 /* LoginRepositoryType.swift */; };
+		2FDFB1AE2A1DE1260025E553 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFB1AD2A1DE1260025E553 /* Login.swift */; };
+		2FDFB1B02A1DE1EB0025E553 /* LoginRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFB1AF2A1DE1EB0025E553 /* LoginRepositoryImpl.swift */; };
+		2FDFB1B22A1DE3810025E553 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFB1B12A1DE3810025E553 /* LoginUseCase.swift */; };
+		2FDFB1B72A1DE97D0025E553 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2FDFB1B62A1DE97D0025E553 /* IQKeyboardManagerSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -175,6 +183,13 @@
 		2FC1D9B32A1772B7008032C0 /* RegisterRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequestDTO.swift; sourceTree = "<group>"; };
 		2FCCCB382A172E7600C9B327 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		2FCCCB3C2A172F8800C9B327 /* RegisterRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRepositoryImpl.swift; sourceTree = "<group>"; };
+		2FDFB1A52A1DE01C0025E553 /* LoginQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginQuery.swift; sourceTree = "<group>"; };
+		2FDFB1A72A1DE04A0025E553 /* LoginPostDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPostDto.swift; sourceTree = "<group>"; };
+		2FDFB1A92A1DE07C0025E553 /* LoginResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseDto.swift; sourceTree = "<group>"; };
+		2FDFB1AB2A1DE0E00025E553 /* LoginRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepositoryType.swift; sourceTree = "<group>"; };
+		2FDFB1AD2A1DE1260025E553 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		2FDFB1AF2A1DE1EB0025E553 /* LoginRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepositoryImpl.swift; sourceTree = "<group>"; };
+		2FDFB1B12A1DE3810025E553 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FC1D9BB2A1786F3008032C0 /* SnapKit in Frameworks */,
+				2FDFB1B72A1DE97D0025E553 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +384,7 @@
 				2FC1D9B12A1772AB008032C0 /* StatusCodeResponseDTO.swift */,
 				2FBFBA492A18A51F009144A6 /* FolderResponseDto.swift */,
 				2FBFBA4B2A18A5D7009144A6 /* TodoResponseDto.swift */,
+				2FDFB1A92A1DE07C0025E553 /* LoginResponseDto.swift */,
 			);
 			path = ResponseDTO;
 			sourceTree = "<group>";
@@ -387,6 +404,7 @@
 				2F6D7DD72A160A5800FA457D /* RegisterUseCase.swift */,
 				2FBDB1132A1B2507004A3B96 /* CreateFolderUseCase.swift */,
 				2FBDB1422A1B99D2004A3B96 /* CreateTodoUseCase.swift */,
+				2FDFB1B12A1DE3810025E553 /* LoginUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -397,6 +415,7 @@
 				2F6D7DE32A160F1F00FA457D /* RegisterRepositoryType.swift */,
 				2FBDB1112A1B24C4004A3B96 /* CreateFolderRepositoryType.swift */,
 				2FBDB1402A1B999C004A3B96 /* CreateTodoRegisterType.swift */,
+				2FDFB1AB2A1DE0E00025E553 /* LoginRepositoryType.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -555,6 +574,7 @@
 			children = (
 				2FBFBA472A18A4B6009144A6 /* Folder.swift */,
 				2FBFBA642A18B10B009144A6 /* Todo.swift */,
+				2FDFB1AD2A1DE1260025E553 /* Login.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -568,6 +588,7 @@
 				2FBFBA5E2A18AF0E009144A6 /* TodoUpdateQuery.swift */,
 				2FBFBA602A18AFB9009144A6 /* UpdateFolderQuery.swift */,
 				2FBFBA622A18B072009144A6 /* UpdateMemberQuery.swift */,
+				2FDFB1A52A1DE01C0025E553 /* LoginQuery.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -752,6 +773,7 @@
 				2FBFBA542A18ACFF009144A6 /* TodoUpdateDto.swift */,
 				2FBFBA562A18AD46009144A6 /* UpdateFolderDto.swift */,
 				2FBFBA582A18AD74009144A6 /* UpdateMemberDto.swift */,
+				2FDFB1A72A1DE04A0025E553 /* LoginPostDto.swift */,
 			);
 			path = RequestDTO;
 			sourceTree = "<group>";
@@ -760,6 +782,7 @@
 			isa = PBXGroup;
 			children = (
 				2FCCCB3C2A172F8800C9B327 /* RegisterRepositoryImpl.swift */,
+				2FDFB1AF2A1DE1EB0025E553 /* LoginRepositoryImpl.swift */,
 				2FBDB1152A1B27A1004A3B96 /* CreateFolderRegistoryImpl.swift */,
 				2FBDB1442A1B9A20004A3B96 /* CreateTodoRepositoryImpl.swift */,
 			);
@@ -784,6 +807,7 @@
 			name = SM_SoftwearEnginnering_iOS;
 			packageProductDependencies = (
 				2FC1D9BA2A1786F3008032C0 /* SnapKit */,
+				2FDFB1B62A1DE97D0025E553 /* IQKeyboardManagerSwift */,
 			);
 			productName = SM_SoftwearEnginnering_iOS;
 			productReference = 2F6D7D5F2A15B60D00FA457D /* SM_SoftwearEnginnering_iOS.app */;
@@ -815,6 +839,7 @@
 			mainGroup = 2F6D7D562A15B60D00FA457D;
 			packageReferences = (
 				2FC1D9B92A1786F3008032C0 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				2FDFB1B52A1DE97D0025E553 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 2F6D7D602A15B60D00FA457D /* Products */;
 			projectDirPath = "";
@@ -860,9 +885,14 @@
 				2FC1D9B42A1772B7008032C0 /* RegisterRequestDTO.swift in Sources */,
 				2FBFBA5F2A18AF0E009144A6 /* TodoUpdateQuery.swift in Sources */,
 				2F6D7DC92A15DC9900FA457D /* LoginView.swift in Sources */,
+				2FDFB1AE2A1DE1260025E553 /* Login.swift in Sources */,
 				2F6D7DA22A15BBB500FA457D /* CoordinatorDelegate.swift in Sources */,
+				2FDFB1B22A1DE3810025E553 /* LoginUseCase.swift in Sources */,
+				2FDFB1A62A1DE01C0025E553 /* LoginQuery.swift in Sources */,
+				2FDFB1A82A1DE04A0025E553 /* LoginPostDto.swift in Sources */,
 				2F6D7DCB2A15EF8D00FA457D /* CustomAlertView.swift in Sources */,
 				2FBDB1202A1B65EA004A3B96 /* CustomYesOrNoAlertView.swift in Sources */,
+				2FDFB1B02A1DE1EB0025E553 /* LoginRepositoryImpl.swift in Sources */,
 				2F6D7DBE2A15C47700FA457D /* CustomTextField.swift in Sources */,
 				2F6D7DDE2A160DC500FA457D /* RegisterQuery.swift in Sources */,
 				2F6D7D632A15B60D00FA457D /* AppDelegate.swift in Sources */,
@@ -892,6 +922,7 @@
 				2FBFBA532A18AC28009144A6 /* Color.swift in Sources */,
 				2FBDB1292A1B6ACF004A3B96 /* DetailTodoView.swift in Sources */,
 				2F6D7D922A15B9A700FA457D /* Router.swift in Sources */,
+				2FDFB1AC2A1DE0E00025E553 /* LoginRepositoryType.swift in Sources */,
 				2FBFBA3F2A189B85009144A6 /* HomeView.swift in Sources */,
 				2FBFBA502A18ABA7009144A6 /* FolderPostDto.swift in Sources */,
 				2FBDB1252A1B6A9F004A3B96 /* DetailTodoViewModel.swift in Sources */,
@@ -909,6 +940,7 @@
 				2FBFBA462A189E4E009144A6 /* MainCoordinator.swift in Sources */,
 				2FBFBA652A18B10B009144A6 /* Todo.swift in Sources */,
 				2FBFBA552A18ACFF009144A6 /* TodoUpdateDto.swift in Sources */,
+				2FDFB1AA2A1DE07C0025E553 /* LoginResponseDto.swift in Sources */,
 				2FBFBA592A18AD74009144A6 /* UpdateMemberDto.swift in Sources */,
 				2F6D7DAA2A15C13200FA457D /* AuthCoordinator.swift in Sources */,
 				2FBDB1142A1B2507004A3B96 /* CreateFolderUseCase.swift in Sources */,
@@ -1140,6 +1172,14 @@
 				minimumVersion = 5.6.0;
 			};
 		};
+		2FDFB1B52A1DE97D0025E553 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1147,6 +1187,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2FC1D9B92A1786F3008032C0 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		2FDFB1B62A1DE97D0025E553 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FDFB1B52A1DE97D0025E553 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -11,11 +11,11 @@ import Combine
 final class LoginViewModel: ViewModelType {
     private weak var coordinator: AuthCoordinator?
     private var anyCancellable = Set<AnyCancellable>()
-    private let registerUseCase: RegisterUseCase
+    private let loginUseCase: LoginUseCase
     
-    init(registerUseCase: RegisterUseCase, coordinator: AuthCoordinator?) {
+    init(loginUseCase: LoginUseCase, coordinator: AuthCoordinator?) {
         self.coordinator = coordinator
-        self.registerUseCase = registerUseCase
+        self.loginUseCase = loginUseCase
     }
     
     struct Input {
@@ -35,23 +35,39 @@ final class LoginViewModel: ViewModelType {
     var errorPublisher = PassthroughSubject<String?, Never>()
     
     func transform(_ input: Input) -> Output {
-        input.loginButtonTap
-            .map {
-                self.registerUseCase.excute(id: self.idText.value ?? "", password: self.pwText.value ?? "")
-            }
-            .switchToLatest()
-            .receive(on: DispatchQueue.main)
-            .sink { error in
-                print(error)
-            } receiveValue: { status in
-                switch status {
-                case 200:
-                    self.coordinator?.connectHomeCoordinator()
-                default:
-                    print(status, "error")
-                }
-            }
-            .store(in: &anyCancellable)
+//        input.loginButtonTap
+//            .map {
+//                self.registerUseCase.excute(id: self.idText.value ?? "", password: self.pwText.value ?? "")
+//            }
+//            .switchToLatest()
+//            .receive(on: DispatchQueue.main)
+//            .sink { error in
+//                print(error)
+//            } receiveValue: { status in
+//                switch status {
+//                case 200:
+//                    self.coordinator?.connectHomeCoordinator()
+//                default:
+//                    print(status, "error")
+//                }
+//            }
+//            .store(in: &anyCancellable)
+        
+        input.loginButtonTap.map {
+            self.loginUseCase.excute(id: self.idText.value ?? "", password: self.pwText.value ?? "")
+        }
+        .switchToLatest()
+        .receive(on: DispatchQueue.main)
+        .sink { error in
+            print(error)
+        } receiveValue: { login in
+            print(login)
+            UserDefaults.standard.set(login.memberId, forKey: "memberId")
+            self.coordinator?.connectHomeCoordinator()
+        }
+        .store(in: &anyCancellable)
+        
+
 
         input.signupButtonTap.sink { [weak self] _ in
             self?.coordinator?.showSignupViewController()

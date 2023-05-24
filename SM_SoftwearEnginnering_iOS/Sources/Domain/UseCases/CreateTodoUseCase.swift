@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol CreateTodoUseCase {
-    func excute(title: String, content: String, priority: Int32, wishCompleteDate: Date, folderId: Int64, memberId: Int64) -> AnyPublisher<Int, NetworkError>
+    func excute(title: String, content: String, priority: Int32, wishCompleteDate: String, folderId: Int64, memberId: Int64) -> AnyPublisher<Int, NetworkError>
 }
 
 final class CreateTodoUseCaseImpl: CreateTodoUseCase {
@@ -20,7 +20,7 @@ final class CreateTodoUseCaseImpl: CreateTodoUseCase {
         self.createTodoRepository = createTodoRepository
     }
     
-    func excute(title: String, content: String, priority: Int32, wishCompleteDate: Date, folderId: Int64, memberId: Int64) -> AnyPublisher<Int, NetworkError> {
+    func excute(title: String, content: String, priority: Int32, wishCompleteDate: String, folderId: Int64, memberId: Int64) -> AnyPublisher<Int, NetworkError> {
         let todoPostQuery = TodoPostQuery(title: title, content: content, priority: priority, wishCompleteDate: wishCompleteDate, folderId: folderId, memberId: memberId)
         return Future<Int, NetworkError> { [weak self] promiss in
             guard let self else { return }

@@ -24,7 +24,7 @@ final class CreateFolderUseCaseImpl: CreateFolderUseCase {
         let createFolderQuery = FolderPostQuery(folderTitle: folderTitle, memberId: memberId, color: color)
         return Future<[Folder], NetworkError> { [weak self] promise in
             guard let self else { return }
-            print("Post Folder Query", createFolderQuery)
+            print("서버에게 보내는 Query", createFolderQuery)
             self.createFolderRepository.requestCreateFolder(query: createFolderQuery)
                 .sink { completion in
                     if case .failure(let error) = completion {

@@ -36,9 +36,9 @@ final class AuthCoordinator: Coordinator {
     
     func showLoginViewController() {
         let session = ServiceImpl.shared
-        let registerRepositroyImpl = RegisterRepositoryImpl(session: session)
-        let registerUseCaseImpl = RegisterUseCaseImpl(registerRepository: registerRepositroyImpl)
-        let viewModel = LoginViewModel(registerUseCase: registerUseCaseImpl, coordinator: self)
+        let loginRepositroyImpl = LoginRepositoryImpl(session: session)
+        let loginUseCaseImpl = LoginUseCaseImpl(loginRepository: loginRepositroyImpl)
+        let viewModel = LoginViewModel(loginUseCase: loginUseCaseImpl, coordinator: self)
         let vc = LoginViewController(viewModel: viewModel)
         changeAnimation()
         navigationController.viewControllers = [vc]
