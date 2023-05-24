@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toast
 
 final class CreateFolderViewController: BaseViewController {
     private let selfView = CreateFolderView()
@@ -36,5 +37,9 @@ final class CreateFolderViewController: BaseViewController {
         
         
         let output = viewModel.transform(input)
+        output.toastMessage.sink(receiveValue: { [unowned self] text in
+            self.view.makeToast(text, position: .bottom)
+        })
+        .store(in: &cancellableBag)
     }
 }

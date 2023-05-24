@@ -36,6 +36,12 @@ final class HomeViewController: BaseViewController {
     var cellButtonTap: AnyPublisher<Void, Never> {
         return cellButtonTapSubject.eraseToAnyPublisher()
     }
+    
+    private var viewDidLoadSubject = PassthroughSubject<Void, Never>()
+    
+    var viewDidLoadEvent: AnyPublisher<Void, Never> {
+        return viewDidLoadSubject.eraseToAnyPublisher()
+    }
 
     override func loadView() {
         view = selfView
@@ -43,6 +49,7 @@ final class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewDidLoadSubject.send(())
         setDataSource()
         snapshotAppend()
         navigationController?.isNavigationBarHidden = false
@@ -53,7 +60,7 @@ final class HomeViewController: BaseViewController {
     }
     
     override func setBinding() {
-        let input = HomeViewModel.Input(logoutButtonTap: selfView.logoutButton.tapPublisher, folderCreateButtonTap: selfView.folderCreateButton.tapPublisher, filterButtonTap: selfView.filterButton.tapPublisher, finishTaskListButtonTap: selfView.finishFilterButton.tapPublisher, deleteButtonTap: self.deleteButtonTap, cellButtonTap: self.cellButtonTap)
+        let input = HomeViewModel.Input(logoutButtonTap: selfView.logoutButton.tapPublisher, folderCreateButtonTap: selfView.folderCreateButton.tapPublisher, filterButtonTap: selfView.filterButton.tapPublisher, finishTaskListButtonTap: selfView.finishFilterButton.tapPublisher, deleteButtonTap: self.deleteButtonTap, cellButtonTap: self.cellButtonTap, viewDidLoad: self.viewDidLoadEvent)
         let output = viewModel.transform(input)
     }
     

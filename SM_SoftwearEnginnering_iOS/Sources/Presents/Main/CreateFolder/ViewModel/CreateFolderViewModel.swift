@@ -33,8 +33,10 @@ final class CreateFolderViewModel: ViewModelType {
     }
 
     struct Output {
-
+        let toastMessage: AnyPublisher<String, Never>
     }
+    
+    var toastMessage = CurrentValueSubject<String, Never>("")
     
     func transform(_ input: Input) -> Output {
         
@@ -61,30 +63,37 @@ final class CreateFolderViewModel: ViewModelType {
         
         input.greenButtonTap.sink { [weak self] _ in
             self?.folderColor.send("GREEN")
+            self?.toastMessage.send("초록색을 선택하셨습니다.")
         }
         .store(in: &anyCancellable)
         
         input.orangeButtonTap.sink { [weak self] _ in
             self?.folderColor.send("ORANGE")
+            self?.toastMessage.send("주황색을 선택하셨습니다.")
         }
         .store(in: &anyCancellable)
 
         input.purpleButtonTap.sink { [weak self] _ in
             self?.folderColor.send("PURPLE")
+            self?.toastMessage.send("보라색을 선택하셨습니다.")
         }
         .store(in: &anyCancellable)
         
         input.redButtonTap.sink { [weak self] _ in
             self?.folderColor.send("RED")
+            self?.toastMessage.send("빨간색을 선택하셨습니다.")
         }
         .store(in: &anyCancellable)
         
         input.yellowButtonTap.sink { [weak self] _ in
             self?.folderColor.send("YELLOW")
+            self?.toastMessage.send("노란색을 선택하셨습니다.")
         }
         .store(in: &anyCancellable)
         
-        return Output()
+        let toastMessage = self.toastMessage.eraseToAnyPublisher()
+        
+        return Output(toastMessage: toastMessage)
     }
 }
 

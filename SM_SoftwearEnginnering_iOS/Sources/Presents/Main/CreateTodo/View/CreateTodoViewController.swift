@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toast
 
 final class CreateTodoViewController: BaseViewController {
     private let selfView = CreateTodoView()
@@ -20,6 +21,7 @@ final class CreateTodoViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     override func loadView() {
         view = selfView
         
@@ -32,9 +34,14 @@ final class CreateTodoViewController: BaseViewController {
     }
     
     override func setBinding() {
-        let input = CreateTodoViewModel.Input(createTodoButtonTap: selfView.createButton.tapPublisher, todoTitleText: selfView.todoNameTextField.tf.textPublisher, redButtonTap: selfView.redButton.tapPublisher, greenButtonTap: selfView.greenButton.tapPublisher, yellowButtonTap: selfView.yellowButton.tapPublisher, orangeButtonTap: selfView.orangeButton.tapPublisher, purpleButtonTap: selfView.purpleButton.tapPublisher)
+        let input = CreateTodoViewModel.Input(createTodoButtonTap: selfView.createButton.tapPublisher, todoTitleText: selfView.todoNameTextField.tf.textPublisher, todoContentText: selfView.contentTextField.textPublisher, redButtonTap: selfView.redButton.tapPublisher, greenButtonTap: selfView.greenButton.tapPublisher, yellowButtonTap: selfView.yellowButton.tapPublisher, orangeButtonTap: selfView.orangeButton.tapPublisher, purpleButtonTap: selfView.purpleButton.tapPublisher)
         
         
         let output = viewModel.transform(input)
+        
+        output.toastMessage.sink(receiveValue: { [unowned self] text in
+            self.view.makeToast(text, position: .bottom)
+        })
+        .store(in: &cancellableBag)
     }
 }
