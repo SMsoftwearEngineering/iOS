@@ -27,10 +27,12 @@ final class SignupViewModel: ViewModelType {
 
     struct Output {
         let signUpValid: AnyPublisher<Bool, Never>
+        let toastMessage: AnyPublisher<String, Never>
     }
     
     var idText = CurrentValueSubject<String, Never>("")
     var pwText = CurrentValueSubject<String, Never>("")
+    var toastMessage = CurrentValueSubject<String, Never>("")
     var errorPublisher = PassthroughSubject<String?, Never>()
     
     func transform(_ input: Input) -> Output {
@@ -47,6 +49,8 @@ final class SignupViewModel: ViewModelType {
                 switch status {
                 case 200:
                     self.coordinator?.showLoginViewController()
+                case 500:
+                    self.toastMessage.send("이미 가입된 ID입니다.")
                 default:
                     print(status, "error")
                 }
@@ -71,6 +75,8 @@ final class SignupViewModel: ViewModelType {
             }
             .eraseToAnyPublisher()
         
-        return Output(signUpValid: signUpValid)
+        let toastMessage = self.toastMessage.eraseToAnyPublisher()
+        
+        return Output(signUpValid: signUpValid, toastMessage: toastMessage)
     }
 }
