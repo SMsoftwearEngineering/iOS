@@ -34,7 +34,6 @@ extension TargetType {
         request.allHTTPHeaderFields = header
         request.httpBody = parameters?.data(using: .utf8)
         request.httpBody = body
-//        print("header",request.allHTTPHeaderFields)
         return request
     }
 }

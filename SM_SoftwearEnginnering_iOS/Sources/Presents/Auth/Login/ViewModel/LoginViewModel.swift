@@ -63,6 +63,7 @@ final class LoginViewModel: ViewModelType {
         } receiveValue: { login in
             print(login)
             UserDefaults.standard.set(login.memberId, forKey: "memberId")
+            UserDefaults.standard.set(login.token, forKey: "token")
             self.coordinator?.connectHomeCoordinator()
         }
         .store(in: &anyCancellable)

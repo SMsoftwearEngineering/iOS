@@ -8,17 +8,18 @@
 import Foundation
 
 struct LoginResponseDto: Codable {
-    let email: String
-    let password: String
     let memberId: Int64
+    let email: String
+    let name: String?
+    let token: String
     
     enum CodingKeys: String, CodingKey {
-        case email, password, memberId
+        case memberId, email, name, token
     }
 }
 
 extension LoginResponseDto {
     var toDomain: Login {
-        .init(email: email, password: password, memberId: memberId)
+        .init(memberId: memberId, email: email, name: name, token: token)
     }
 }

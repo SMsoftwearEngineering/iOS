@@ -8,7 +8,8 @@
 import Foundation
 
 struct Login: Hashable {
-    let email: String
-    let password: String
     let memberId: Int64
+    let email: String
+    let name: String?
+    let token: String
 }
