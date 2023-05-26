@@ -51,13 +51,13 @@ extension Router: TargetType {
     var path: String {
         switch self {
         case .register:
-            return "/register"
+            return "/auth/register"
         case .createFolder:
             return "/folder"
         case .createTodo, .deleteTodo:
             return "/todo"
         case .login:
-            return "/login"
+            return "/auth/login"
         }
     }
     

@@ -50,6 +50,7 @@ final class SignupViewModel: ViewModelType {
                 case 200:
                     self?.coordinator?.showLoginViewController()
                 case 500:
+                    self?.coordinator?.showSignupAlertViewController()
                     self?.toastMessage.send("이미 가입된 ID입니다.")
                 default:
                     print(status, "error")
