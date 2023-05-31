@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TodoResponseDto: Codable {
+struct TodoResponseDtos: Codable {
     let todoId: Int64
     let title: String
     let content: String
@@ -16,14 +16,15 @@ struct TodoResponseDto: Codable {
     let wishCompleteDate: Date
     let folderId: Int64
     let memberId: Int64
+    let done: Bool
     
     enum CodingKeys: String, CodingKey {
-        case todoId, title, content, completeDate, priority, wishCompleteDate, folderId, memberId
+        case todoId, title, content, completeDate, priority, wishCompleteDate, folderId, memberId, done
     }
 }
 
-extension TodoResponseDto {
+extension TodoResponseDtos {
     var toDomain: Todo {
-        .init(todoId: todoId, title: title, content: content, completeDate: completeDate, priority: priority, wishCompleteDate: wishCompleteDate, folderId: folderId, memberId: memberId)
+        .init(todoId: todoId, title: title, content: content, completeDate: completeDate, priority: priority, wishCompleteDate: wishCompleteDate, folderId: folderId, memberId: memberId, done: done)
     }
 }

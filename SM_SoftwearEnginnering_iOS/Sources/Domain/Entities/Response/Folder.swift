@@ -11,5 +11,5 @@ struct Folder: Hashable {
     let color: String
     let folderTitle: String
     let memberId: Int64
-    let todo: [Todo]
+    let todo: [Todo?]
 }

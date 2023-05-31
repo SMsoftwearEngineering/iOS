@@ -12,6 +12,7 @@ final class LoginViewModel: ViewModelType {
     private weak var coordinator: AuthCoordinator?
     private var anyCancellable = Set<AnyCancellable>()
     private let loginUseCase: LoginUseCase
+
     
     init(loginUseCase: LoginUseCase, coordinator: AuthCoordinator?) {
         self.coordinator = coordinator
@@ -62,12 +63,13 @@ final class LoginViewModel: ViewModelType {
             print(error)
         } receiveValue: { login in
             print(login)
-            UserDefaults.standard.set(login.memberId, forKey: "memberId")
+            UserDefaults.standard.set(String(login.memberId), forKey: "memberId")
             UserDefaults.standard.set(login.token, forKey: "token")
+            print("토큰받아져왔다.:",login.token)
+            UserDefaults.standard.set(login.email, forKey: "id")
             self.coordinator?.connectHomeCoordinator()
         }
         .store(in: &anyCancellable)
-        
 
 
         input.signupButtonTap.sink { [weak self] _ in

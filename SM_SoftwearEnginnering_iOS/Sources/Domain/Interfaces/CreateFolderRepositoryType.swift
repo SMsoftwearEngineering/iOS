@@ -9,5 +9,5 @@ import Foundation
 import Combine
 
 protocol CreateFolderRepository: AnyObject {
-    func requestCreateFolder(query: FolderPostQuery) -> AnyPublisher<[Folder], NetworkError>
+    func requestCreateFolder(query: FolderPostQuery) -> AnyPublisher<Folder, NetworkError>
 }
