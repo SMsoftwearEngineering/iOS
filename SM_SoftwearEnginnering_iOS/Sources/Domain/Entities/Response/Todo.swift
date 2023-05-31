@@ -16,5 +16,6 @@ struct Todo: Hashable {
     let wishCompleteDate: Date
     let folderId: Int64
     let memberId: Int64
+    let done: Bool
 }
 

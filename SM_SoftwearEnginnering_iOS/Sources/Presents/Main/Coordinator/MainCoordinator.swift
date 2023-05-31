@@ -26,7 +26,12 @@ final class MainCoordinator: Coordinator {
     }
     
     func showHomeViewController() {
-        let viewModel = HomeViewModel(coordinator: self)
+        let session = ServiceImpl.shared
+        let getFolderListRepositroyImpl = GetFolderListRepositroyImpl(session: session)
+        let getFolderListUseCaseImpl = GetFolderListUseCaseImpl(getFolderListRepository: getFolderListRepositroyImpl)
+        let testRepositroyImpl = TestRepositoryImpl(session: session)
+        let testUseCaseImpl = TestUseCaseImpl(testRepository: testRepositroyImpl)
+        let viewModel = HomeViewModel(coordinator: self, getFolderListUseCase: getFolderListUseCaseImpl, testUseCase: testUseCaseImpl)
         let vc = HomeViewController(viewModel: viewModel)
         changeAnimation()
         navigationController.viewControllers = [vc]

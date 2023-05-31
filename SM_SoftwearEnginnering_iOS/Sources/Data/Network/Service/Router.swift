@@ -13,6 +13,8 @@ enum Router {
     case createTodo(parameters: TodoPostQuery)
     case login(parameters: LoginQuery)
     case deleteTodo(parameters: DeleteTodoQuery)
+    case getFolderList
+    case getTest(parameters: TestQuery)
 }
 
 extension Router: TargetType {
@@ -25,9 +27,16 @@ extension Router: TargetType {
     }
     
     var header: [String : String]? {
+        var headers = ["accept" : "application/json", "Content-Type": "application/json"]
+        
         switch self {
-        case .register, .createFolder, .createTodo, .login, .deleteTodo:
-            return ["accept" : "application/json" , "Content-Type": "application/json"]
+        case .createTodo, .deleteTodo, .createFolder, .getFolderList, .getTest:
+            guard let token = UserDefaults.standard.string(forKey: "token") else { return headers }
+            let header = ["accept" : "application/json", "Authorization" : "Bearer \(token)", "Content-Type": "application/json"]
+            print(header, "header")
+            return header
+        case .register, .login:
+            return headers
         }
     }
     
@@ -37,6 +46,8 @@ extension Router: TargetType {
             return .post
         case .deleteTodo:
             return .delete
+        case .getFolderList, .getTest:
+            return .get
         }
     }
     
@@ -58,6 +69,25 @@ extension Router: TargetType {
             return "/todo"
         case .login:
             return "/auth/login"
+        case .getFolderList:
+            return "/folder/list"
+        case .getTest:
+            return "/"
+        }
+    }
+    
+    var queryItems: [URLQueryItem]? {
+        switch self {
+        case .getFolderList:
+            
+            let id = UserDefaults.standard.string(forKey: "id")
+            let userId = UserDefaults.standard.integer(forKey: "memberId")
+            return [URLQueryItem(name: "userId", value: String(userId)), URLQueryItem(name: "sortBy", value: id), URLQueryItem(name: "pageSize", value: "1"), URLQueryItem(name: "pageNo", value: "1")]
+            
+        case .getTest(let parameters):
+            return [URLQueryItem(name: "memberId", value: String(parameters.memberId))]
+        default:
+            return nil
         }
     }
     
@@ -75,6 +105,7 @@ extension Router: TargetType {
             
         case .createFolder(let parameters):
             let folderPostDto = FolderPostDto(folderTitle: parameters.folderTitle, memberId: parameters.memberId, color: parameters.color)
+            print(folderPostDto, "check")
             let encoder = JSONEncoder()
             encoder.keyEncodingStrategy = .convertToSnakeCase
             return try? encoder.encode(folderPostDto)
@@ -96,6 +127,13 @@ extension Router: TargetType {
             let encoder = JSONEncoder()
             encoder.keyEncodingStrategy = .convertToSnakeCase
             return try? encoder.encode(deleteTodoDto)
+            
+        case .getFolderList:
+
+            return nil
+            
+        case .getTest:
+            return nil
         }
     }
 }

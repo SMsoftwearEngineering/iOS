@@ -95,7 +95,7 @@ final class HomeViewController: BaseViewController {
 
         
         for i in 1..<50 {
-            folderArr.append(Folder(folderId: Int64(i), color: "1", folderTitle: "폴더제목", memberId: 3, todo: [Todo(todoId: 1, title: "", content: "", completeDate: Date(), priority: 3, wishCompleteDate: Date(), folderId: Int64(i), memberId: 3)]))
+            folderArr.append(Folder(folderId: Int64(i), color: "1", folderTitle: "폴더제목", memberId: 3, todo: [Todo(todoId: 1, title: "", content: "", completeDate: Date(), priority: 3, wishCompleteDate: Date(), folderId: Int64(i), memberId: 3, done: false)]))
         }
         
         snapshot.appendItems(folderArr, toSection: 0)

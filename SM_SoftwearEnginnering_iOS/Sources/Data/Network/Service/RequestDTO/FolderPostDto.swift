@@ -10,7 +10,7 @@ import Foundation
 struct FolderPostDto: Codable {
     
     let folderTitle: String
-    let memberId: Int64
+    let memberId: String
     let color: String
     
     enum CodingKeys: String, CodingKey {
