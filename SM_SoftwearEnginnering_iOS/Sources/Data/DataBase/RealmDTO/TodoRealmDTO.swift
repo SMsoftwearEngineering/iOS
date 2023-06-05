@@ -18,11 +18,12 @@ final class TodoRealmDTO: Object {
     @Persisted var folderId: ObjectId
     @Persisted var memberId: Int
     @Persisted var done: Bool
+    @Persisted var color: String
     
     @Persisted(primaryKey: true) var objectId: ObjectId
 
     
-    convenience init(title: String, content: String, completeDate: Date, priority: Int, wishCompleteDate: Date, folderId: ObjectId, memberId: Int, done: Bool) {
+    convenience init(title: String, content: String, completeDate: Date, priority: Int, wishCompleteDate: Date, folderId: ObjectId, memberId: Int, done: Bool, color: String) {
         self.init()
         self.title = title
         self.content = content
@@ -32,17 +33,18 @@ final class TodoRealmDTO: Object {
         self.folderId = folderId
         self.memberId = memberId
         self.done = done
+        self.color = color
     }
 }
 
 extension TodoRealmDTO {
     var toDomain: Todo {
-        return Todo(todoId: todoId, title: title, content: content, completeDate: completeDate, priority: priority, wishCompleteDate: wishCompleteDate, folderId: folderId, memberId: memberId, done: done)
+        return Todo(todoId: todoId, title: title, content: content, completeDate: completeDate, priority: priority, wishCompleteDate: wishCompleteDate, folderId: folderId, memberId: memberId, done: done, color: color)
     }
 }
 
 extension Todo {
     var toRealm: TodoRealmDTO {
-        return TodoRealmDTO(title: title, content: content, completeDate: completeDate, priority: priority, wishCompleteDate: wishCompleteDate, folderId: folderId, memberId: memberId, done: done)
+        return TodoRealmDTO(title: title, content: content, completeDate: completeDate, priority: priority, wishCompleteDate: wishCompleteDate, folderId: folderId, memberId: memberId, done: done, color: color)
     }
 }

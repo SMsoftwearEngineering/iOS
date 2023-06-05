@@ -39,4 +39,17 @@ final class TodoRealmRepositoryImpl: TodoRealmRepository {
             }
         }
     }
+    
+    func updateDone(todo: Todo, done: Bool) {
+        if let todoDTO = storage.object(ofType: TodoRealmDTO.self, forPrimaryKey: todo.todoId) {
+            do {
+                try storage.write {
+                    todoDTO.done = done
+                    storage.add(todoDTO)
+                }
+            } catch let error {
+                print(error)
+            }
+        }
+    }
 }

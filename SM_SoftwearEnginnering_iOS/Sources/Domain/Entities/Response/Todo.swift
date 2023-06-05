@@ -17,6 +17,7 @@ struct Todo: Hashable {
     let wishCompleteDate: Date
     let folderId: ObjectId
     let memberId: Int
-    let done: Bool
+    var done: Bool
+    let color: String
 }
 

@@ -15,4 +15,6 @@ protocol TodoRealmRepository: AnyObject {
     func createTodo(todo: Todo)
     
     func deleteTodo(memberId: Int, todoId: ObjectId)
+        
+    func updateDone(todo: Todo, done: Bool)
 }

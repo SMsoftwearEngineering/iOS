@@ -28,6 +28,7 @@ final class TodoListViewModel: ViewModelType {
         let deleteButtonTap: AnyPublisher<Void, Never>
         let cellButtonTap: AnyPublisher<Void, Never>
         let viewDidLoad: AnyPublisher<Void, Never>
+        let checkButtonTap: AnyPublisher<Todo, Never>
     }
 
     struct Output {
@@ -51,12 +52,19 @@ final class TodoListViewModel: ViewModelType {
         .store(in: &anyCancellable)
 
         input.todoCreateButtonTap.sink { [weak self] _ in
-            self?.coordinator?.showCreateTodoViewController()
+            self?.coordinator?.showCreateTodoViewController(folderId: self?.folderSubject.value.folderId ?? ObjectId())
         }
         .store(in: &anyCancellable)
 
         input.cellButtonTap.sink { [weak self] _ in
             self?.coordinator?.showDetailTodoViewController()
+        }
+        .store(in: &anyCancellable)
+        
+        input.checkButtonTap.sink { todo in
+            print("버튼클릭은먹니")
+            self.updateDone(todo: todo, done: true)
+            print(todo, "todo정보임")
         }
         .store(in: &anyCancellable)
 
@@ -76,5 +84,9 @@ final class TodoListViewModel: ViewModelType {
 extension TodoListViewModel {
     func fetchTodo(folderId: ObjectId) -> [Todo?] {
         todoUseCase.load(folderId: folderId)
+    }
+    
+    func updateDone(todo: Todo, done: Bool) {
+        todoUseCase.updateDone(todo: todo, done: done)
     }
 }
