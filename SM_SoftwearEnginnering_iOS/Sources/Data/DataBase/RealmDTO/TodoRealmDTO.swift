@@ -9,22 +9,21 @@ import Foundation
 import RealmSwift
 
 final class TodoRealmDTO: Object {
-    @Persisted var todoId: Int
+    @Persisted var todoId: ObjectId
     @Persisted var title: String
     @Persisted var content: String
     @Persisted var completeDate: Date
     @Persisted var priority: Int
     @Persisted var wishCompleteDate: Date
-    @Persisted var folderId: Int
+    @Persisted var folderId: ObjectId
     @Persisted var memberId: Int
     @Persisted var done: Bool
     
     @Persisted(primaryKey: true) var objectId: ObjectId
 
     
-    convenience init(todoId: Int, title: String, content: String, completeDate: Date, priority: Int, wishCompleteDate: Date, folderId: Int, memberId: Int, done: Bool) {
+    convenience init(title: String, content: String, completeDate: Date, priority: Int, wishCompleteDate: Date, folderId: ObjectId, memberId: Int, done: Bool) {
         self.init()
-        self.todoId = todoId
         self.title = title
         self.content = content
         self.completeDate = completeDate
@@ -44,6 +43,6 @@ extension TodoRealmDTO {
 
 extension Todo {
     var toRealm: TodoRealmDTO {
-        return TodoRealmDTO(todoId: todoId, title: title, content: content, completeDate: completeDate, priority: priority, wishCompleteDate: wishCompleteDate, folderId: folderId, memberId: memberId, done: done)
+        return TodoRealmDTO(title: title, content: content, completeDate: completeDate, priority: priority, wishCompleteDate: wishCompleteDate, folderId: folderId, memberId: memberId, done: done)
     }
 }

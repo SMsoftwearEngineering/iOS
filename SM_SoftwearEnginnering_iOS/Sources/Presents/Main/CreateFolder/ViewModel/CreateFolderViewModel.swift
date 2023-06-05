@@ -20,7 +20,7 @@ final class CreateFolderViewModel: ViewModelType {
     }
     
     var folderTitleText = CurrentValueSubject<String, Never>("무제")
-    var folderListPublish = CurrentValueSubject<Folder, Never>(Folder(folderId: 0, color: "RED", folderTitle: "", memberId: 0))
+    var folderListPublish = CurrentValueSubject<Folder, Never>(Folder(folderId: ObjectId(), color: "RED", folderTitle: "", memberId: 0))
     var folderColor = CurrentValueSubject<String, Never>("PURPLE")
 
     struct Input {
@@ -57,7 +57,7 @@ final class CreateFolderViewModel: ViewModelType {
 
         input.createFolderButtonTap
             .sink { [weak self] _ in
-                self?.addFolder(folder: Folder(folderId: UserDefaults.standard.integer(forKey: "memberId"), color: self?.folderColor.value ?? "", folderTitle: self?.folderTitleText.value ?? "", memberId: UserDefaults.standard.integer(forKey: "memberId")))
+                self?.addFolder(folder: Folder(folderId: ObjectId(), color: self?.folderColor.value ?? "", folderTitle: self?.folderTitleText.value ?? "", memberId: UserDefaults.standard.integer(forKey: "memberId")))
                 print("✅✅✅",Realm.Configuration.defaultConfiguration.fileURL!)
             }
             .store(in: &anyCancellable)

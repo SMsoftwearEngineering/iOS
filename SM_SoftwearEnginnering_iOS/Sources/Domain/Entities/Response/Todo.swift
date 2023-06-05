@@ -6,15 +6,16 @@
 //
 
 import Foundation
+import RealmSwift
 
 struct Todo: Hashable {
-    let todoId: Int
+    let todoId: ObjectId
     let title: String
     let content: String
     let completeDate: Date
     let priority: Int
     let wishCompleteDate: Date
-    let folderId: Int
+    let folderId: ObjectId
     let memberId: Int
     let done: Bool
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import RealmSwift
 
 final class HomeViewController: BaseViewController {
     
@@ -44,7 +45,12 @@ final class HomeViewController: BaseViewController {
     var viewDidLoadEvent: AnyPublisher<Void, Never> {
         return viewDidLoadSubject.eraseToAnyPublisher()
     }
+    
+    private var selectedFolder = PassthroughSubject<Folder, Never>()
 
+    var folder: AnyPublisher<Folder, Never> {
+        return selectedFolder.eraseToAnyPublisher()
+    }
     var folderArr: [Folder] = []
 
     override func loadView() {
@@ -64,13 +70,13 @@ final class HomeViewController: BaseViewController {
     }
     
     override func setBinding() {
-        let input = HomeViewModel.Input(logoutButtonTap: selfView.logoutButton.tapPublisher, folderCreateButtonTap: selfView.folderCreateButton.tapPublisher, filterButtonTap: selfView.filterButton.tapPublisher, finishTaskListButtonTap: selfView.finishFilterButton.tapPublisher, deleteButtonTap: self.deleteButtonTap, cellButtonTap: self.cellButtonTap, viewDidLoad: self.viewDidLoadEvent)
+        let input = HomeViewModel.Input(logoutButtonTap: selfView.logoutButton.tapPublisher, folderCreateButtonTap: selfView.folderCreateButton.tapPublisher, filterButtonTap: selfView.filterButton.tapPublisher, finishTaskListButtonTap: selfView.finishFilterButton.tapPublisher, deleteButtonTap: self.deleteButtonTap, cellButtonTap: self.cellButtonTap, viewDidLoad: self.viewDidLoadEvent, folder: self.folder)
         let output = viewModel.transform(input)
         
         output.folderListPublish.sink { folder in
             guard let folder else { return }
             for i in folder {
-                self.folderArr.append(i ?? Folder(folderId: 0, color: "RED", folderTitle: "", memberId: 0))
+                self.folderArr.append(i ?? Folder(folderId: ObjectId(), color: "RED", folderTitle: "", memberId: 0))
             }
         }
         .store(in: &anyCancellable)
@@ -87,9 +93,29 @@ final class HomeViewController: BaseViewController {
             
             cell.cellTouchButton.tapPublisher.sink { [weak self] in
                 self?.cellButtonTapSubject.send()
+                self?.selectedFolder.send(itemIdentifier)
             }
             .store(in: &cell.cancellableBag)
+            var color: UIColor = .SMPurple
 
+            switch itemIdentifier.color {
+            case "RED":
+                color = .SMRed
+            case "PURPLE":
+                color = .SMPurple
+            case "YELLOW":
+                color = .SMYellow
+            case "GREEN":
+                color = .SMGreen
+            case "ORANGE":
+                color = .SMOrange
+            default:
+                color = .SMPink
+            }
+            cell.deleteButton.tintColor = color
+            cell.checkButton.tintColor = color
+            cell.containView.layer.borderColor = color.cgColor
+            cell.imageView.tintColor = color
         }
         
         dataSource = UICollectionViewDiffableDataSource(collectionView: selfView.collectionView) { collectionView, indexPath, itemIdentifier in
