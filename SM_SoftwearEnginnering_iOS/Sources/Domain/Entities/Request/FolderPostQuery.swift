@@ -9,6 +9,6 @@ import Foundation
 
 struct FolderPostQuery: Hashable {
     let folderTitle: String
-    let memberId: String
+    let memberId: Int64
     let color: String
 }

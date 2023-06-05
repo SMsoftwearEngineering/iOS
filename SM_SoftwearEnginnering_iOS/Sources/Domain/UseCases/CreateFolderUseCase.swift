@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol CreateFolderUseCase {
-    func excute(folderTitle: String, memberId: String, color: String) -> AnyPublisher<Folder, NetworkError>
+    func excute(folderTitle: String, memberId: Int64, color: String) -> AnyPublisher<Folder, NetworkError>
 }
 
 final class CreateFolderUseCaseImpl: CreateFolderUseCase {
@@ -20,7 +20,7 @@ final class CreateFolderUseCaseImpl: CreateFolderUseCase {
         self.createFolderRepository = createFolderRepository
     }
     
-    func excute(folderTitle: String, memberId: String, color: String) -> AnyPublisher<Folder, NetworkError> {
+    func excute(folderTitle: String, memberId: Int64, color: String) -> AnyPublisher<Folder, NetworkError> {
         let createFolderQuery = FolderPostQuery(folderTitle: folderTitle, memberId: memberId, color: color)
         return Future<Folder, NetworkError> { [weak self] promise in
             guard let self else { return }

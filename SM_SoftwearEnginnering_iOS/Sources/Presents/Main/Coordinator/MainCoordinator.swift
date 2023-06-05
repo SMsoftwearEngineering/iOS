@@ -31,7 +31,9 @@ final class MainCoordinator: Coordinator {
         let getFolderListUseCaseImpl = GetFolderListUseCaseImpl(getFolderListRepository: getFolderListRepositroyImpl)
         let testRepositroyImpl = TestRepositoryImpl(session: session)
         let testUseCaseImpl = TestUseCaseImpl(testRepository: testRepositroyImpl)
-        let viewModel = HomeViewModel(coordinator: self, getFolderListUseCase: getFolderListUseCaseImpl, testUseCase: testUseCaseImpl)
+        let postTestRepositroyImpl = PostTestRepositoryImpl(session: session)
+        let postTestUseCaseImpl = PostTestUseCaseImpl(postTestRepository: postTestRepositroyImpl)
+        let viewModel = HomeViewModel(coordinator: self, getFolderListUseCase: getFolderListUseCaseImpl, testUseCase: testUseCaseImpl, postTestUseCase: postTestUseCaseImpl)
         let vc = HomeViewController(viewModel: viewModel)
         changeAnimation()
         navigationController.viewControllers = [vc]

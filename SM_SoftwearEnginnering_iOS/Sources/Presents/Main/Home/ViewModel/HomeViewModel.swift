@@ -13,12 +13,14 @@ final class HomeViewModel: ViewModelType {
     private var anyCancellable = Set<AnyCancellable>()
     private let getFolderListUseCase: GetFolderListUseCase
     private let testUseCase: TestUseCase
+    private let postTestUseCase: PostTestUseCase
 
 
-    init(coordinator: MainCoordinator?, getFolderListUseCase: GetFolderListUseCase, testUseCase: TestUseCase) {
+    init(coordinator: MainCoordinator?, getFolderListUseCase: GetFolderListUseCase, testUseCase: TestUseCase, postTestUseCase: PostTestUseCase) {
         self.coordinator = coordinator
         self.getFolderListUseCase = getFolderListUseCase
         self.testUseCase = testUseCase
+        self.postTestUseCase = postTestUseCase
     }
     
     struct Input {
@@ -66,6 +68,19 @@ final class HomeViewModel: ViewModelType {
                 print(folder)
             }
             .store(in: &anyCancellable)
+        
+//        input.viewDidLoad
+//            .map {
+//                self.postTestUseCase.excute()
+//            }
+//            .switchToLatest()
+//            .receive(on: DispatchQueue.main)
+//            .sink { error in
+//                print(error)
+//            } receiveValue: { [weak self] test in
+//                print(test, "postTest 반환값 확인")
+//            }
+//            .store(in: &anyCancellable)
         
         input.logoutButtonTap.sink { [weak self] _ in
 //            self?.coordinator?.showDetailTodoViewController()

@@ -19,7 +19,7 @@ final class CreateFolderViewModel: ViewModelType {
     }
     
     var folderTitleText = CurrentValueSubject<String, Never>("무제")
-    var folderListPublish = CurrentValueSubject<Folder, Never>(Folder(folderId: Int64(0), color: "RED", folderTitle: "", memberId: 0, todo: [Todo(todoId: Int64(0), title: "", content: "", completeDate: Date(), priority: Int32(0), wishCompleteDate: Date(), folderId: Int64(0), memberId: 0, done: false)]))
+    var folderListPublish = CurrentValueSubject<Folder, Never>(Folder(folderId: Int64(0), color: "RED", folderTitle: "", memberId: 0, todo: [Todo(todoId: Int64(0), title: "", content: "", completeDate: Date(), priority: Int32(0), wishCompleteDate: Date(), folderId: Int64(0), memberId: Int64(0), done: false)]))
     var folderColor = CurrentValueSubject<String, Never>("PURPLE")
 
     struct Input {
@@ -42,7 +42,7 @@ final class CreateFolderViewModel: ViewModelType {
         
         input.createFolderButtonTap
             .map {
-                self.createFolderUseCase.excute(folderTitle: self.folderTitleText.value, memberId: UserDefaults.standard.string(forKey: "memberId") ?? "0", color: self.folderColor.value)
+                self.createFolderUseCase.excute(folderTitle: self.folderTitleText.value, memberId: Int64(UserDefaults.standard.string(forKey: "memberId") ?? "0") ?? 0, color: self.folderColor.value)
             }
             .switchToLatest()
             .receive(on: DispatchQueue.main)
