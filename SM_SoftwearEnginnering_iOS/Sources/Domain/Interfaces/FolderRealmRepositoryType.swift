@@ -14,5 +14,5 @@ protocol FolderRealmRepository: AnyObject {
     
     func createFolder(folder: Folder)
     
-    func deleteFolder(memberId: Int, folderId: Int)
+    func deleteFolder(memberId: Int, folderId: ObjectId)
 }

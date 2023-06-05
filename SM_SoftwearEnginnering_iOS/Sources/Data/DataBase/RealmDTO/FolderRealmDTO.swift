@@ -9,16 +9,15 @@ import Foundation
 import RealmSwift
 
 final class FolderRealmDTO: Object {
-    @Persisted var folderId: Int
+    @Persisted var folderId: ObjectId
     @Persisted var color: String
     @Persisted var folderTitle: String
     @Persisted var memberId: Int
     
     @Persisted(primaryKey: true) var objectId: ObjectId
 
-    convenience init(folderId: Int, color: String, folderTitle: String, memberId: Int) {
+    convenience init(color: String, folderTitle: String, memberId: Int) {
         self.init()
-        self.folderId = folderId
         self.color = color
         self.folderTitle = folderTitle
         self.memberId = memberId
@@ -33,6 +32,6 @@ extension FolderRealmDTO {
 
 extension Folder {
     var toRealm: FolderRealmDTO {
-        return FolderRealmDTO(folderId: folderId, color: color, folderTitle: folderTitle, memberId: memberId)
+        return FolderRealmDTO(color: color, folderTitle: folderTitle, memberId: memberId)
     }
 }

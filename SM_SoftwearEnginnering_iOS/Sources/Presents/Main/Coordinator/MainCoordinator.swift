@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 final class MainCoordinator: Coordinator {
     weak var delegate: CoordinatorDelegate?
@@ -82,8 +83,8 @@ final class MainCoordinator: Coordinator {
         navigationController.present(vc, animated: true)
     }
     
-    func showTodoListViewController() {
-        let viewModel = TodoListViewModel(coordinator: self)
+    func showTodoListViewController(folder: Folder) {
+        let viewModel = TodoListViewModel(coordinator: self, folder: folder)
         let vc = TodoListViewController(viewModel: viewModel)
         navigationController.pushViewController(vc, animated: true)
 

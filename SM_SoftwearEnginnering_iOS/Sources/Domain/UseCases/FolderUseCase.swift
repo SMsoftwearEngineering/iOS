@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol FolderUseCase {
     func load(memberId: Int) -> [Folder]
     func create(with item: Folder)
-    func delete(memberId: Int, folderId: Int)
+    func delete(memberId: Int, folderId: ObjectId)
 }
 
 final class FolderUseCaseImpl: FolderUseCase {
@@ -28,7 +29,7 @@ final class FolderUseCaseImpl: FolderUseCase {
         folderRealmRepository.createFolder(folder: item)
     }
     
-    func delete(memberId: Int, folderId: Int) {
+    func delete(memberId: Int, folderId: ObjectId) {
         folderRealmRepository.deleteFolder(memberId: memberId, folderId: folderId)
     }
 }

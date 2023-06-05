@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import RealmSwift
 
 final class HomeViewModel: ViewModelType {
     private weak var coordinator: MainCoordinator?
@@ -32,7 +33,7 @@ final class HomeViewModel: ViewModelType {
         let deleteButtonTap: AnyPublisher<Void, Never>
         let cellButtonTap: AnyPublisher<Void, Never>
         let viewDidLoad: AnyPublisher<Void, Never>
-
+        let folder: AnyPublisher<Folder, Never>
     }
 
     struct Output {
@@ -40,6 +41,7 @@ final class HomeViewModel: ViewModelType {
     }
     
     var folderListPublish = CurrentValueSubject<[Folder?]?, Never>([])
+    var folder = CurrentValueSubject<Folder, Never>(Folder(folderId: ObjectId(), color: "RED", folderTitle: "", memberId: 0))
 
     
     func transform(_ input: Input) -> Output {
@@ -73,10 +75,14 @@ final class HomeViewModel: ViewModelType {
         }
         .store(in: &anyCancellable)
         
+        input.folder.sink { folder in
+            self.folder.send(folder)
+        }
+        .store(in: &anyCancellable)
         input.cellButtonTap
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
-            self?.coordinator?.showTodoListViewController()
+                self?.coordinator?.showTodoListViewController(folder: self?.folder.value ?? Folder(folderId: ObjectId(), color: "RED", folderTitle: "", memberId: 0))
         }
         .store(in: &anyCancellable)
         

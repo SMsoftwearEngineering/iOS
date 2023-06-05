@@ -26,7 +26,7 @@ final class FolderRealmRepositoryImpl: FolderRealmRepository {
         }
     }
     
-    func deleteFolder(memberId: Int, folderId: Int) {
+    func deleteFolder(memberId: Int, folderId: ObjectId) {
         if let folder = storage.objects(FolderRealmDTO.self).first(where: {
             $0.memberId == memberId && $0.folderId == folderId
         }) {
