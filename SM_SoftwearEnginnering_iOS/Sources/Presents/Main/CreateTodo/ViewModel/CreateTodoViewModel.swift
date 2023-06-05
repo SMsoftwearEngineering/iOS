@@ -7,16 +7,20 @@
 
 import Foundation
 import Combine
+import RealmSwift
 
 final class CreateTodoViewModel: ViewModelType {
     private weak var coordinator: MainCoordinator?
     private var anyCancellable = Set<AnyCancellable>()
     private let createTodoUseCase: CreateTodoUseCase
+    private let todoUseCase: TodoUseCase
+    private var folderId: CurrentValueSubject<ObjectId, Never>
 
-
-    init(coordinator: MainCoordinator?, createTodoUseCase: CreateTodoUseCase) {
+    init(coordinator: MainCoordinator?, createTodoUseCase: CreateTodoUseCase, todoUseCase: TodoUseCase, folderId: ObjectId) {
         self.coordinator = coordinator
         self.createTodoUseCase = createTodoUseCase
+        self.todoUseCase = todoUseCase
+        self.folderId = CurrentValueSubject(folderId)
     }
     
     struct Input {
@@ -43,17 +47,24 @@ final class CreateTodoViewModel: ViewModelType {
     
     func transform(_ input: Input) -> Output {
         
+//        input.createTodoButtonTap
+//            .map {
+//                self.createTodoUseCase
+//                    .excute(title: "string", content: "string", priority: Int32(1), wishCompleteDate: "2023-05-23", folderId: Int64(1), memberId: Int64(1))
+//            }
+//            .switchToLatest()
+//            .receive(on: DispatchQueue.main)
+//            .sink { error in
+//                print(error)
+//            } receiveValue: { [weak self] statusCode in
+//                print(statusCode, "post statuscode")
+//            }
+//            .store(in: &anyCancellable)
+        
         input.createTodoButtonTap
-            .map {
-                self.createTodoUseCase
-                    .excute(title: "string", content: "string", priority: Int32(1), wishCompleteDate: "2023-05-23", folderId: Int64(1), memberId: Int64(1))
-            }
-            .switchToLatest()
-            .receive(on: DispatchQueue.main)
-            .sink { error in
-                print(error)
-            } receiveValue: { [weak self] statusCode in
-                print(statusCode, "post statuscode")
+            .sink { [weak self] _ in
+                self?.addTodo(todo: Todo(todoId: ObjectId(), title: self?.todoTitleText.value ?? "", content: self?.todoContentText.value ?? "", completeDate: Date(), priority: 1, wishCompleteDate: Date(), folderId: self?.folderId.value ?? ObjectId(), memberId: UserDefaults.standard.integer(forKey: "memberId"), done: false, color: self?.folderColor.value ?? ""))
+                self?.coordinator?.popViewController()
             }
             .store(in: &anyCancellable)
         
@@ -105,3 +116,8 @@ final class CreateTodoViewModel: ViewModelType {
     }
 }
 
+extension CreateTodoViewModel {
+    func addTodo(todo: Todo) {
+        todoUseCase.create(with: todo)
+    }
+}

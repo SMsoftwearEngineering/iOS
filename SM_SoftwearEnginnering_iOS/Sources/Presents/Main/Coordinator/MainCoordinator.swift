@@ -52,11 +52,13 @@ final class MainCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func showCreateTodoViewController() {
+    func showCreateTodoViewController(folderId: ObjectId) {
         let session = ServiceImpl.shared
         let createTodoRepositroyImpl = CreateTodoRepositoryImpl(session: session)
         let createTodoUseCaseImpl = CreateTodoUseCaseImpl(createTodoRepository: createTodoRepositroyImpl)
-        let viewModel = CreateTodoViewModel(coordinator: self, createTodoUseCase: createTodoUseCaseImpl)
+        let todoRepositoryImpl = TodoRealmRepositoryImpl()
+        let todoUseCaseImpl = TodoUseCaseImpl(todoRealmRepository: todoRepositoryImpl)
+        let viewModel = CreateTodoViewModel(coordinator: self, createTodoUseCase: createTodoUseCaseImpl, todoUseCase: todoUseCaseImpl, folderId: folderId)
         let vc = CreateTodoViewController(viewModel: viewModel)
         navigationController.pushViewController(vc, animated: true)
     }
@@ -84,7 +86,9 @@ final class MainCoordinator: Coordinator {
     }
     
     func showTodoListViewController(folder: Folder) {
-        let viewModel = TodoListViewModel(coordinator: self, folder: folder)
+        let todoRepositoryImpl = TodoRealmRepositoryImpl()
+        let todoUseCaseImpl = TodoUseCaseImpl(todoRealmRepository: todoRepositoryImpl)
+        let viewModel = TodoListViewModel(coordinator: self, folder: folder, todoUseCase: todoUseCaseImpl)
         let vc = TodoListViewController(viewModel: viewModel)
         navigationController.pushViewController(vc, animated: true)
 
