@@ -7,19 +7,20 @@
 
 import Foundation
 import Combine
+import RealmSwift
 
 final class CreateFolderViewModel: ViewModelType {
     private weak var coordinator: MainCoordinator?
     private var anyCancellable = Set<AnyCancellable>()
-    private let createFolderUseCase: CreateFolderUseCase
+    private let folderUseCase: FolderUseCase
 
-    init(coordinator: MainCoordinator?, createFolderUseCase: CreateFolderUseCase) {
+    init(coordinator: MainCoordinator?, folderUseCase: FolderUseCase) {
         self.coordinator = coordinator
-        self.createFolderUseCase = createFolderUseCase
+        self.folderUseCase = folderUseCase
     }
     
     var folderTitleText = CurrentValueSubject<String, Never>("무제")
-    var folderListPublish = CurrentValueSubject<Folder, Never>(Folder(folderId: Int64(0), color: "RED", folderTitle: "", memberId: 0, todo: [Todo(todoId: Int64(0), title: "", content: "", completeDate: Date(), priority: Int32(0), wishCompleteDate: Date(), folderId: Int64(0), memberId: 0, done: false)]))
+    var folderListPublish = CurrentValueSubject<Folder, Never>(Folder(folderId: 0, color: "RED", folderTitle: "", memberId: 0))
     var folderColor = CurrentValueSubject<String, Never>("PURPLE")
 
     struct Input {
@@ -40,20 +41,26 @@ final class CreateFolderViewModel: ViewModelType {
     
     func transform(_ input: Input) -> Output {
         
+//        input.createFolderButtonTap
+//            .map {
+//                self.createFolderUseCase.excute(folderTitle: self.folderTitleText.value, memberId: Int64(UserDefaults.standard.string(forKey: "memberId") ?? "0") ?? 0, color: self.folderColor.value)
+//            }
+//            .switchToLatest()
+//            .receive(on: DispatchQueue.main)
+//            .sink { error in
+//                print(error)
+//            } receiveValue: { [weak self] folder in
+//                print(folder)
+//                self?.folderListPublish.send(folder)
+//            }
+//            .store(in: &anyCancellable)
+
         input.createFolderButtonTap
-            .map {
-                self.createFolderUseCase.excute(folderTitle: self.folderTitleText.value, memberId: UserDefaults.standard.string(forKey: "memberId") ?? "0", color: self.folderColor.value)
-            }
-            .switchToLatest()
-            .receive(on: DispatchQueue.main)
-            .sink { error in
-                print(error)
-            } receiveValue: { [weak self] folder in
-                print(folder)
-                self?.folderListPublish.send(folder)
+            .sink { [weak self] _ in
+                self?.addFolder(folder: Folder(folderId: UserDefaults.standard.integer(forKey: "memberId"), color: self?.folderColor.value ?? "", folderTitle: self?.folderTitleText.value ?? "", memberId: UserDefaults.standard.integer(forKey: "memberId")))
+                print("✅✅✅",Realm.Configuration.defaultConfiguration.fileURL!)
             }
             .store(in: &anyCancellable)
-
         
         input.folderTitleText
             .sink { [weak self] folderTitleText in
@@ -97,3 +104,12 @@ final class CreateFolderViewModel: ViewModelType {
     }
 }
 
+extension CreateFolderViewModel {
+    func addFolder(folder: Folder) {
+        folderUseCase.create(with: folder)
+    }
+    
+    func fetchFolder(memberId: Int) -> [Folder?] {
+        folderUseCase.load(memberId: memberId)
+    }
+}

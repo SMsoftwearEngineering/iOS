@@ -7,9 +7,8 @@
 import Foundation
 
 struct Folder: Hashable {
-    let folderId: Int64
+    let folderId: Int
     let color: String
     let folderTitle: String
-    let memberId: Int64
-    let todo: [Todo?]
+    let memberId: Int
 }

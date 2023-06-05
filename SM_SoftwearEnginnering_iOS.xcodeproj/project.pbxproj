@@ -101,6 +101,22 @@
 		2FCE03DF2A20776200CABEEC /* GetFolderListRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCE03DE2A20776200CABEEC /* GetFolderListRepositoryImpl.swift */; };
 		2FCE03E12A2077A400CABEEC /* GetFolderListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCE03E02A2077A400CABEEC /* GetFolderListDTO.swift */; };
 		2FCE03E32A2078E400CABEEC /* GetFolderListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCE03E22A2078E400CABEEC /* GetFolderListUseCase.swift */; };
+		2FCFE9FF2A2839CE0093DD8F /* PostTestRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCFE9FE2A2839CE0093DD8F /* PostTestRepositoryImpl.swift */; };
+		2FCFEA012A283A000093DD8F /* PostTestRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCFEA002A283A000093DD8F /* PostTestRepositoryType.swift */; };
+		2FCFEA032A283A250093DD8F /* PostTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCFEA022A283A250093DD8F /* PostTest.swift */; };
+		2FCFEA052A283A2C0093DD8F /* PostTestQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCFEA042A283A2C0093DD8F /* PostTestQuery.swift */; };
+		2FCFEA072A283A860093DD8F /* PostTestUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCFEA062A283A860093DD8F /* PostTestUseCase.swift */; };
+		2FCFEA092A283AB40093DD8F /* PostTestResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCFEA082A283AB40093DD8F /* PostTestResponseDTO.swift */; };
+		2FCFEA0B2A283C1C0093DD8F /* PostTestRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCFEA0A2A283C1C0093DD8F /* PostTestRequestDTO.swift */; };
+		2FD4D0D52A2D861800B9AF61 /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4D0D42A2D861800B9AF61 /* RealmStorage.swift */; };
+		2FD4D0DF2A2D870F00B9AF61 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 2FD4D0DE2A2D870F00B9AF61 /* Realm */; };
+		2FD4D0E12A2D870F00B9AF61 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2FD4D0E02A2D870F00B9AF61 /* RealmSwift */; };
+		2FD4D0E82A2D887200B9AF61 /* FolderRealmDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4D0E72A2D887200B9AF61 /* FolderRealmDTO.swift */; };
+		2FD4D0EA2A2D890000B9AF61 /* TodoRealmDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4D0E92A2D890000B9AF61 /* TodoRealmDTO.swift */; };
+		2FD4D0EC2A2D915800B9AF61 /* FolderUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4D0EB2A2D915800B9AF61 /* FolderUseCase.swift */; };
+		2FD4D0EE2A2D926300B9AF61 /* FolderRealmRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4D0ED2A2D926300B9AF61 /* FolderRealmRepositoryType.swift */; };
+		2FD4D0F02A2D95F300B9AF61 /* FolderRealmRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4D0EF2A2D95F300B9AF61 /* FolderRealmRepositoryImpl.swift */; };
+		2FD4D0F22A2D96A700B9AF61 /* Results + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4D0F12A2D96A700B9AF61 /* Results + Extension.swift */; };
 		2FDFB1A62A1DE01C0025E553 /* LoginQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFB1A52A1DE01C0025E553 /* LoginQuery.swift */; };
 		2FDFB1A82A1DE04A0025E553 /* LoginPostDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFB1A72A1DE04A0025E553 /* LoginPostDto.swift */; };
 		2FDFB1AA2A1DE07C0025E553 /* LoginResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFB1A92A1DE07C0025E553 /* LoginResponseDto.swift */; };
@@ -213,6 +229,20 @@
 		2FCE03DE2A20776200CABEEC /* GetFolderListRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFolderListRepositoryImpl.swift; sourceTree = "<group>"; };
 		2FCE03E02A2077A400CABEEC /* GetFolderListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFolderListDTO.swift; sourceTree = "<group>"; };
 		2FCE03E22A2078E400CABEEC /* GetFolderListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFolderListUseCase.swift; sourceTree = "<group>"; };
+		2FCFE9FE2A2839CE0093DD8F /* PostTestRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTestRepositoryImpl.swift; sourceTree = "<group>"; };
+		2FCFEA002A283A000093DD8F /* PostTestRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTestRepositoryType.swift; sourceTree = "<group>"; };
+		2FCFEA022A283A250093DD8F /* PostTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTest.swift; sourceTree = "<group>"; };
+		2FCFEA042A283A2C0093DD8F /* PostTestQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTestQuery.swift; sourceTree = "<group>"; };
+		2FCFEA062A283A860093DD8F /* PostTestUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTestUseCase.swift; sourceTree = "<group>"; };
+		2FCFEA082A283AB40093DD8F /* PostTestResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTestResponseDTO.swift; sourceTree = "<group>"; };
+		2FCFEA0A2A283C1C0093DD8F /* PostTestRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTestRequestDTO.swift; sourceTree = "<group>"; };
+		2FD4D0D42A2D861800B9AF61 /* RealmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorage.swift; sourceTree = "<group>"; };
+		2FD4D0E72A2D887200B9AF61 /* FolderRealmDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderRealmDTO.swift; sourceTree = "<group>"; };
+		2FD4D0E92A2D890000B9AF61 /* TodoRealmDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRealmDTO.swift; sourceTree = "<group>"; };
+		2FD4D0EB2A2D915800B9AF61 /* FolderUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderUseCase.swift; sourceTree = "<group>"; };
+		2FD4D0ED2A2D926300B9AF61 /* FolderRealmRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderRealmRepositoryType.swift; sourceTree = "<group>"; };
+		2FD4D0EF2A2D95F300B9AF61 /* FolderRealmRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderRealmRepositoryImpl.swift; sourceTree = "<group>"; };
+		2FD4D0F12A2D96A700B9AF61 /* Results + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results + Extension.swift"; sourceTree = "<group>"; };
 		2FDFB1A52A1DE01C0025E553 /* LoginQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginQuery.swift; sourceTree = "<group>"; };
 		2FDFB1A72A1DE04A0025E553 /* LoginPostDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPostDto.swift; sourceTree = "<group>"; };
 		2FDFB1A92A1DE07C0025E553 /* LoginResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseDto.swift; sourceTree = "<group>"; };
@@ -234,6 +264,8 @@
 			files = (
 				2FDFB1C42A1DF52D0025E553 /* Toast in Frameworks */,
 				2FC1D9BB2A1786F3008032C0 /* SnapKit in Frameworks */,
+				2FD4D0DF2A2D870F00B9AF61 /* Realm in Frameworks */,
+				2FD4D0E12A2D870F00B9AF61 /* RealmSwift in Frameworks */,
 				2FDFB1B72A1DE97D0025E553 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,6 +365,7 @@
 		2F6D7D7E2A15B83400FA457D /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				2FD4D0E42A2D883600B9AF61 /* DataBase */,
 				2F6D7D852A15B8AC00FA457D /* Network */,
 			);
 			path = Data;
@@ -422,6 +455,7 @@
 				2FBFBA4B2A18A5D7009144A6 /* TodoResponseDtos.swift */,
 				2FBFE1292A27312D001D5425 /* TestResponseDTO.swift */,
 				2FDFB1A92A1DE07C0025E553 /* LoginResponseDto.swift */,
+				2FCFEA082A283AB40093DD8F /* PostTestResponseDTO.swift */,
 			);
 			path = ResponseDTO;
 			sourceTree = "<group>";
@@ -445,6 +479,8 @@
 				2FDFB1C02A1DED0F0025E553 /* DeleteTodoUseCase.swift */,
 				2FCE03E22A2078E400CABEEC /* GetFolderListUseCase.swift */,
 				2FBFE12B2A273192001D5425 /* TestUseCase.swift */,
+				2FCFEA062A283A860093DD8F /* PostTestUseCase.swift */,
+				2FD4D0EB2A2D915800B9AF61 /* FolderUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -459,6 +495,8 @@
 				2FDFB1B82A1DEB1E0025E553 /* DeleteTodoRepositoryType.swift */,
 				2FCE03DA2A2076A700CABEEC /* GetFolderListRepositoryType.swift */,
 				2FBFE1232A272F5B001D5425 /* TestRepositoryType.swift */,
+				2FCFEA002A283A000093DD8F /* PostTestRepositoryType.swift */,
+				2FD4D0ED2A2D926300B9AF61 /* FolderRealmRepositoryType.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -479,6 +517,7 @@
 			children = (
 				2F6D7DBF2A15C4AC00FA457D /* UIColor + Extension.swift */,
 				2F6D7DD52A15FAA100FA457D /* Combine + Extension.swift */,
+				2FD4D0F12A2D96A700B9AF61 /* Results + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -619,6 +658,7 @@
 				2FBFBA642A18B10B009144A6 /* Todo.swift */,
 				2FDFB1AD2A1DE1260025E553 /* Login.swift */,
 				2FBFE1252A272FAC001D5425 /* Test.swift */,
+				2FCFEA022A283A250093DD8F /* PostTest.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -636,6 +676,7 @@
 				2FDFB1BA2A1DEB730025E553 /* DeleteTodoQuery.swift */,
 				2FCE03DC2A2076E400CABEEC /* GetFolderListQuery.swift */,
 				2FBFE1212A272F26001D5425 /* TestQuery.swift */,
+				2FCFEA042A283A2C0093DD8F /* PostTestQuery.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -824,6 +865,7 @@
 				2FDFB1BC2A1DEBA50025E553 /* DeleteTodoDto.swift */,
 				2FCE03E02A2077A400CABEEC /* GetFolderListDTO.swift */,
 				2FBFE11F2A272F00001D5425 /* TestDTO.swift */,
+				2FCFEA0A2A283C1C0093DD8F /* PostTestRequestDTO.swift */,
 			);
 			path = RequestDTO;
 			sourceTree = "<group>";
@@ -838,8 +880,28 @@
 				2FDFB1BE2A1DEBFB0025E553 /* DeleteTodoRepository.swift */,
 				2FCE03DE2A20776200CABEEC /* GetFolderListRepositoryImpl.swift */,
 				2FBFE1272A272FD0001D5425 /* TestRepositoryImpl.swift */,
+				2FCFE9FE2A2839CE0093DD8F /* PostTestRepositoryImpl.swift */,
+				2FD4D0EF2A2D95F300B9AF61 /* FolderRealmRepositoryImpl.swift */,
 			);
 			path = RepositoryImpl;
+			sourceTree = "<group>";
+		};
+		2FD4D0E42A2D883600B9AF61 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				2FD4D0E52A2D885900B9AF61 /* RealmDTO */,
+				2FD4D0D42A2D861800B9AF61 /* RealmStorage.swift */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		2FD4D0E52A2D885900B9AF61 /* RealmDTO */ = {
+			isa = PBXGroup;
+			children = (
+				2FD4D0E72A2D887200B9AF61 /* FolderRealmDTO.swift */,
+				2FD4D0E92A2D890000B9AF61 /* TodoRealmDTO.swift */,
+			);
+			path = RealmDTO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -862,6 +924,8 @@
 				2FC1D9BA2A1786F3008032C0 /* SnapKit */,
 				2FDFB1B62A1DE97D0025E553 /* IQKeyboardManagerSwift */,
 				2FDFB1C32A1DF52D0025E553 /* Toast */,
+				2FD4D0DE2A2D870F00B9AF61 /* Realm */,
+				2FD4D0E02A2D870F00B9AF61 /* RealmSwift */,
 			);
 			productName = SM_SoftwearEnginnering_iOS;
 			productReference = 2F6D7D5F2A15B60D00FA457D /* SM_SoftwearEnginnering_iOS.app */;
@@ -895,6 +959,7 @@
 				2FC1D9B92A1786F3008032C0 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				2FDFB1B52A1DE97D0025E553 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				2FDFB1C22A1DF52D0025E553 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				2FD4D0DD2A2D870F00B9AF61 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 2F6D7D602A15B60D00FA457D /* Products */;
 			projectDirPath = "";
@@ -926,6 +991,7 @@
 				2FBFBA4A2A18A51F009144A6 /* FolderResponseDto.swift in Sources */,
 				2FBFBA682A18B82C009144A6 /* BaseCollectionViewCell.swift in Sources */,
 				2FBDB1342A1B7DFB004A3B96 /* TodoListViewModel.swift in Sources */,
+				2FCFEA072A283A860093DD8F /* PostTestUseCase.swift in Sources */,
 				2FBDB13F2A1B8EE2004A3B96 /* CreateTodoViewController.swift in Sources */,
 				2F6D7D9E2A15BB9E00FA457D /* Coordinator.swift in Sources */,
 				2FBDB1302A1B7DEE004A3B96 /* TodoListViewController.swift in Sources */,
@@ -943,20 +1009,25 @@
 				2F6D7DC92A15DC9900FA457D /* LoginView.swift in Sources */,
 				2FDFB1AE2A1DE1260025E553 /* Login.swift in Sources */,
 				2F6D7DA22A15BBB500FA457D /* CoordinatorDelegate.swift in Sources */,
+				2FCFEA052A283A2C0093DD8F /* PostTestQuery.swift in Sources */,
 				2FCE03DF2A20776200CABEEC /* GetFolderListRepositoryImpl.swift in Sources */,
 				2FDFB1B22A1DE3810025E553 /* LoginUseCase.swift in Sources */,
 				2FCE03DD2A2076E400CABEEC /* GetFolderListQuery.swift in Sources */,
 				2FDFB1A62A1DE01C0025E553 /* LoginQuery.swift in Sources */,
 				2FDFB1A82A1DE04A0025E553 /* LoginPostDto.swift in Sources */,
+				2FD4D0EA2A2D890000B9AF61 /* TodoRealmDTO.swift in Sources */,
 				2FDFB1B92A1DEB1E0025E553 /* DeleteTodoRepositoryType.swift in Sources */,
 				2F6D7DCB2A15EF8D00FA457D /* CustomAlertView.swift in Sources */,
 				2FBFE1242A272F5B001D5425 /* TestRepositoryType.swift in Sources */,
 				2FBDB1202A1B65EA004A3B96 /* CustomYesOrNoAlertView.swift in Sources */,
 				2FDFB1B02A1DE1EB0025E553 /* LoginRepositoryImpl.swift in Sources */,
 				2F6D7DBE2A15C47700FA457D /* CustomTextField.swift in Sources */,
+				2FCFEA0B2A283C1C0093DD8F /* PostTestRequestDTO.swift in Sources */,
 				2FCE03E32A2078E400CABEEC /* GetFolderListUseCase.swift in Sources */,
 				2F6D7DDE2A160DC500FA457D /* RegisterQuery.swift in Sources */,
 				2F6D7D632A15B60D00FA457D /* AppDelegate.swift in Sources */,
+				2FD4D0F02A2D95F300B9AF61 /* FolderRealmRepositoryImpl.swift in Sources */,
+				2FCFE9FF2A2839CE0093DD8F /* PostTestRepositoryImpl.swift in Sources */,
 				2F6D7D8E2A15B98000FA457D /* APIKey.swift in Sources */,
 				2FDFB1BD2A1DEBA50025E553 /* DeleteTodoDto.swift in Sources */,
 				2F6D7DB72A15C23000FA457D /* BaseViewController.swift in Sources */,
@@ -966,6 +1037,7 @@
 				2FBDB11A2A1B64E3004A3B96 /* DeleteFolderAlertViewController.swift in Sources */,
 				2F6D7DC72A15DC9600FA457D /* LoginViewController.swift in Sources */,
 				2F6D7DD62A15FAA100FA457D /* Combine + Extension.swift in Sources */,
+				2FD4D0D52A2D861800B9AF61 /* RealmStorage.swift in Sources */,
 				2FBFE12C2A273192001D5425 /* TestUseCase.swift in Sources */,
 				2FBDB13B2A1B8765004A3B96 /* CreateTodoViewModel.swift in Sources */,
 				2F6D7DAE2A15C17800FA457D /* SignupViewModel.swift in Sources */,
@@ -982,9 +1054,12 @@
 				2FBFBA4E2A18A66B009144A6 /* TodoPostDto.swift in Sources */,
 				2FBFBA5D2A18AE9C009144A6 /* FolderPostQuery.swift in Sources */,
 				2FBDB1432A1B99D2004A3B96 /* CreateTodoUseCase.swift in Sources */,
+				2FD4D0EC2A2D915800B9AF61 /* FolderUseCase.swift in Sources */,
 				2FCE03E12A2077A400CABEEC /* GetFolderListDTO.swift in Sources */,
 				2FBDB1102A1B12E5004A3B96 /* CreateFolderViewController.swift in Sources */,
 				2F6D7DB22A15C18600FA457D /* SignupView.swift in Sources */,
+				2FD4D0F22A2D96A700B9AF61 /* Results + Extension.swift in Sources */,
+				2FD4D0EE2A2D926300B9AF61 /* FolderRealmRepositoryType.swift in Sources */,
 				2FBFBA532A18AC28009144A6 /* Color.swift in Sources */,
 				2FBDB1292A1B6ACF004A3B96 /* DetailTodoView.swift in Sources */,
 				2F6D7D922A15B9A700FA457D /* Router.swift in Sources */,
@@ -993,6 +1068,7 @@
 				2FBFBA502A18ABA7009144A6 /* FolderPostDto.swift in Sources */,
 				2FBDB1252A1B6A9F004A3B96 /* DetailTodoViewModel.swift in Sources */,
 				2FBFBA3D2A189B82009144A6 /* HomeViewController.swift in Sources */,
+				2FCFEA032A283A250093DD8F /* PostTest.swift in Sources */,
 				2FBFBA4C2A18A5D7009144A6 /* TodoResponseDtos.swift in Sources */,
 				2FBFBA432A189BDB009144A6 /* CustomButton.swift in Sources */,
 				2F6D7DA02A15BBA500FA457D /* AppCoordinator.swift in Sources */,
@@ -1001,6 +1077,7 @@
 				2F6D7DD02A15F2CB00FA457D /* SignupAlertViewModel.swift in Sources */,
 				2FBFE12A2A27312D001D5425 /* TestResponseDTO.swift in Sources */,
 				2FDFB1BF2A1DEBFB0025E553 /* DeleteTodoRepository.swift in Sources */,
+				2FCFEA012A283A000093DD8F /* PostTestRepositoryType.swift in Sources */,
 				2FBDB10E2A1B12DF004A3B96 /* CreateFolderView.swift in Sources */,
 				2FCCCB392A172E7600C9B327 /* Service.swift in Sources */,
 				2F6D7D652A15B60D00FA457D /* SceneDelegate.swift in Sources */,
@@ -1014,6 +1091,7 @@
 				2FBFBA592A18AD74009144A6 /* UpdateMemberDto.swift in Sources */,
 				2F6D7DAA2A15C13200FA457D /* AuthCoordinator.swift in Sources */,
 				2FBDB1142A1B2507004A3B96 /* CreateFolderUseCase.swift in Sources */,
+				2FCFEA092A283AB40093DD8F /* PostTestResponseDTO.swift in Sources */,
 				2F6D7DD22A15F2D400FA457D /* SignupAlertViewController.swift in Sources */,
 				2FDFB1BB2A1DEB730025E553 /* DeleteTodoQuery.swift in Sources */,
 				2FCCCB3D2A172F8800C9B327 /* RegisterRepositoryImpl.swift in Sources */,
@@ -1023,6 +1101,7 @@
 				2F6D7D9C2A15BB4D00FA457D /* NetworkMonitor.swift in Sources */,
 				2FBFBA5B2A18AE23009144A6 /* TodoPostQuery.swift in Sources */,
 				2F6D7DC52A15DC9000FA457D /* LoginViewModel.swift in Sources */,
+				2FD4D0E82A2D887200B9AF61 /* FolderRealmDTO.swift in Sources */,
 				2FBDB1362A1B837F004A3B96 /* BaseTodoCollectionViewCell.swift in Sources */,
 				2FBDB1122A1B24C4004A3B96 /* CreateFolderRepositoryType.swift in Sources */,
 			);
@@ -1244,6 +1323,14 @@
 				minimumVersion = 5.6.0;
 			};
 		};
+		2FD4D0DD2A2D870F00B9AF61 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 10.30.0;
+			};
+		};
 		2FDFB1B52A1DE97D0025E553 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
@@ -1267,6 +1354,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2FC1D9B92A1786F3008032C0 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		2FD4D0DE2A2D870F00B9AF61 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FD4D0DD2A2D870F00B9AF61 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		2FD4D0E02A2D870F00B9AF61 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FD4D0DD2A2D870F00B9AF61 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 		2FDFB1B62A1DE97D0025E553 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;

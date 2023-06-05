@@ -15,6 +15,7 @@ enum Router {
     case deleteTodo(parameters: DeleteTodoQuery)
     case getFolderList
     case getTest(parameters: TestQuery)
+    case postTest(parameters: PostTestQuery)
 }
 
 extension Router: TargetType {
@@ -30,7 +31,7 @@ extension Router: TargetType {
         var headers = ["accept" : "application/json", "Content-Type": "application/json"]
         
         switch self {
-        case .createTodo, .deleteTodo, .createFolder, .getFolderList, .getTest:
+        case .createTodo, .deleteTodo, .createFolder, .getFolderList, .getTest, .postTest:
             guard let token = UserDefaults.standard.string(forKey: "token") else { return headers }
             let header = ["accept" : "application/json", "Authorization" : "Bearer \(token)", "Content-Type": "application/json"]
             print(header, "header")
@@ -42,7 +43,7 @@ extension Router: TargetType {
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .register, .createFolder, .createTodo, .login:
+        case .register, .createFolder, .createTodo, .login, .postTest:
             return .post
         case .deleteTodo:
             return .delete
@@ -64,7 +65,7 @@ extension Router: TargetType {
         case .register:
             return "/auth/register"
         case .createFolder:
-            return "/folder"
+            return "/folder/new"
         case .createTodo, .deleteTodo:
             return "/todo"
         case .login:
@@ -73,6 +74,8 @@ extension Router: TargetType {
             return "/folder/list"
         case .getTest:
             return "/"
+        case .postTest:
+            return "/test"
         }
     }
     
@@ -129,11 +132,15 @@ extension Router: TargetType {
             return try? encoder.encode(deleteTodoDto)
             
         case .getFolderList:
-
+            
             return nil
             
         case .getTest:
             return nil
-        }
+        case .postTest(let parameters):
+            let postTestDTO = PostTestRequestDTO(stringTest: parameters.string, int64Test: parameters.int64, int32Test: parameters.int32, dateTest: parameters.date)
+            let encoder = JSONEncoder()
+            encoder.keyEncodingStrategy = .convertToSnakeCase
+            return try? encoder.encode(postTestDTO)        }
     }
 }

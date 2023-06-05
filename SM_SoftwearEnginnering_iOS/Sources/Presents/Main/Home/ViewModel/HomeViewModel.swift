@@ -11,14 +11,17 @@ import Combine
 final class HomeViewModel: ViewModelType {
     private weak var coordinator: MainCoordinator?
     private var anyCancellable = Set<AnyCancellable>()
-    private let getFolderListUseCase: GetFolderListUseCase
+//    private let getFolderListUseCase: GetFolderListUseCase
     private let testUseCase: TestUseCase
+    private let postTestUseCase: PostTestUseCase
+    private let folderUseCase: FolderUseCase
 
 
-    init(coordinator: MainCoordinator?, getFolderListUseCase: GetFolderListUseCase, testUseCase: TestUseCase) {
+    init(coordinator: MainCoordinator?, testUseCase: TestUseCase, postTestUseCase: PostTestUseCase, folderUseCase: FolderUseCase) {
         self.coordinator = coordinator
-        self.getFolderListUseCase = getFolderListUseCase
         self.testUseCase = testUseCase
+        self.postTestUseCase = postTestUseCase
+        self.folderUseCase = folderUseCase
     }
     
     struct Input {
@@ -33,16 +36,17 @@ final class HomeViewModel: ViewModelType {
     }
 
     struct Output {
-
+        let folderListPublish: AnyPublisher<[Folder?]?, Never>
     }
     
-    var folderListPublish = CurrentValueSubject<[Folder], Never>([])
+    var folderListPublish = CurrentValueSubject<[Folder?]?, Never>([])
 
     
     func transform(_ input: Input) -> Output {
+        
 //        input.viewDidLoad
 //            .map {
-//                self.getFolderListUseCase.excute()
+//                self.testUseCase.excute(memberId: Int64(UserDefaults.standard.string(forKey: "memberId") ?? "0") ?? 0)
 //            }
 //            .switchToLatest()
 //            .receive(on: DispatchQueue.main)
@@ -50,22 +54,8 @@ final class HomeViewModel: ViewModelType {
 //                print(error)
 //            } receiveValue: { [weak self] folder in
 //                print(folder)
-//                self?.folderListPublish.send(folder)
 //            }
 //            .store(in: &anyCancellable)
-        
-        input.viewDidLoad
-            .map {
-                self.testUseCase.excute(memberId: Int64(UserDefaults.standard.integer(forKey: "memberId")))
-            }
-            .switchToLatest()
-            .receive(on: DispatchQueue.main)
-            .sink { error in
-                print(error)
-            } receiveValue: { [weak self] folder in
-                print(folder)
-            }
-            .store(in: &anyCancellable)
         
         input.logoutButtonTap.sink { [weak self] _ in
 //            self?.coordinator?.showDetailTodoViewController()
@@ -89,7 +79,26 @@ final class HomeViewModel: ViewModelType {
             self?.coordinator?.showTodoListViewController()
         }
         .store(in: &anyCancellable)
+        
+        input.viewDidLoad
+            .sink { [weak self] _ in
+                self?.folderListPublish.send(self?.fetchFolder(memberId: UserDefaults.standard.integer(forKey: "memberId")))
+            }
+            .store(in: &anyCancellable)
+        
+        let folderListPublish = self.folderListPublish.eraseToAnyPublisher()
 
-        return Output()
+        return Output(folderListPublish: folderListPublish)
+    }
+}
+
+//MARK: Realm 관련 로직
+extension HomeViewModel {
+    func addFolder(folder: Folder) {
+        folderUseCase.create(with: folder)
+    }
+    
+    func fetchFolder(memberId: Int) -> [Folder?] {
+        folderUseCase.load(memberId: memberId)
     }
 }
