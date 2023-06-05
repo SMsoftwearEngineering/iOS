@@ -11,12 +11,14 @@ import RealmSwift
 
 final class TodoListViewModel: ViewModelType {
     private weak var coordinator: MainCoordinator?
+    private let todoUseCase: TodoUseCase
     private var anyCancellable = Set<AnyCancellable>()
     private var folderSubject: CurrentValueSubject<Folder, Never>
 
-    init(coordinator: MainCoordinator?, folder: Folder) {
+    init(coordinator: MainCoordinator?, folder: Folder, todoUseCase: TodoUseCase) {
         self.coordinator = coordinator
         self.folderSubject = CurrentValueSubject(folder)
+        self.todoUseCase = todoUseCase
     }
 
     struct Input {
@@ -30,7 +32,11 @@ final class TodoListViewModel: ViewModelType {
 
     struct Output {
         let folderPublish: AnyPublisher<Folder, Never>
+        let todoPublish: AnyPublisher<[Todo?]?, Never>
     }
+    
+    var todoListPublish = CurrentValueSubject<[Todo?]?, Never>([])
+
 
     func transform(_ input: Input) -> Output {
         input.viewDidLoad.sink { _ in
@@ -55,6 +61,20 @@ final class TodoListViewModel: ViewModelType {
         .store(in: &anyCancellable)
 
         let folderPublish = folderSubject.eraseToAnyPublisher()
-        return Output(folderPublish: folderPublish)
+        
+        input.viewDidLoad
+            .sink { [weak self] _ in
+                self?.todoListPublish.send(self?.fetchTodo(folderId: self?.folderSubject.value.folderId ?? ObjectId()))
+            }
+            .store(in: &anyCancellable)
+        
+        let todoListPublish = self.todoListPublish.eraseToAnyPublisher()
+        return Output(folderPublish: folderPublish, todoPublish: todoListPublish)
+    }
+}
+
+extension TodoListViewModel {
+    func fetchTodo(folderId: ObjectId) -> [Todo?] {
+        todoUseCase.load(folderId: folderId)
     }
 }

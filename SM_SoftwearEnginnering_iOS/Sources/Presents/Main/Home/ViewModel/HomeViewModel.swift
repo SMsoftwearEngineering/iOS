@@ -46,21 +46,8 @@ final class HomeViewModel: ViewModelType {
     
     func transform(_ input: Input) -> Output {
         
-//        input.viewDidLoad
-//            .map {
-//                self.testUseCase.excute(memberId: Int64(UserDefaults.standard.string(forKey: "memberId") ?? "0") ?? 0)
-//            }
-//            .switchToLatest()
-//            .receive(on: DispatchQueue.main)
-//            .sink { error in
-//                print(error)
-//            } receiveValue: { [weak self] folder in
-//                print(folder)
-//            }
-//            .store(in: &anyCancellable)
         
         input.logoutButtonTap.sink { [weak self] _ in
-//            self?.coordinator?.showDetailTodoViewController()
             self?.coordinator?.connectAuthCoordinator()
         }
         .store(in: &anyCancellable)

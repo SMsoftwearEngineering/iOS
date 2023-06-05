@@ -7,12 +7,16 @@
 
 import UIKit
 import Combine
+import RealmSwift
 
 final class TodoListViewController: BaseViewController {
     
     private let selfView = TodoListView()
     
     private let viewModel: TodoListViewModel
+    
+    private var anyCancellable = Set<AnyCancellable>()
+
     
     init(viewModel: TodoListViewModel) {
         self.viewModel = viewModel
@@ -89,6 +93,15 @@ final class TodoListViewController: BaseViewController {
             self.selfView.filterButton.configuration?.baseBackgroundColor = color
             self.selfView.backButton.configuration?.baseBackgroundColor = color
         }
+        .store(in: &anyCancellable)
+        
+        output.todoPublish.sink { todo in
+            guard let todo else { return }
+            for i in todo {
+                self.todoArr.append(i ?? Todo(todoId: ObjectId(), title: "", content: "", completeDate: Date(), priority: 0, wishCompleteDate: Date(), folderId: ObjectId(), memberId: 0, done: false))
+            }
+        }
+        .store(in: &anyCancellable)
     }
     
     func setDataSource() {

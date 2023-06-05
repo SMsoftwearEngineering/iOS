@@ -84,7 +84,9 @@ final class MainCoordinator: Coordinator {
     }
     
     func showTodoListViewController(folder: Folder) {
-        let viewModel = TodoListViewModel(coordinator: self, folder: folder)
+        let todoRepositoryImpl = TodoRealmRepositoryImpl()
+        let todoUseCaseImpl = TodoUseCaseImpl(todoRealmRepository: todoRepositoryImpl)
+        let viewModel = TodoListViewModel(coordinator: self, folder: folder, todoUseCase: todoUseCaseImpl)
         let vc = TodoListViewController(viewModel: viewModel)
         navigationController.pushViewController(vc, animated: true)
 
