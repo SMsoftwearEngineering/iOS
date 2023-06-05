@@ -27,13 +27,15 @@ final class MainCoordinator: Coordinator {
     
     func showHomeViewController() {
         let session = ServiceImpl.shared
-        let getFolderListRepositroyImpl = GetFolderListRepositroyImpl(session: session)
-        let getFolderListUseCaseImpl = GetFolderListUseCaseImpl(getFolderListRepository: getFolderListRepositroyImpl)
+
+
         let testRepositroyImpl = TestRepositoryImpl(session: session)
         let testUseCaseImpl = TestUseCaseImpl(testRepository: testRepositroyImpl)
         let postTestRepositroyImpl = PostTestRepositoryImpl(session: session)
         let postTestUseCaseImpl = PostTestUseCaseImpl(postTestRepository: postTestRepositroyImpl)
-        let viewModel = HomeViewModel(coordinator: self, getFolderListUseCase: getFolderListUseCaseImpl, testUseCase: testUseCaseImpl, postTestUseCase: postTestUseCaseImpl)
+        let folderRepositoryImpl = FolderRealmRepositoryImpl()
+        let folderUseCaseImpl = FolderUseCaseImpl(folderRealmRepository: folderRepositoryImpl)
+        let viewModel = HomeViewModel(coordinator: self, testUseCase: testUseCaseImpl, postTestUseCase: postTestUseCaseImpl, folderUseCase: folderUseCaseImpl)
         let vc = HomeViewController(viewModel: viewModel)
         changeAnimation()
         navigationController.viewControllers = [vc]
@@ -42,8 +44,9 @@ final class MainCoordinator: Coordinator {
     func showCreateFolderViewController() {
         let session = ServiceImpl.shared
         let createFolderRepositroyImpl = CreateFolderRepositoryImpl(session: session)
-        let createFolderUseCaseImpl = CreateFolderUseCaseImpl(createFolderRepository: createFolderRepositroyImpl)
-        let viewModel = CreateFolderViewModel(coordinator: self, createFolderUseCase: createFolderUseCaseImpl)
+        let folderRepositoryImpl = FolderRealmRepositoryImpl()
+        let folderUseCaseImpl = FolderUseCaseImpl(folderRealmRepository: folderRepositoryImpl)
+        let viewModel = CreateFolderViewModel(coordinator: self, folderUseCase: folderUseCaseImpl)
         let vc = CreateFolderViewController(viewModel: viewModel)
         navigationController.pushViewController(vc, animated: true)
     }

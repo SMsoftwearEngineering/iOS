@@ -8,14 +8,14 @@
 import Foundation
 
 struct Todo: Hashable {
-    let todoId: Int64
+    let todoId: Int
     let title: String
     let content: String
     let completeDate: Date
-    let priority: Int32
+    let priority: Int
     let wishCompleteDate: Date
-    let folderId: Int64
-    let memberId: Int64
+    let folderId: Int
+    let memberId: Int
     let done: Bool
 }
 

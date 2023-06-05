@@ -9,24 +9,30 @@ import Foundation
 import RealmSwift
 
 final class FolderRealmDTO: Object {
-    @Persisted var folderId: Int64
+    @Persisted var folderId: Int
     @Persisted var color: String
     @Persisted var folderTitle: String
-    @Persisted(primaryKey: true) var memberId: Int64
-    @Persisted var todo: List<TodoRealmDTO?>
+    @Persisted var memberId: Int
     
-    convenience init(folderId: Int64, color: String, folderTitle: String, memberId: Int64, todo: [TodoRealmDTO?]) {
+    @Persisted(primaryKey: true) var objectId: ObjectId
+
+    convenience init(folderId: Int, color: String, folderTitle: String, memberId: Int) {
         self.init()
         self.folderId = folderId
         self.color = color
         self.folderTitle = folderTitle
         self.memberId = memberId
-        self.todo.append(objectsIn: todo.compactMap { $0 }) // todo 배열을 List로 변환하여 추가
     }
 }
 
 extension FolderRealmDTO {
-    func toDomain() -> Folder {
-        return .init(folderId: folderId, color: color, folderTitle: folderTitle, memberId: memberId, todo: todo.map { $0?.toDomain() })
+    var toDomain: Folder {
+        return Folder(folderId: folderId, color: color, folderTitle: folderTitle, memberId: memberId)
+    }
+}
+
+extension Folder {
+    var toRealm: FolderRealmDTO {
+        return FolderRealmDTO(folderId: folderId, color: color, folderTitle: folderTitle, memberId: memberId)
     }
 }

@@ -8,9 +8,9 @@
 import Foundation
 
 protocol FolderUseCase {
-    func load(memberId: Int64) -> [Folder]
+    func load(memberId: Int) -> [Folder]
     func create(with item: Folder)
-    func delete(memberId: Int64, folderId: Int64)
+    func delete(memberId: Int, folderId: Int)
 }
 
 final class FolderUseCaseImpl: FolderUseCase {
@@ -20,7 +20,7 @@ final class FolderUseCaseImpl: FolderUseCase {
         self.folderRealmRepository = folderRealmRepository
     }
     
-    func load(memberId: Int64) -> [Folder] {
+    func load(memberId: Int) -> [Folder] {
         return folderRealmRepository.loadFolder(memberId: memberId)
     }
     
@@ -28,7 +28,7 @@ final class FolderUseCaseImpl: FolderUseCase {
         folderRealmRepository.createFolder(folder: item)
     }
     
-    func delete(memberId: Int64, folderId: Int64) {
+    func delete(memberId: Int, folderId: Int) {
         folderRealmRepository.deleteFolder(memberId: memberId, folderId: folderId)
     }
 }

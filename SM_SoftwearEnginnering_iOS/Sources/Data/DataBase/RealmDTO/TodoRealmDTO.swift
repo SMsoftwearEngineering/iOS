@@ -9,32 +9,41 @@ import Foundation
 import RealmSwift
 
 final class TodoRealmDTO: Object {
-    @Persisted var todoId: Int64
+    @Persisted var todoId: Int
     @Persisted var title: String
     @Persisted var content: String
     @Persisted var completeDate: Date
-    @Persisted var priority: Int32
+    @Persisted var priority: Int
     @Persisted var wishCompleteDate: Date
-    @Persisted var folderId: Int64
-    @Persisted var memberId: Int64
+    @Persisted var folderId: Int
+    @Persisted var memberId: Int
     @Persisted var done: Bool
     
-    convenience init(todo: Todo) {
+    @Persisted(primaryKey: true) var objectId: ObjectId
+
+    
+    convenience init(todoId: Int, title: String, content: String, completeDate: Date, priority: Int, wishCompleteDate: Date, folderId: Int, memberId: Int, done: Bool) {
         self.init()
-        self.todoId = todo.todoId
-        self.title = todo.title
-        self.content = todo.content
-        self.completeDate = todo.completeDate
-        self.priority = todo.priority
-        self.wishCompleteDate = todo.wishCompleteDate
-        self.folderId = todo.folderId
-        self.memberId = todo.memberId
-        self.done = todo.done
+        self.todoId = todoId
+        self.title = title
+        self.content = content
+        self.completeDate = completeDate
+        self.priority = priority
+        self.wishCompleteDate = wishCompleteDate
+        self.folderId = folderId
+        self.memberId = memberId
+        self.done = done
     }
 }
 
 extension TodoRealmDTO {
-    func toDomain() -> Todo {
-        return .init(todoId: todoId, title: title, content: content, completeDate: completeDate, priority: priority, wishCompleteDate: wishCompleteDate, folderId: folderId, memberId: memberId, done: done)
+    var toDomain: Todo {
+        return Todo(todoId: todoId, title: title, content: content, completeDate: completeDate, priority: priority, wishCompleteDate: wishCompleteDate, folderId: folderId, memberId: memberId, done: done)
+    }
+}
+
+extension Todo {
+    var toRealm: TodoRealmDTO {
+        return TodoRealmDTO(todoId: todoId, title: title, content: content, completeDate: completeDate, priority: priority, wishCompleteDate: wishCompleteDate, folderId: folderId, memberId: memberId, done: done)
     }
 }

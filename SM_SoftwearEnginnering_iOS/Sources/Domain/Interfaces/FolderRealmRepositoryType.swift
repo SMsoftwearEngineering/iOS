@@ -10,9 +10,9 @@ import RealmSwift
 
 protocol FolderRealmRepository: AnyObject {
     
-    func loadFolder(memberId: Int64) -> [Folder]
+    func loadFolder(memberId: Int) -> [Folder]
     
     func createFolder(folder: Folder)
     
-    func deleteFolder(memberId: Int64, folderId: Int64)
+    func deleteFolder(memberId: Int, folderId: Int)
 }

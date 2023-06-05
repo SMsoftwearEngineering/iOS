@@ -9,5 +9,5 @@ import Foundation
 import Combine
 
 protocol GetFolderListRepository: AnyObject {
-    func getFolderList() -> AnyPublisher<[Folder], NetworkError>
+//    func getFolderList() -> AnyPublisher<[Folder], NetworkError>
 }

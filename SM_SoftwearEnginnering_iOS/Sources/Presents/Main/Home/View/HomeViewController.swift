@@ -14,6 +14,8 @@ final class HomeViewController: BaseViewController {
     
     private let viewModel: HomeViewModel
     
+    private var anyCancellable = Set<AnyCancellable>()
+    
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
     }
@@ -43,6 +45,8 @@ final class HomeViewController: BaseViewController {
         return viewDidLoadSubject.eraseToAnyPublisher()
     }
 
+    var folderArr: [Folder] = []
+
     override func loadView() {
         view = selfView
     }
@@ -62,6 +66,14 @@ final class HomeViewController: BaseViewController {
     override func setBinding() {
         let input = HomeViewModel.Input(logoutButtonTap: selfView.logoutButton.tapPublisher, folderCreateButtonTap: selfView.folderCreateButton.tapPublisher, filterButtonTap: selfView.filterButton.tapPublisher, finishTaskListButtonTap: selfView.finishFilterButton.tapPublisher, deleteButtonTap: self.deleteButtonTap, cellButtonTap: self.cellButtonTap, viewDidLoad: self.viewDidLoadEvent)
         let output = viewModel.transform(input)
+        
+        output.folderListPublish.sink { folder in
+            guard let folder else { return }
+            for i in folder {
+                self.folderArr.append(i ?? Folder(folderId: 0, color: "RED", folderTitle: "", memberId: 0))
+            }
+        }
+        .store(in: &anyCancellable)
     }
     
     func setDataSource() {
@@ -90,14 +102,7 @@ final class HomeViewController: BaseViewController {
     
     func snapshotAppend() {
         snapshot.appendSections([0])
-        var folderArr: [Folder] = []
-        
-
-        
-        for i in 1..<50 {
-            folderArr.append(Folder(folderId: Int64(i), color: "1", folderTitle: "폴더제목", memberId: 3, todo: [Todo(todoId: 1, title: "", content: "", completeDate: Date(), priority: 3, wishCompleteDate: Date(), folderId: Int64(i), memberId: 3, done: false)]))
-        }
-        
+        print(folderArr, "folderId")
         snapshot.appendItems(folderArr, toSection: 0)
         dataSource.apply(snapshot)
     }

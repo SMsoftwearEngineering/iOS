@@ -12,7 +12,7 @@ final class RealmStorage {
     static let shared = RealmStorage()
     private let realm = try! Realm()
     
-    func readFolderList(memberId: Int64) -> Results<FolderRealmDTO> {
+    func readFolderList(memberId: Int) -> Results<FolderRealmDTO> {
         return realm.objects(FolderRealmDTO.self).where { $0.memberId == memberId}
     }
     

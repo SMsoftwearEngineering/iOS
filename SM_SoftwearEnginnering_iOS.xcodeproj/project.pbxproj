@@ -115,6 +115,8 @@
 		2FD4D0EA2A2D890000B9AF61 /* TodoRealmDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4D0E92A2D890000B9AF61 /* TodoRealmDTO.swift */; };
 		2FD4D0EC2A2D915800B9AF61 /* FolderUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4D0EB2A2D915800B9AF61 /* FolderUseCase.swift */; };
 		2FD4D0EE2A2D926300B9AF61 /* FolderRealmRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4D0ED2A2D926300B9AF61 /* FolderRealmRepositoryType.swift */; };
+		2FD4D0F02A2D95F300B9AF61 /* FolderRealmRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4D0EF2A2D95F300B9AF61 /* FolderRealmRepositoryImpl.swift */; };
+		2FD4D0F22A2D96A700B9AF61 /* Results + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD4D0F12A2D96A700B9AF61 /* Results + Extension.swift */; };
 		2FDFB1A62A1DE01C0025E553 /* LoginQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFB1A52A1DE01C0025E553 /* LoginQuery.swift */; };
 		2FDFB1A82A1DE04A0025E553 /* LoginPostDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFB1A72A1DE04A0025E553 /* LoginPostDto.swift */; };
 		2FDFB1AA2A1DE07C0025E553 /* LoginResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDFB1A92A1DE07C0025E553 /* LoginResponseDto.swift */; };
@@ -239,6 +241,8 @@
 		2FD4D0E92A2D890000B9AF61 /* TodoRealmDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRealmDTO.swift; sourceTree = "<group>"; };
 		2FD4D0EB2A2D915800B9AF61 /* FolderUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderUseCase.swift; sourceTree = "<group>"; };
 		2FD4D0ED2A2D926300B9AF61 /* FolderRealmRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderRealmRepositoryType.swift; sourceTree = "<group>"; };
+		2FD4D0EF2A2D95F300B9AF61 /* FolderRealmRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderRealmRepositoryImpl.swift; sourceTree = "<group>"; };
+		2FD4D0F12A2D96A700B9AF61 /* Results + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Results + Extension.swift"; sourceTree = "<group>"; };
 		2FDFB1A52A1DE01C0025E553 /* LoginQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginQuery.swift; sourceTree = "<group>"; };
 		2FDFB1A72A1DE04A0025E553 /* LoginPostDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPostDto.swift; sourceTree = "<group>"; };
 		2FDFB1A92A1DE07C0025E553 /* LoginResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseDto.swift; sourceTree = "<group>"; };
@@ -513,6 +517,7 @@
 			children = (
 				2F6D7DBF2A15C4AC00FA457D /* UIColor + Extension.swift */,
 				2F6D7DD52A15FAA100FA457D /* Combine + Extension.swift */,
+				2FD4D0F12A2D96A700B9AF61 /* Results + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -876,6 +881,7 @@
 				2FCE03DE2A20776200CABEEC /* GetFolderListRepositoryImpl.swift */,
 				2FBFE1272A272FD0001D5425 /* TestRepositoryImpl.swift */,
 				2FCFE9FE2A2839CE0093DD8F /* PostTestRepositoryImpl.swift */,
+				2FD4D0EF2A2D95F300B9AF61 /* FolderRealmRepositoryImpl.swift */,
 			);
 			path = RepositoryImpl;
 			sourceTree = "<group>";
@@ -1020,6 +1026,7 @@
 				2FCE03E32A2078E400CABEEC /* GetFolderListUseCase.swift in Sources */,
 				2F6D7DDE2A160DC500FA457D /* RegisterQuery.swift in Sources */,
 				2F6D7D632A15B60D00FA457D /* AppDelegate.swift in Sources */,
+				2FD4D0F02A2D95F300B9AF61 /* FolderRealmRepositoryImpl.swift in Sources */,
 				2FCFE9FF2A2839CE0093DD8F /* PostTestRepositoryImpl.swift in Sources */,
 				2F6D7D8E2A15B98000FA457D /* APIKey.swift in Sources */,
 				2FDFB1BD2A1DEBA50025E553 /* DeleteTodoDto.swift in Sources */,
@@ -1051,6 +1058,7 @@
 				2FCE03E12A2077A400CABEEC /* GetFolderListDTO.swift in Sources */,
 				2FBDB1102A1B12E5004A3B96 /* CreateFolderViewController.swift in Sources */,
 				2F6D7DB22A15C18600FA457D /* SignupView.swift in Sources */,
+				2FD4D0F22A2D96A700B9AF61 /* Results + Extension.swift in Sources */,
 				2FD4D0EE2A2D926300B9AF61 /* FolderRealmRepositoryType.swift in Sources */,
 				2FBFBA532A18AC28009144A6 /* Color.swift in Sources */,
 				2FBDB1292A1B6ACF004A3B96 /* DetailTodoView.swift in Sources */,

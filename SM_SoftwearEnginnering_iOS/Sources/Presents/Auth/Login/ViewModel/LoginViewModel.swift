@@ -63,7 +63,7 @@ final class LoginViewModel: ViewModelType {
             print(error)
         } receiveValue: { login in
             print(login)
-            UserDefaults.standard.set(String(login.memberId), forKey: "memberId")
+            UserDefaults.standard.set(Int(login.memberId), forKey: "memberId")
             UserDefaults.standard.set(login.token, forKey: "token")
             print("토큰받아져왔다.:",login.token)
             UserDefaults.standard.set(login.email, forKey: "id")
