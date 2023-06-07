@@ -25,8 +25,8 @@ final class TodoListViewModel: ViewModelType {
         let todoCreateButtonTap: AnyPublisher<Void, Never>
         let filterButtonTap: AnyPublisher<Void, Never>
         let backButtonTap: AnyPublisher<Void, Never>
-        let deleteButtonTap: AnyPublisher<Void, Never>
-        let cellButtonTap: AnyPublisher<Void, Never>
+        let deleteButtonTap: AnyPublisher<Todo, Never>
+        let cellButtonTap: AnyPublisher<Todo, Never>
         let viewDidLoad: AnyPublisher<Void, Never>
         let checkButtonTap: AnyPublisher<Todo, Never>
     }
@@ -55,9 +55,9 @@ final class TodoListViewModel: ViewModelType {
             self?.coordinator?.showCreateTodoViewController(folderId: self?.folderSubject.value.folderId ?? ObjectId())
         }
         .store(in: &anyCancellable)
-
-        input.cellButtonTap.sink { [weak self] _ in
-            self?.coordinator?.showDetailTodoViewController()
+        
+        input.cellButtonTap.sink { [weak self] todo in
+            self?.coordinator?.showDetailTodoViewController(todo: todo)
         }
         .store(in: &anyCancellable)
         

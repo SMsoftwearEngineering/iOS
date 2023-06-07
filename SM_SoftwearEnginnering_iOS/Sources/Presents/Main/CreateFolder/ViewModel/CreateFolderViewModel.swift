@@ -59,6 +59,7 @@ final class CreateFolderViewModel: ViewModelType {
             .sink { [weak self] _ in
                 self?.addFolder(folder: Folder(folderId: ObjectId(), color: self?.folderColor.value ?? "", folderTitle: self?.folderTitleText.value ?? "", memberId: UserDefaults.standard.integer(forKey: "memberId")))
                 print("✅✅✅",Realm.Configuration.defaultConfiguration.fileURL!)
+
             }
             .store(in: &anyCancellable)
         

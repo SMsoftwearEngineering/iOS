@@ -11,9 +11,11 @@ import Combine
 final class DetailTodoViewModel: ViewModelType {
     private weak var coordinator: MainCoordinator?
     private var anyCancellable = Set<AnyCancellable>()
+    private var todo: CurrentValueSubject<Todo, Never>
 
-    init(coordinator: MainCoordinator?) {
+    init(coordinator: MainCoordinator?, todo: Todo) {
         self.coordinator = coordinator
+        self.todo = CurrentValueSubject(todo)
     }
     
     struct Input {
@@ -21,7 +23,7 @@ final class DetailTodoViewModel: ViewModelType {
     }
 
     struct Output {
-
+        let todoPublish: AnyPublisher<Todo, Never>
     }
     
     func transform(_ input: Input) -> Output {
@@ -30,6 +32,8 @@ final class DetailTodoViewModel: ViewModelType {
             self?.coordinator?.dismissViewController()
         }
         .store(in: &anyCancellable)
-        return Output()
+        
+        let todoPublish = self.todo.eraseToAnyPublisher()
+        return Output(todoPublish: todoPublish)
     }
 }

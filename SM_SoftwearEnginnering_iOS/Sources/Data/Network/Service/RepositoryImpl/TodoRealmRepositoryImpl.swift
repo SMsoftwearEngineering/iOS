@@ -45,7 +45,7 @@ final class TodoRealmRepositoryImpl: TodoRealmRepository {
             do {
                 try storage.write {
                     todoDTO.done = done
-                    storage.add(todoDTO)
+                    storage.add(todoDTO, update: .modified)
                 }
             } catch let error {
                 print(error)

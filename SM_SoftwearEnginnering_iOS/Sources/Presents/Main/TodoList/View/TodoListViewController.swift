@@ -29,16 +29,16 @@ final class TodoListViewController: BaseViewController {
     var dataSource: UICollectionViewDiffableDataSource<Int, Todo>!
     var snapshot = NSDiffableDataSourceSnapshot<Int, Todo>()
     
-    private var deleteButtonTapSubject = PassthroughSubject<Void, Never>()
+    private var deleteButtonTapSubject = PassthroughSubject<Todo, Never>()
     
     
-    var deleteButtonTap: AnyPublisher<Void, Never> {
+    var deleteButtonTap: AnyPublisher<Todo, Never> {
         return deleteButtonTapSubject.eraseToAnyPublisher()
     }
     
-    private var cellButtonTapSubject = PassthroughSubject<Void, Never>()
+    private var cellButtonTapSubject = PassthroughSubject<Todo, Never>()
     
-    var cellButtonTap: AnyPublisher<Void, Never> {
+    var cellButtonTap: AnyPublisher<Todo, Never> {
         return cellButtonTapSubject.eraseToAnyPublisher()
     }
     
@@ -116,12 +116,12 @@ final class TodoListViewController: BaseViewController {
             cell.imageView.image = UIImage(systemName: "pencil.line")
             cell.deleteButton.setImage(UIImage(systemName: "trash"), for: .normal)
             cell.deleteButton.tapPublisher.sink { [weak self] in
-                self?.deleteButtonTapSubject.send()
+                self?.deleteButtonTapSubject.send(itemIdentifier)
             }
             .store(in: &cell.cancellableBag)
             
             cell.cellTouchButton.tapPublisher.sink { [weak self] in
-                self?.cellButtonTapSubject.send()
+                self?.cellButtonTapSubject.send(itemIdentifier)
             }
             .store(in: &cell.cancellableBag)
             

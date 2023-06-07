@@ -42,6 +42,7 @@ final class HomeViewModel: ViewModelType {
     
     var folderListPublish = CurrentValueSubject<[Folder?]?, Never>([])
     var folder = CurrentValueSubject<Folder, Never>(Folder(folderId: ObjectId(), color: "RED", folderTitle: "", memberId: 0))
+    private let localRealm = try? Realm()
 
     
     func transform(_ input: Input) -> Output {

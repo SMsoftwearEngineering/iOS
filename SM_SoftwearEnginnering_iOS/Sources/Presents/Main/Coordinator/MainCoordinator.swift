@@ -78,8 +78,8 @@ final class MainCoordinator: Coordinator {
         navigationController.present(vc, animated: true)
     }
     
-    func showDetailTodoViewController() {
-        let viewModel = DetailTodoViewModel(coordinator: self)
+    func showDetailTodoViewController(todo: Todo) {
+        let viewModel = DetailTodoViewModel(coordinator: self, todo: todo)
         let vc = DetailTodoViewController(viewModel: viewModel)
         vc.modalPresentationStyle = .overFullScreen
         navigationController.present(vc, animated: true)
