@@ -19,6 +19,7 @@ final class FolderRealmRepositoryImpl: FolderRealmRepository {
     func createFolder(folder: Folder) {
         do {
             try storage.write {
+                print("이건만들어지고있지??")
                 storage.add(folder.toRealm)
             }
         } catch let error {

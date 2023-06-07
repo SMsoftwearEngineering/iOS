@@ -62,9 +62,8 @@ final class TodoListViewModel: ViewModelType {
         .store(in: &anyCancellable)
         
         input.checkButtonTap.sink { todo in
-            print("버튼클릭은먹니")
-            self.updateDone(todo: todo, done: true)
-            print(todo, "todo정보임")
+            var todoDone = todo.done ? false : true
+            self.updateDone(todo: todo, done: todoDone)
         }
         .store(in: &anyCancellable)
 
