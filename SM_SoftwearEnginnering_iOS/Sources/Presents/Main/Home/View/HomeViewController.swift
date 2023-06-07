@@ -28,9 +28,9 @@ final class HomeViewController: BaseViewController {
     var dataSource: UICollectionViewDiffableDataSource<Int, Folder>!
     var snapshot = NSDiffableDataSourceSnapshot<Int, Folder>()
     
-    private var deleteButtonTapSubject = PassthroughSubject<Void, Never>()
+    private var deleteButtonTapSubject = PassthroughSubject<Folder, Never>()
     
-    var deleteButtonTap: AnyPublisher<Void, Never> {
+    var deleteButtonTap: AnyPublisher<Folder, Never> {
         return deleteButtonTapSubject.eraseToAnyPublisher()
     }
     
@@ -87,7 +87,7 @@ final class HomeViewController: BaseViewController {
             cell.titleLable.text = itemIdentifier.folderTitle
             
             cell.deleteButton.tapPublisher.sink { [weak self] in
-                self?.deleteButtonTapSubject.send()
+                self?.deleteButtonTapSubject.send(itemIdentifier)
             }
             .store(in: &cell.cancellableBag)
             
