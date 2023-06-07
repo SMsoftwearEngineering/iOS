@@ -11,12 +11,13 @@ import RealmSwift
 final class TodoRealmRepositoryImpl: TodoRealmRepository {
     
     let storage = try! Realm()
-
+    
     func loadTodo(folderId: ObjectId) -> [Todo] {
         return storage.objects(TodoRealmDTO.self).where { $0.folderId == folderId }.toArray.map { $0.toDomain }
     }
     
     func createTodo(todo: Todo) {
+        print("Todo생성")
         do {
             try storage.write {
                 storage.add(todo.toRealm)
@@ -41,14 +42,17 @@ final class TodoRealmRepositoryImpl: TodoRealmRepository {
     }
     
     func updateDone(todo: Todo, done: Bool) {
-        if let todoDTO = storage.object(ofType: TodoRealmDTO.self, forPrimaryKey: todo.todoId) {
+        print("찍히겟지")
+        if let todoDTO = storage.objects(TodoRealmDTO.self).first(where: { $0.todoId == todo.todoId
+        }) {
             do {
                 try storage.write {
+                    print(todoDTO,"write찍히나")
                     todoDTO.done = done
                     storage.add(todoDTO, update: .modified)
                 }
             } catch let error {
-                print(error)
+                print(error, "이게찍힘?")
             }
         }
     }
