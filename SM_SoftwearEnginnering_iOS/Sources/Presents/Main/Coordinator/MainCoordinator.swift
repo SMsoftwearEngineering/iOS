@@ -71,8 +71,10 @@ final class MainCoordinator: Coordinator {
         navigationController.popViewController(animated: true)
     }
     
-    func showDeleteFolderAlertViewController() {
-        let viewModel = DeleteFolderAlertViewModel(coordinator: self)
+    func showDeleteFolderAlertViewController(folder: Folder) {
+        let folderRepositoryImpl = FolderRealmRepositoryImpl()
+        let folderUsecaseImpl = FolderUseCaseImpl(folderRealmRepository: folderRepositoryImpl)
+        let viewModel = DeleteFolderAlertViewModel(coordinator: self, folderUseCase: folderUsecaseImpl, folder: folder)
         let vc = DeleteFolderAlertViewController(viewModel: viewModel)
         vc.modalPresentationStyle = .overFullScreen
         navigationController.present(vc, animated: true)

@@ -64,6 +64,7 @@ final class TodoListViewModel: ViewModelType {
         input.checkButtonTap.sink { todo in
             var todoDone = todo.done ? false : true
             self.updateDone(todo: todo, done: todoDone)
+            self.todoListPublish.send(self.fetchTodo(folderId: todo.folderId))
         }
         .store(in: &anyCancellable)
 

@@ -30,7 +30,7 @@ final class HomeViewModel: ViewModelType {
         let folderCreateButtonTap: AnyPublisher<Void, Never>
         let filterButtonTap: AnyPublisher<Void, Never>
         let finishTaskListButtonTap: AnyPublisher<Void, Never>
-        let deleteButtonTap: AnyPublisher<Void, Never>
+        let deleteButtonTap: AnyPublisher<Folder, Never>
         let cellButtonTap: AnyPublisher<Void, Never>
         let viewDidLoad: AnyPublisher<Void, Never>
         let folder: AnyPublisher<Folder, Never>
@@ -58,8 +58,8 @@ final class HomeViewModel: ViewModelType {
         }
         .store(in: &anyCancellable)
         
-        input.deleteButtonTap.sink { [weak self] _ in
-            self?.coordinator?.showDeleteFolderAlertViewController()
+        input.deleteButtonTap.sink { [weak self] folder in
+            self?.coordinator?.showDeleteFolderAlertViewController(folder: folder)
         }
         .store(in: &anyCancellable)
         
