@@ -40,24 +40,11 @@ final class CreateFolderViewModel: ViewModelType {
     var toastMessage = CurrentValueSubject<String, Never>("")
     
     func transform(_ input: Input) -> Output {
-        
-//        input.createFolderButtonTap
-//            .map {
-//                self.createFolderUseCase.excute(folderTitle: self.folderTitleText.value, memberId: Int64(UserDefaults.standard.string(forKey: "memberId") ?? "0") ?? 0, color: self.folderColor.value)
-//            }
-//            .switchToLatest()
-//            .receive(on: DispatchQueue.main)
-//            .sink { error in
-//                print(error)
-//            } receiveValue: { [weak self] folder in
-//                print(folder)
-//                self?.folderListPublish.send(folder)
-//            }
-//            .store(in: &anyCancellable)
 
         input.createFolderButtonTap
             .sink { [weak self] _ in
                 self?.addFolder(folder: Folder(folderId: ObjectId(), color: self?.folderColor.value ?? "", folderTitle: self?.folderTitleText.value ?? "", memberId: UserDefaults.standard.integer(forKey: "memberId")))
+                self?.coordinator?.popViewController()
                 print("✅✅✅",Realm.Configuration.defaultConfiguration.fileURL!)
 
             }

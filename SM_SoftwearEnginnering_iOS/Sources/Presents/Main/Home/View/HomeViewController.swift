@@ -47,12 +47,12 @@ final class HomeViewController: BaseViewController {
     }
     
     private var selectedFolder = PassthroughSubject<Folder, Never>()
-
+    
     var folder: AnyPublisher<Folder, Never> {
         return selectedFolder.eraseToAnyPublisher()
     }
     var folderArr: [Folder] = []
-
+    
     override func loadView() {
         view = selfView
     }
@@ -73,13 +73,16 @@ final class HomeViewController: BaseViewController {
         let input = HomeViewModel.Input(logoutButtonTap: selfView.logoutButton.tapPublisher, folderCreateButtonTap: selfView.folderCreateButton.tapPublisher, filterButtonTap: selfView.filterButton.tapPublisher, finishTaskListButtonTap: selfView.finishFilterButton.tapPublisher, deleteButtonTap: self.deleteButtonTap, cellButtonTap: self.cellButtonTap, viewDidLoad: self.viewDidLoadEvent, folder: self.folder)
         let output = viewModel.transform(input)
         
-        output.folderListPublish.sink { folder in
-            guard let folder else { return }
-            for i in folder {
-                self.folderArr.append(i ?? Folder(folderId: ObjectId(), color: "RED", folderTitle: "", memberId: 0))
+        output.folderListPublish
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] folder in
+                guard let self = self else { return }
+                var snapshot = NSDiffableDataSourceSnapshot<Int, Folder>()
+                snapshot.appendSections([0])
+                snapshot.appendItems(folder)
+                self.dataSource.apply(snapshot)
             }
-        }
-        .store(in: &anyCancellable)
+            .store(in: &anyCancellable)
     }
     
     func setDataSource() {
@@ -97,7 +100,7 @@ final class HomeViewController: BaseViewController {
             }
             .store(in: &cell.cancellableBag)
             var color: UIColor = .SMPurple
-
+            
             switch itemIdentifier.color {
             case "RED":
                 color = .SMRed
@@ -121,7 +124,7 @@ final class HomeViewController: BaseViewController {
         dataSource = UICollectionViewDiffableDataSource(collectionView: selfView.collectionView) { collectionView, indexPath, itemIdentifier in
             
             let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
-
+            
             return cell
         }
     }
