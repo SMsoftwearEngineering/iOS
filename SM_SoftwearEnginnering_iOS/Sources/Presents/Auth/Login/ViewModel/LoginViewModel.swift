@@ -28,12 +28,13 @@ final class LoginViewModel: ViewModelType {
     }
 
     struct Output {
-
+        let toastMessage: AnyPublisher<String, Never>
     }
     
     var idText = CurrentValueSubject<String, Never>("")
     var pwText = CurrentValueSubject<String, Never>("")
     var errorPublisher = PassthroughSubject<String?, Never>()
+    var toastMessage = CurrentValueSubject<String, Never>("")
     
     func transform(_ input: Input) -> Output {
 //        input.loginButtonTap
@@ -60,13 +61,14 @@ final class LoginViewModel: ViewModelType {
         .switchToLatest()
         .receive(on: DispatchQueue.main)
         .sink { error in
-            print(error)
+            self.toastMessage.send("아이디, 비밀번호를 확인해주세요.")
         } receiveValue: { login in
             print(login)
             UserDefaults.standard.set(Int(login.memberId), forKey: "memberId")
             UserDefaults.standard.set(login.token, forKey: "token")
             print("토큰받아져왔다.:",login.token)
             UserDefaults.standard.set(login.email, forKey: "id")
+            print("로그인모델", login)
             self.coordinator?.connectHomeCoordinator()
         }
         .store(in: &anyCancellable)
@@ -89,6 +91,9 @@ final class LoginViewModel: ViewModelType {
             }
             .store(in: &anyCancellable)
         
-        return Output()
+        let toastMessage = self.toastMessage.eraseToAnyPublisher()
+
+        
+        return Output(toastMessage: toastMessage)
     }
 }

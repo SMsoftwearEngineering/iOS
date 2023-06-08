@@ -67,6 +67,7 @@ final class HomeViewModel: ViewModelType {
             self.folder.send(folder)
         }
         .store(in: &anyCancellable)
+        
         input.cellButtonTap
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in

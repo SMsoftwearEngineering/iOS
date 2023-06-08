@@ -38,7 +38,6 @@ final class TodoListViewModel: ViewModelType {
     
     var todoListPublish = CurrentValueSubject<[Todo?]?, Never>([])
 
-
     func transform(_ input: Input) -> Output {
         input.viewDidLoad.sink { _ in
             print("viewDidLoad")
