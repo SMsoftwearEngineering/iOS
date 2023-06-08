@@ -37,12 +37,13 @@ final class HomeViewModel: ViewModelType {
     }
 
     struct Output {
-        let folderListPublish: AnyPublisher<[Folder?]?, Never>
+        let folderListPublish: AnyPublisher<[Folder], Never>
     }
     
-    var folderListPublish = CurrentValueSubject<[Folder?]?, Never>([])
+    var folderListPublish = CurrentValueSubject<[Folder], Never>([])
     var folder = CurrentValueSubject<Folder, Never>(Folder(folderId: ObjectId(), color: "RED", folderTitle: "", memberId: 0))
     private let localRealm = try? Realm()
+    private var notificationToken: NotificationToken?
 
     
     func transform(_ input: Input) -> Output {
@@ -77,9 +78,11 @@ final class HomeViewModel: ViewModelType {
         
         input.viewDidLoad
             .sink { [weak self] _ in
-                self?.folderListPublish.send(self?.fetchFolder(memberId: UserDefaults.standard.integer(forKey: "memberId")))
+                guard let self = self else { return }
+                self.folderListPublish.send(self.fetchFolder(memberId: UserDefaults.standard.integer(forKey: "memberId")))
             }
             .store(in: &anyCancellable)
+
         
         let folderListPublish = self.folderListPublish.eraseToAnyPublisher()
 
@@ -93,7 +96,19 @@ extension HomeViewModel {
         folderUseCase.create(with: folder)
     }
     
-    func fetchFolder(memberId: Int) -> [Folder?] {
-        folderUseCase.load(memberId: memberId)
+    func fetchFolder(memberId: Int) -> [Folder] {
+        // 이전에 등록된 notificationToken이 있다면 먼저 해제
+        notificationToken?.invalidate()
+        
+        let folders = folderUseCase.load(memberId: memberId)
+        
+        // Realm 변경 사항을 감지하기 위해 notificationToken 생성
+        notificationToken = localRealm?.observe { [weak self] _, _ in
+            // 변경 사항이 발생하면 folderListPublish 업데이트
+            let folders = self?.folderUseCase.load(memberId: memberId)
+            self?.folderListPublish.send(folders ?? [Folder(folderId: ObjectId(), color: "", folderTitle: "", memberId: 0)])
+        }
+        
+        return folders
     }
 }

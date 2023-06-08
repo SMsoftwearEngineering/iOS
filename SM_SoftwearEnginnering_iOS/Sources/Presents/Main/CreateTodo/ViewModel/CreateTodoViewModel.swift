@@ -32,6 +32,8 @@ final class CreateTodoViewModel: ViewModelType {
         let yellowButtonTap: AnyPublisher<Void, Never>
         let orangeButtonTap: AnyPublisher<Void, Never>
         let purpleButtonTap: AnyPublisher<Void, Never>
+        let startDate: AnyPublisher<String, Never>
+        let finishDate: AnyPublisher<String, Never>
     }
 
     struct Output {
@@ -42,28 +44,15 @@ final class CreateTodoViewModel: ViewModelType {
     var todoContentText = CurrentValueSubject<String, Never>("")
     var folderListPublish = CurrentValueSubject<[Folder], Never>([])
     var folderColor = CurrentValueSubject<String, Never>("RED")
-    
     var toastMessage = CurrentValueSubject<String, Never>("")
+    var startDate = CurrentValueSubject<Date, Never>(Date())
+    var finishDate = CurrentValueSubject<Date, Never>(Date())
     
     func transform(_ input: Input) -> Output {
         
-//        input.createTodoButtonTap
-//            .map {
-//                self.createTodoUseCase
-//                    .excute(title: "string", content: "string", priority: Int32(1), wishCompleteDate: "2023-05-23", folderId: Int64(1), memberId: Int64(1))
-//            }
-//            .switchToLatest()
-//            .receive(on: DispatchQueue.main)
-//            .sink { error in
-//                print(error)
-//            } receiveValue: { [weak self] statusCode in
-//                print(statusCode, "post statuscode")
-//            }
-//            .store(in: &anyCancellable)
-        
         input.createTodoButtonTap
             .sink { [weak self] _ in
-                self?.addTodo(todo: Todo(todoId: ObjectId(), title: self?.todoTitleText.value ?? "", content: self?.todoContentText.value ?? "", completeDate: Date() - 86400, priority: 1, wishCompleteDate: Date(), folderId: self?.folderId.value ?? ObjectId(), memberId: UserDefaults.standard.integer(forKey: "memberId"), done: false, color: self?.folderColor.value ?? ""))
+                self?.addTodo(todo: Todo(todoId: ObjectId(), title: self?.todoTitleText.value ?? "", content: self?.todoContentText.value ?? "", completeDate: self?.startDate.value ?? Date() - 86400, priority: 1, wishCompleteDate: self?.finishDate.value ?? Date(), folderId: self?.folderId.value ?? ObjectId(), memberId: UserDefaults.standard.integer(forKey: "memberId"), done: false, color: self?.folderColor.value ?? ""))
                 self?.coordinator?.popViewController()
             }
             .store(in: &anyCancellable)
@@ -107,6 +96,30 @@ final class CreateTodoViewModel: ViewModelType {
         input.yellowButtonTap.sink { [weak self] _ in
             self?.folderColor.send("YELLOW")
             self?.toastMessage.send("노란색을 선택하셨습니다.")
+        }
+        .store(in: &anyCancellable)
+        
+        input.startDate.sink { [weak self] date in
+            print(date, "들어오는 데이트")
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            dateFormatter.timeZone = TimeZone(identifier: "ko_KR")
+
+            if let date = dateFormatter.date(from: date) {
+                self?.startDate.send(date)
+            }
+        }
+        .store(in: &anyCancellable)
+        
+        input.finishDate.sink { [weak self] date in
+            print(date, "들어오는 데이트")
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            dateFormatter.timeZone = TimeZone(identifier: "ko_KR")
+
+            if let date = dateFormatter.date(from: date) {
+                self?.finishDate.send(date)
+            }
         }
         .store(in: &anyCancellable)
         

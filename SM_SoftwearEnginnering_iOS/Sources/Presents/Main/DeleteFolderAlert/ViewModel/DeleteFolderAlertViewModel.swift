@@ -34,6 +34,7 @@ final class DeleteFolderAlertViewModel: ViewModelType {
     func transform(_ input: Input) -> Output {
         input.okButtonTap.sink { [weak self] _ in
             self?.deleteFolder(folder: self?.folder.value ?? Folder(folderId: ObjectId(), color: "", folderTitle: "", memberId: 0))
+            
             self?.coordinator?.dismissViewController()
         }
         .store(in: &anyCancellable)
@@ -42,6 +43,7 @@ final class DeleteFolderAlertViewModel: ViewModelType {
             self?.coordinator?.dismissViewController()
         }
         .store(in: &anyCancellable)
+        
         return Output()
     }
 }
@@ -51,3 +53,4 @@ extension DeleteFolderAlertViewModel {
         folderUseCase.delete(memberId: folder.memberId, folderId: folder.folderId)
     }
 }
+
