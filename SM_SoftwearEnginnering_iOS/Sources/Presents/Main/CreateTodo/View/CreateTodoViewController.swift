@@ -34,7 +34,10 @@ final class CreateTodoViewController: BaseViewController, UITextFieldDelegate {
         let datePicker2 = UIDatePicker()
         datePicker.datePickerMode = .date
         datePicker2.datePickerMode = .date
-
+        
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker2.preferredDatePickerStyle = .wheels
+        
         self.selfView.createDateTextField.tf.inputView = datePicker
         self.selfView.finishDateTextField.tf.inputView = datePicker2
 
@@ -46,7 +49,7 @@ final class CreateTodoViewController: BaseViewController, UITextFieldDelegate {
     }
     
     override func setBinding() {
-        let input = CreateTodoViewModel.Input(createTodoButtonTap: selfView.createButton.tapPublisher, todoTitleText: selfView.todoNameTextField.tf.textPublisher, todoContentText: selfView.contentTextField.textPublisher, redButtonTap: selfView.redButton.tapPublisher, greenButtonTap: selfView.greenButton.tapPublisher, yellowButtonTap: selfView.yellowButton.tapPublisher, orangeButtonTap: selfView.orangeButton.tapPublisher, purpleButtonTap: selfView.purpleButton.tapPublisher, startDate: selfView.createDateTextField.tf.textPublisher, finishDate: selfView.finishDateTextField.tf.textPublisher)
+        let input = CreateTodoViewModel.Input(createTodoButtonTap: selfView.createButton.tapPublisher, todoTitleText: selfView.todoNameTextField.tf.textPublisher, todoContentText: selfView.contentTextField.textPublisher, redButtonTap: selfView.redButton.tapPublisher, greenButtonTap: selfView.greenButton.tapPublisher, yellowButtonTap: selfView.yellowButton.tapPublisher, orangeButtonTap: selfView.orangeButton.tapPublisher, purpleButtonTap: selfView.purpleButton.tapPublisher, startDate: selfView.createDateTextField.tf.textUpdatePublisher, finishDate: selfView.finishDateTextField.tf.textUpdatePublisher)
         
         
         let output = viewModel.transform(input)
