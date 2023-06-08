@@ -66,6 +66,15 @@ extension UITextField {
     }
 }
 
+extension UITextField {
+    var textUpdatePublisher: AnyPublisher<String, Never> {
+        controlPublisher(for: .allEditingEvents)
+            .map { $0 as! UITextField }
+            .map { $0.text! }
+            .eraseToAnyPublisher()
+    }
+}
+
 extension UIButton {
     var tapPublisher: AnyPublisher<Void, Never> {
         controlPublisher(for: .touchUpInside)
