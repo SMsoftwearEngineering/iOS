@@ -63,7 +63,7 @@ final class CreateTodoViewModel: ViewModelType {
         
         input.createTodoButtonTap
             .sink { [weak self] _ in
-                self?.addTodo(todo: Todo(todoId: ObjectId(), title: self?.todoTitleText.value ?? "", content: self?.todoContentText.value ?? "", completeDate: Date(), priority: 1, wishCompleteDate: Date(), folderId: self?.folderId.value ?? ObjectId(), memberId: UserDefaults.standard.integer(forKey: "memberId"), done: false, color: self?.folderColor.value ?? ""))
+                self?.addTodo(todo: Todo(todoId: ObjectId(), title: self?.todoTitleText.value ?? "", content: self?.todoContentText.value ?? "", completeDate: Date() - 86400, priority: 1, wishCompleteDate: Date(), folderId: self?.folderId.value ?? ObjectId(), memberId: UserDefaults.standard.integer(forKey: "memberId"), done: false, color: self?.folderColor.value ?? ""))
                 self?.coordinator?.popViewController()
             }
             .store(in: &anyCancellable)

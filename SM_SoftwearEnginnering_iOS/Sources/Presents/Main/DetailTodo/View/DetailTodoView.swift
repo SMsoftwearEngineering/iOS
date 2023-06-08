@@ -41,13 +41,17 @@ class DetailTodoView: BaseView {
     
     let createDateLabel: UILabel = {
         let label = UILabel()
-        label.text = "20203-09-11"
+        label.text = "2020-09-11"
+        label.textColor = .black
+        label.font = .boldSystemFont(ofSize: 14)
         return label
     }()
     
     let finishDateLabel: UILabel = {
         let label = UILabel()
-        label.text = "20203-09-11"
+        label.text = "2020-09-11"
+        label.textColor = .black
+        label.font = .boldSystemFont(ofSize: 14)
         return label
     }()
     
@@ -74,6 +78,7 @@ class DetailTodoView: BaseView {
     
     let contentLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         return label
     }()
 

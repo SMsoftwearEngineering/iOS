@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import Toast
 
 final class LoginViewController: BaseViewController {
     
@@ -34,5 +35,10 @@ final class LoginViewController: BaseViewController {
         
         let input = LoginViewModel.Input(signupButtonTap: selfView.signupButton.tapPublisher, loginButtonTap: selfView.loginButton.tapPublisher, idText: selfView.idTextField.tf.textPublisher, pwText: selfView.pwTextField.tf.textPublisher)
         let output = viewModel.transform(input)
+        
+        output.toastMessage.sink { [unowned self] text in
+            self.view.makeToast(text, position: .bottom)
+        }
+        .store(in: &cancellableBag)
     }
 }
