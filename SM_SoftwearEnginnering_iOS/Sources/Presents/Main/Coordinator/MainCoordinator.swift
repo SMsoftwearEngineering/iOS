@@ -80,6 +80,15 @@ final class MainCoordinator: Coordinator {
         navigationController.present(vc, animated: true)
     }
     
+    func showDeleteTodoAlertViewController(todo: Todo) {
+        let todoRepositoryImpl = TodoRealmRepositoryImpl()
+        let todoUseCaseImpl = TodoUseCaseImpl(todoRealmRepository: todoRepositoryImpl)
+        let viewModel = DeleteTodoAlertViewModel(coordinator: self, todoUseCase: todoUseCaseImpl, todo: todo)
+        let vc = DeleteTodoAlertViewController(viewModel: viewModel)
+        vc.modalPresentationStyle = .overFullScreen
+        navigationController.present(vc, animated: true)
+    }
+    
     func showDetailTodoViewController(todo: Todo) {
         let viewModel = DetailTodoViewModel(coordinator: self, todo: todo)
         let vc = DetailTodoViewController(viewModel: viewModel)

@@ -67,6 +67,11 @@ final class TodoListViewModel: ViewModelType {
             self.todoListPublish.send(self.fetchTodo(folderId: todo.folderId))
         }
         .store(in: &anyCancellable)
+        
+        input.deleteButtonTap.sink { todo in
+            self.coordinator?.showDeleteTodoAlertViewController(todo: todo)
+        }
+        .store(in: &anyCancellable)
 
         let folderPublish = folderSubject.eraseToAnyPublisher()
         
@@ -88,5 +93,9 @@ extension TodoListViewModel {
     
     func updateDone(todo: Todo, done: Bool) {
         todoUseCase.updateDone(todo: todo, done: done)
+    }
+    
+    func deleteTodo(todo: Todo) {
+        todoUseCase.delete(memberId: todo.memberId, todoId: todo.todoId)
     }
 }
