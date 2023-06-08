@@ -101,11 +101,14 @@ final class TodoListViewController: BaseViewController {
         }
         .store(in: &anyCancellable)
         
-        output.todoPublish.sink { todo in
-            guard let todo else { return }
-            for i in todo {
-                self.todoArr.append(i ?? Todo(todoId: ObjectId(), title: "", content: "", completeDate: Date(), priority: 0, wishCompleteDate: Date(), folderId: ObjectId(), memberId: 0, done: false, color: "PURPLE"))
-            }
+        output.todoPublish
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] todo in
+                guard let self = self else { return }
+                var snapshot = NSDiffableDataSourceSnapshot<Int, Todo>()
+                snapshot.appendSections([0])
+                snapshot.appendItems(todo)
+                self.dataSource.apply(snapshot)
         }
         .store(in: &anyCancellable)
     }

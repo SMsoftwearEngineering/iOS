@@ -33,10 +33,12 @@ final class TodoListViewModel: ViewModelType {
 
     struct Output {
         let folderPublish: AnyPublisher<Folder, Never>
-        let todoPublish: AnyPublisher<[Todo?]?, Never>
+        let todoPublish: AnyPublisher<[Todo], Never>
     }
     
-    var todoListPublish = CurrentValueSubject<[Todo?]?, Never>([])
+    private let localRealm = try? Realm()
+    var todoListPublish = CurrentValueSubject<[Todo], Never>([])
+    private var notificationToken: NotificationToken?
 
     func transform(_ input: Input) -> Output {
         input.viewDidLoad.sink { _ in
@@ -76,7 +78,8 @@ final class TodoListViewModel: ViewModelType {
         
         input.viewDidLoad
             .sink { [weak self] _ in
-                self?.todoListPublish.send(self?.fetchTodo(folderId: self?.folderSubject.value.folderId ?? ObjectId()))
+                guard let self = self else { return }
+                self.todoListPublish.send(self.fetchTodo(folderId: self.folderSubject.value.folderId))
             }
             .store(in: &anyCancellable)
         
@@ -86,8 +89,15 @@ final class TodoListViewModel: ViewModelType {
 }
 
 extension TodoListViewModel {
-    func fetchTodo(folderId: ObjectId) -> [Todo?] {
-        todoUseCase.load(folderId: folderId)
+    func fetchTodo(folderId: ObjectId) -> [Todo] {
+        notificationToken?.invalidate()
+
+        let todo = todoUseCase.load(folderId: folderId)
+        notificationToken = localRealm?.observe { [weak self] _, _ in
+            let todo = self?.todoUseCase.load(folderId: folderId)
+            self?.todoListPublish.send(todo ?? [Todo(todoId: ObjectId(), title: "", content: "", completeDate: Date(), priority: 0, wishCompleteDate: Date(), folderId: ObjectId(), memberId: 0, done: false, color: "")])
+        }
+        return todo
     }
     
     func updateDone(todo: Todo, done: Bool) {
