@@ -4,7 +4,7 @@
 
 | Skill     | Explain                                    |
 | --------- | ------------------------------------------ |
-| 아키텍쳐  | MVVM - C / Input - Output Pattern / Clean Architecture         |
+| 아키텍쳐  | MVVM - C / Input - Output Pattern / Clean Architecture / Combine        |
 | 네트워크  | URLSession / Router Pattern / TargetType |
 
 ### Code Convention
