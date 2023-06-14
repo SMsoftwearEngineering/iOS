@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F5445142A39C5FA00BBFF65 /* FinishTodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5445132A39C5F900BBFF65 /* FinishTodoListViewModel.swift */; };
+		2F5445162A39C61900BBFF65 /* FinishTodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5445152A39C61900BBFF65 /* FinishTodoListViewController.swift */; };
+		2F5445182A39C62300BBFF65 /* FinishTodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5445172A39C62300BBFF65 /* FinishTodoListView.swift */; };
 		2F6D7D632A15B60D00FA457D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D7D622A15B60D00FA457D /* AppDelegate.swift */; };
 		2F6D7D652A15B60D00FA457D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6D7D642A15B60D00FA457D /* SceneDelegate.swift */; };
 		2F6D7D6C2A15B60E00FA457D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F6D7D6B2A15B60E00FA457D /* Assets.xcassets */; };
@@ -140,6 +143,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F5445132A39C5F900BBFF65 /* FinishTodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishTodoListViewModel.swift; sourceTree = "<group>"; };
+		2F5445152A39C61900BBFF65 /* FinishTodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishTodoListViewController.swift; sourceTree = "<group>"; };
+		2F5445172A39C62300BBFF65 /* FinishTodoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishTodoListView.swift; sourceTree = "<group>"; };
 		2F6D7D5F2A15B60D00FA457D /* SM_SoftwearEnginnering_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SM_SoftwearEnginnering_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F6D7D622A15B60D00FA457D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F6D7D642A15B60D00FA457D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -285,6 +291,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F5445102A39C5E100BBFF65 /* FinishTodoList */ = {
+			isa = PBXGroup;
+			children = (
+				2F5445122A39C5ED00BBFF65 /* ViewModel */,
+				2F5445112A39C5EA00BBFF65 /* View */,
+			);
+			path = FinishTodoList;
+			sourceTree = "<group>";
+		};
+		2F5445112A39C5EA00BBFF65 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2F5445152A39C61900BBFF65 /* FinishTodoListViewController.swift */,
+				2F5445172A39C62300BBFF65 /* FinishTodoListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2F5445122A39C5ED00BBFF65 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2F5445132A39C5F900BBFF65 /* FinishTodoListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		2F6D7D562A15B60D00FA457D = {
 			isa = PBXGroup;
 			children = (
@@ -562,6 +594,7 @@
 		2F6D7DA62A15C0E900FA457D /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				2F5445102A39C5E100BBFF65 /* FinishTodoList */,
 				2FBFBA442A189E40009144A6 /* Coordinator */,
 				2FBFBA3A2A189B6C009144A6 /* Home */,
 				2FBDB1062A1B12B0004A3B96 /* CreateFolder */,
@@ -1105,12 +1138,14 @@
 				2FBDB1272A1B6AA7004A3B96 /* DetailTodoViewController.swift in Sources */,
 				2FBDB1452A1B9A20004A3B96 /* CreateTodoRepositoryImpl.swift in Sources */,
 				2F6D7DDA2A160AAA00FA457D /* HTTPMethod.swift in Sources */,
+				2F5445162A39C61900BBFF65 /* FinishTodoListViewController.swift in Sources */,
 				2FBFBA4E2A18A66B009144A6 /* TodoPostDto.swift in Sources */,
 				2FBFBA5D2A18AE9C009144A6 /* FolderPostQuery.swift in Sources */,
 				2FBDB1432A1B99D2004A3B96 /* CreateTodoUseCase.swift in Sources */,
 				2FD4D0EC2A2D915800B9AF61 /* FolderUseCase.swift in Sources */,
 				2FCE03E12A2077A400CABEEC /* GetFolderListDTO.swift in Sources */,
 				2FBDB1102A1B12E5004A3B96 /* CreateFolderViewController.swift in Sources */,
+				2F5445142A39C5FA00BBFF65 /* FinishTodoListViewModel.swift in Sources */,
 				2F6D7DB22A15C18600FA457D /* SignupView.swift in Sources */,
 				2FD4D0F22A2D96A700B9AF61 /* Results + Extension.swift in Sources */,
 				2FD4D0EE2A2D926300B9AF61 /* FolderRealmRepositoryType.swift in Sources */,
@@ -1140,6 +1175,7 @@
 				2FBFE1222A272F26001D5425 /* TestQuery.swift in Sources */,
 				2FBFE1282A272FD0001D5425 /* TestRepositoryImpl.swift in Sources */,
 				2FBFBA462A189E4E009144A6 /* MainCoordinator.swift in Sources */,
+				2F5445182A39C62300BBFF65 /* FinishTodoListView.swift in Sources */,
 				2FBFBA652A18B10B009144A6 /* Todo.swift in Sources */,
 				2FBFBA552A18ACFF009144A6 /* TodoUpdateDto.swift in Sources */,
 				2FDFB1AA2A1DE07C0025E553 /* LoginResponseDto.swift in Sources */,

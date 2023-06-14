@@ -63,6 +63,14 @@ final class MainCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
+    func showFinishTodoListViewController() {
+        let todoRepositoryImpl = TodoRealmRepositoryImpl()
+        let todoUseCaseImpl = TodoUseCaseImpl(todoRealmRepository: todoRepositoryImpl)
+        let viewModel = FinishTodoListViewModel(coordinator: self,  todoUseCase: todoUseCaseImpl)
+        let vc = FinishTodoListViewController(viewModel: viewModel)
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
     func dismissViewController() {
         navigationController.dismiss(animated: true)
     }

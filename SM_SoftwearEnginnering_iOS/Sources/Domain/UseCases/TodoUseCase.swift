@@ -13,6 +13,7 @@ protocol TodoUseCase {
     func create(with item: Todo)
     func delete(memberId: Int, todoId: ObjectId)
     func updateDone(todo: Todo, done: Bool)
+    func finishTodoLoad(finish: Bool) -> [Todo]
 }
 
 final class TodoUseCaseImpl: TodoUseCase {
@@ -37,5 +38,9 @@ final class TodoUseCaseImpl: TodoUseCase {
     
     func updateDone(todo: Todo, done: Bool) {
         self.todoRealmRepository.updateDone(todo: todo, done: done)
+    }
+    
+    func finishTodoLoad(finish: Bool) -> [Todo] {
+        self.todoRealmRepository.finishTodoListLoad(finish: finish)
     }
 }
