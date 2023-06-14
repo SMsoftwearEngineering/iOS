@@ -34,6 +34,7 @@ final class HomeViewModel: ViewModelType {
         let cellButtonTap: AnyPublisher<Void, Never>
         let viewDidLoad: AnyPublisher<Void, Never>
         let folder: AnyPublisher<Folder, Never>
+        let createButtonTap: AnyPublisher<Void, Never>
     }
 
     struct Output {
@@ -64,8 +65,13 @@ final class HomeViewModel: ViewModelType {
         }
         .store(in: &anyCancellable)
         
-        input.folder.sink { folder in
-            self.folder.send(folder)
+        input.folder.sink { [weak self] folder in
+            self?.folder.send(folder)
+        }
+        .store(in: &anyCancellable)
+        
+        input.createButtonTap.sink { [weak self] _ in
+            self?.coordinator?.showCreateFolderViewController()
         }
         .store(in: &anyCancellable)
         
