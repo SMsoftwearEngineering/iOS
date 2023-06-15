@@ -1,31 +1,32 @@
 //
-//  HomeView.swift
+//  FinishTodoListView.swift
 //  SM_SoftwearEnginnering_iOS
 //
-//  Created by 이병현 on 2023/05/20.
+//  Created by 이병현 on 2023/06/14.
 //
 
 import UIKit
 import SnapKit
 
-final class HomeView: BaseView {
-    let logoutButton: CustomButton = {
-        let button = CustomButton(title: "로그아웃")
-        return button
+final class FinishTodoListView: BaseView {
+    let bgView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
     }()
     
-    let folderCreateButton: CustomButton = {
-        let button = CustomButton(title: "폴더 생성")
+    let folderNameButton: CustomButton = {
+        let button = CustomButton(title: "작업 리스트")
         return button
     }()
     
     let filterButton: CustomButton = {
-        let button = CustomButton(title: "미완료 작업 리스트")
+        let button = CustomButton(title: "정렬 ↓")
         return button
     }()
     
-    let finishFilterButton: CustomButton = {
-        let button = CustomButton(title: "완료한 작업 리스트")
+    let backButton: CustomButton = {
+        let button = CustomButton(title: "뒤로가기")
         return button
     }()
     
@@ -44,41 +45,37 @@ final class HomeView: BaseView {
     private let groupRatio = 1.0
     
     override func setHierarchy() {
-        self.addSubview(logoutButton)
-        self.addSubview(folderCreateButton)
+        self.addSubview(bgView)
+        self.addSubview(folderNameButton)
         self.addSubview(filterButton)
-        self.addSubview(finishFilterButton)
+        self.addSubview(backButton)
         self.addSubview(collectionView)
         self.addSubview(createButton)
     }
     
     override func setLayout() {
-        logoutButton.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).offset(48)
-            make.leading.equalTo(16)
-            make.height.equalTo(28)
-            make.width.equalTo(100)
+        bgView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
         
-        folderCreateButton.snp.makeConstraints { make in
+        folderNameButton.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide).offset(48)
-            make.trailing.equalTo(safeAreaLayoutGuide).offset(-16)
-            make.height.equalTo(28)
-            make.width.equalTo(100)
+            make.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(16)
+            make.height.equalTo(44)
         }
         
         filterButton.snp.makeConstraints { make in
-            make.top.equalTo(logoutButton.snp.bottom).offset(58)
+            make.top.equalTo(folderNameButton.snp.bottom).offset(58)
             make.leading.equalTo(16)
             make.height.equalTo(28)
-            make.width.equalTo(200)
+            make.width.equalTo(100)
         }
         
-        finishFilterButton.snp.makeConstraints { make in
-            make.top.equalTo(logoutButton.snp.bottom).offset(58)
+        backButton.snp.makeConstraints { make in
+            make.top.equalTo(folderNameButton.snp.bottom).offset(58)
             make.trailing.equalTo(safeAreaLayoutGuide).offset(-16)
             make.height.equalTo(28)
-            make.leading.equalTo(filterButton.snp.trailing).offset(24)
+            make.width.equalTo(100)
         }
         
         collectionView.snp.makeConstraints { make in
@@ -86,16 +83,10 @@ final class HomeView: BaseView {
             make.horizontalEdges.equalTo(safeAreaLayoutGuide)
             make.bottom.equalTo(safeAreaLayoutGuide)
         }
-        
-        createButton.snp.makeConstraints { make in
-            make.bottom.equalTo(safeAreaLayoutGuide).offset(-16)
-            make.trailing.equalTo(safeAreaLayoutGuide).offset(-16)
-            make.height.width.equalTo(40)
-        }
     }
 }
 
-extension HomeView {
+extension FinishTodoListView {
     private func createLayout() -> UICollectionViewLayout {
         let configuration = UICollectionViewCompositionalLayoutConfiguration()
         let collectionViewLayout = UICollectionViewCompositionalLayout(

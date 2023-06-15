@@ -9,6 +9,10 @@ import Foundation
 import RealmSwift
 
 final class TodoRealmRepositoryImpl: TodoRealmRepository {
+    func finishTodoListLoad(finish: Bool) -> [Todo] {
+        return storage.objects(TodoRealmDTO.self).where { $0.done == finish }.toArray.map { $0.toDomain }
+    }
+    
     
     let storage = try! Realm()
     

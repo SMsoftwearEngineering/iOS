@@ -88,7 +88,16 @@ final class HomeViewModel: ViewModelType {
                 self.folderListPublish.send(self.fetchFolder(memberId: UserDefaults.standard.integer(forKey: "memberId")))
             }
             .store(in: &anyCancellable)
+        
+        input.finishTaskListButtonTap.sink { [weak self] _ in
+            self?.coordinator?.showFinishTodoListViewController(finish: true)
+        }
+        .store(in: &anyCancellable)
 
+        input.filterButtonTap.sink { [weak self] _ in
+            self?.coordinator?.showFinishTodoListViewController(finish: false)
+        }
+        .store(in: &anyCancellable)
         
         let folderListPublish = self.folderListPublish.eraseToAnyPublisher()
 
