@@ -20,7 +20,7 @@ final class HomeView: BaseView {
     }()
     
     let filterButton: CustomButton = {
-        let button = CustomButton(title: "정렬 ↓")
+        let button = CustomButton(title: "미완료 작업 리스트")
         return button
     }()
     
@@ -71,7 +71,7 @@ final class HomeView: BaseView {
             make.top.equalTo(logoutButton.snp.bottom).offset(58)
             make.leading.equalTo(16)
             make.height.equalTo(28)
-            make.width.equalTo(100)
+            make.width.equalTo(200)
         }
         
         finishFilterButton.snp.makeConstraints { make in

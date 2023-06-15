@@ -63,10 +63,10 @@ final class MainCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func showFinishTodoListViewController() {
+    func showFinishTodoListViewController(finish: Bool) {
         let todoRepositoryImpl = TodoRealmRepositoryImpl()
         let todoUseCaseImpl = TodoUseCaseImpl(todoRealmRepository: todoRepositoryImpl)
-        let viewModel = FinishTodoListViewModel(coordinator: self,  todoUseCase: todoUseCaseImpl)
+        let viewModel = FinishTodoListViewModel(coordinator: self,  todoUseCase: todoUseCaseImpl, finish: finish)
         let vc = FinishTodoListViewController(viewModel: viewModel)
         navigationController.pushViewController(vc, animated: true)
     }

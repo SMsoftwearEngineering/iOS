@@ -13,10 +13,12 @@ final class FinishTodoListViewModel: ViewModelType {
     private weak var coordinator: MainCoordinator?
     private let todoUseCase: TodoUseCase
     private var anyCancellable = Set<AnyCancellable>()
+    private var finish: Bool
 
-    init(coordinator: MainCoordinator?, todoUseCase: TodoUseCase) {
+    init(coordinator: MainCoordinator?, todoUseCase: TodoUseCase, finish: Bool) {
         self.coordinator = coordinator
         self.todoUseCase = todoUseCase
+        self.finish = finish
     }
 
     struct Input {
@@ -54,7 +56,7 @@ final class FinishTodoListViewModel: ViewModelType {
         input.checkButtonTap.sink { todo in
             var todoDone = todo.done ? false : true
             self.updateDone(todo: todo, done: todoDone)
-            self.todoListPublish.send(self.fetchFinishTodo())
+            self.todoListPublish.send(self.fetchFinishTodo(finish: self.finish))
         }
         .store(in: &anyCancellable)
         
@@ -67,7 +69,7 @@ final class FinishTodoListViewModel: ViewModelType {
         input.viewDidLoad
             .sink { [weak self] _ in
                 guard let self = self else { return }
-                self.todoListPublish.send(self.fetchFinishTodo())
+                self.todoListPublish.send(self.fetchFinishTodo(finish: self.finish))
             }
             .store(in: &anyCancellable)
         
@@ -77,10 +79,10 @@ final class FinishTodoListViewModel: ViewModelType {
 }
 
 extension FinishTodoListViewModel {
-    func fetchFinishTodo() -> [Todo] {
+    func fetchFinishTodo(finish: Bool) -> [Todo] {
         notificationToken?.invalidate()
 
-        let todo = todoUseCase.finishTodoLoad(finish: true)
+        let todo = todoUseCase.finishTodoLoad(finish: finish)
         notificationToken = localRealm?.observe { [weak self] _, _ in
             let todo = self?.todoUseCase.finishTodoLoad(finish: true)
             self?.todoListPublish.send(todo ?? [Todo(todoId: ObjectId(), title: "", content: "", completeDate: Date(), priority: 0, wishCompleteDate: Date(), folderId: ObjectId(), memberId: 0, done: false, color: "")])

@@ -16,7 +16,7 @@ final class FinishTodoListView: BaseView {
     }()
     
     let folderNameButton: CustomButton = {
-        let button = CustomButton(title: "완료한 작업 폴더")
+        let button = CustomButton(title: "작업 리스트")
         return button
     }()
     
