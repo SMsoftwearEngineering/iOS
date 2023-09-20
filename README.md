@@ -27,3 +27,10 @@
 | [Remove]   | 파일을 삭제하는 작업만 수행 한 경우 |
 | [Setting]  | 기본 구성요소들을 작업한 경우|
 | [Docs]   | Readme 수정작업                     |
+
+### UI
+<img width="510" alt="스크린샷 2023-09-14 오후 2 09 14" src="https://github.com/SMsoftwearEngineering/iOS/assets/81552265/70150356-da3c-431c-af24-3732a9116f6b">
+
+Introduce : 폴더 안에 오늘 할일을 만들 수 있는 기록 앱 
+Skill : Combine / CleanArchitecture / MVVM - C / URLSession / Realm
+Stack: Combine을 사용한 Network / Data Layer 분리
